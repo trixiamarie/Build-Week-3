@@ -1,8 +1,10 @@
 import React from "react";
+import "../../Style/CardPrimoPianoComponent.css"
+
 
 export default function CardPrimoPianoComponent({titolo, sottotitolo, img}) {
   return (
-    <div className="in-primo-piano-card">
+    <div className="in-primo-piano-card mx-2">
       <div className="in-primo-piano-card-head">
         <p>Link</p>
       </div>

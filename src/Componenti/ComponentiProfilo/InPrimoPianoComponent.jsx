@@ -6,7 +6,7 @@ import CardPrimoPianoComponent from "./CardPrimoPianoComponent";
 
 export default function InPrimoPianoComponent() {
   return (
-    <div className="in-primo-piano-component">
+    <div className="in-primo-piano-component mt-2">
       <div className="in-primo-piano-header">
         <h4>In primo piano</h4>
         <div>
@@ -18,11 +18,10 @@ export default function InPrimoPianoComponent() {
           </div>
         </div>
       </div>
-      <div className="in-primo-piano-main ">
+      <div className="in-primo-piano-main d-flex overflow-auto">
         <CardPrimoPianoComponent titolo="graphic design portfolio" sottotitolo="Dribbble" img="https://picsum.photos/250/150"/>
         <CardPrimoPianoComponent titolo="coding portfolio" sottotitolo="GitHub" img="https://picsum.photos/250/150"/>
         <CardPrimoPianoComponent titolo="Tutte le volte che mi hanno insultato..." sottotitolo="intervista a Gesu" img="https://picsum.photos/250/150"/>
-     
       </div>
     </div>
   );
