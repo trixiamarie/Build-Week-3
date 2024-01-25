@@ -6,6 +6,7 @@ import Profile from './Pagine/Profile';
 import NotFound from './Pagine/NotFound';
 import NavbarComponent from './Componenti/ComponentiComuni/NavbarComponent';
 import FooterComponent from './Componenti/ComponentiComuni/FooterComponent';
+import Jobs from './Pagine/Jobs';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
       <Route path={'/'} element={<Home/>}></Route>
       <Route path={'/profile'} element={<Profile/>}></Route>
+      <Route path={'/jobs'} element={<Jobs/>}></Route>
       <Route path={'*'} element={<NotFound/>}></Route>
       </Routes>
       <FooterComponent/>
