@@ -1,0 +1,16 @@
+.in-primo-piano-card{
+    border: 1px solid #dfdeda;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.in-primo-piano-card-head{
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 10px;
+}
+.in-primo-piano-card-head p{
+    margin-bottom: 0;
+    color: #8c8c8c;
+
+}

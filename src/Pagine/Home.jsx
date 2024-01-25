@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from "react-bootstrap";
+import LoadingHomeComponent from '../Componenti/ComponentiProfilo/LoadingHomeComponent';
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
             {/* Componenti Sidebar Destro*/}
             <div style={{height:"10rem", border:"1px solid black"}}></div></Col>
         </Row>
+    <LoadingHomeComponent />
     </Container>
+
   )
 }
 

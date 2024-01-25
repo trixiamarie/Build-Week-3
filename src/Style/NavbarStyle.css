@@ -1,0 +1,56 @@
+.Logo{
+    font-size: 2.5rem;
+    color: #0A66C2;
+    
+}
+
+.LogoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavbarCustom{
+    height: 3.31rem;
+    background-color: white;
+    color: #656566;
+    padding: 0rem;
+}
+
+.NavbarBtnCustom{
+    border-radius: none;
+    border: none;
+    background-color: #EDF3F8;
+    
+}
+
+.IconSearchCustom{
+    font-weight: bold;
+}
+
+.InputCustomNavbar{
+    border: none;
+    background-color: #EDF3F8;
+    height: 2.125rem;
+}
+
+.Icon{
+    font-size: 1.5rem;
+}
+
+.HoverIcon{
+    height: 3rem;
+    width: 4rem;
+    margin: 0.5rem 0.5rem 0rem 0rem;
+}
+.HoverIcon:hover{
+    color: black;
+}
+
+.HoverIcon p {
+    font-size: 0.7rem;
+}
+
+.ContainerNavbarCustom{
+    padding: 0%;
+}

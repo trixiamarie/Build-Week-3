@@ -1,0 +1,28 @@
+.informazioni-component{
+    border: 1px solid #DFDEDA;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.informazioni-component h4{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.informazioni-component p{
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+.vedi-altro{
+display: flex;
+justify-content: space-between;
+}
+
+
+.vedi-altro-btn{
+    color: #666666;
+    text-align: right;
+    cursor: pointer;
+}
+

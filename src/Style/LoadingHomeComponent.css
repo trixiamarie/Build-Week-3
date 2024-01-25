@@ -1,0 +1,33 @@
+.loading-bar{
+margin: 0 auto;
+    width: 150px;
+    height: 5px;
+    background-color: #d4d4d4;
+    margin-top: 15px ;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.loading-home-component{
+    height: 100vw;
+    margin-top: calc(30vw);
+    text-align: center;
+}
+
+.blue-bar{
+    height: 100%;
+    background-color: #0A66C2;
+    animation: blue-bar-animation 1.5s ease-in-out infinite;
+}
+
+@keyframes blue-bar-animation {
+    0%{
+        transform: translateX(60%);
+    }
+    50%{
+        transform: translateX(-60%);
+    }
+    100%{
+        transform: translateX(60%);
+    }
+}

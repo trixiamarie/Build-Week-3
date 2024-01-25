@@ -1,0 +1,51 @@
+.in-primo-piano-component {
+  padding: 16px;
+  border: 1px solid #dfdeda;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.in-primo-piano-component h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.in-primo-piano-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.in-primo-piano-header div:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ale-plus-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.in-primo-piano-titolo {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 0;
+
+}
+
+.in-primo-piano-sottotitolo{
+    font-size: 0.85rem;
+    font-weight: 200;
+}
+
+.in-primo-piano-card-bottom{
+line-height: 1.2;
+}

@@ -16,6 +16,7 @@ import LinguaLinkComponent from '../Componenti/ComponentiProfilo/LinguaLinkCompo
 import AltriProfiliComponent from '../Componenti/ComponentiProfilo/AltriProfiliComponent';
 import PotrestiConoscereComponent from '../Componenti/ComponentiProfilo/PotrestiConoscereComponent';
 import PotrebbeInteressartiComponent from '../Componenti/ComponentiProfilo/PotrebbeInteressartiComponent';
+import InPrimoPianoComponent from '../Componenti/ComponentiProfilo/InPrimoPianoComponent';
 
 
 export default function Profile() {
@@ -29,6 +30,7 @@ export default function Profile() {
               <RisorseComponent/>
               <InformazioniComponent/>
               <AttivitaComponent/>
+              <InPrimoPianoComponent />
               <EsperienzaComponent/>
               <FormazioneComponent/>
               <LicenzeComponent/>
