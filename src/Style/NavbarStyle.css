@@ -54,3 +54,49 @@
 .ContainerNavbarCustom{
     padding: 0%;
 }
+
+.btnOffCanvasCustom{
+    border: none;
+    background-color: transparent;
+    height: 3rem;
+    color: #656566;
+}
+
+.btnOffCanvasCustom:hover{
+    color: black;
+}
+
+.offcanvas-backdrop.show {
+    top: 3.313rem;
+  }
+
+.SideBarNavbarUl{
+    list-style: none;
+    font-size: 0.875rem;
+    padding-left: 0px;
+}
+.SideBarNavbarUl li:hover{
+    text-decoration: underline;
+    text-decoration-color: #0A66C2;
+}
+.SideBarNavbarUl p{
+    color: #656566;
+    font-size: 0.75rem;
+    margin: 0px;
+    padding: 0.25rem 0rem;
+}
+.SideBarNavbarUl a{
+    color: #252525;
+    font-weight: 500;
+}
+
+.IconSVGSidebar{
+    border:1px solid #E8E8E8;
+    width:2.5rem;
+    height:2.5rem;
+    border-radius:0.5rem;
+}
+
+.IconSVGSidebar:hover{
+    box-shadow: 0px 5px 5px #7f7f80aa;
+}

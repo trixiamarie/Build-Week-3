@@ -1,5 +1,7 @@
 import "../../Style/NavbarStyle.css";
 import React from "react";
+import { useState } from "react";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaLinkedin } from "react-icons/fa";
 import { Container, Form, InputGroup, Navbar } from "react-bootstrap";
 import { HiMiniHome } from "react-icons/hi2";
@@ -11,8 +13,14 @@ import { IoMdSearch } from "react-icons/io";
 import { BiSolidGrid } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
+import SidebarNavbarComponent from "./SidebarNavbarComponent";
 
 export default function NavbarComponent() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Navbar className="NavbarCustom">
       <Container>
@@ -25,16 +33,17 @@ export default function NavbarComponent() {
             style={{
               display: "flex",
               width: "20rem",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <InputGroup className="mx-1">
               <InputGroup.Text className="border-0 InputCustomNavbar">
                 {" "}
-                <IoMdSearch className="IconSearchCustom"/>
+                <IoMdSearch className="IconSearchCustom" />
               </InputGroup.Text>
 
-              <Form.Control className="InputCustomNavbar"
+              <Form.Control
+                className="InputCustomNavbar"
                 placeholder="Cerca"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -65,17 +74,41 @@ export default function NavbarComponent() {
               <p>Notifiche</p>
             </div>
           </div>
-          <div md={1} className="text-center HoverIcon" style={{borderRight:"1px solid #E8E8E8"}}>
-          {/*PROFILO DROPDOWN*/}
-          <FaUserCircle />
-          <p>Tu <IoMdArrowDropdown /></p>
+          <div
+            md={1}
+            className="text-center HoverIcon"
+            style={{ borderRight: "1px solid #E8E8E8" }}
+          >
+            <FaUserCircle />
+            <p>
+              Tu <IoMdArrowDropdown />
+            </p>
           </div>
           <div md={2} style={{ display: "flex" }}>
-            <div>{/*PER LE AZIENDE DORPDOWN*/}<div md={1} className="text-center HoverIcon" style={{width:"7.146rem"}}>
-          {/*PROFILO DROPDOWN*/}
-          <BiSolidGrid className="Icon"/>
-          <p>Per le aziende <IoMdArrowDropdown /></p>
-          </div></div>
+            <div>
+              <div
+                md={1}
+                className="text-center HoverIcon"
+                style={{ width: "7.146rem" }}
+              >
+                <button onClick={handleShow} className="btnOffCanvasCustom">
+                  <BiSolidGrid className="Icon" />
+                  <p>
+                    Per le aziende <IoMdArrowDropdown />
+                  </p>
+                </button>
+              </div>
+              <Offcanvas show={show} onHide={handleClose} placement="end" style={{overflowY: 'auto', top: "3.31rem",
+    height: "100vh", width: "23.75rem", border:"1px solid #E8E8E8"}}>
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title style={{paddingLeft:" 0.5rem"}}>Per le aziende</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body style={{overflowY: 'auto', top: "3.31rem",
+    height: "100vh", margin:"auto"}}>
+                 <SidebarNavbarComponent/>
+                </Offcanvas.Body>
+              </Offcanvas>
+            </div>
             <div
               style={{
                 fontSize: "0.7rem",
