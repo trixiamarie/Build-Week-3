@@ -1,0 +1,98 @@
+.attivita-component {
+  border: 1px solid #dfdeda;
+  border-radius: 10px;
+}
+
+.attivita-component h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.attivita-component h4 ~ p:first-of-type {
+  color: #666666;
+  font-size: 0.9rem;
+  margin-top: -0.1rem;
+}
+
+.attivita-component-main {
+  border-bottom: 1px solid #dfdeda;
+  padding: 16px;
+}
+
+.attivita-component-main p:first-of-type,
+.attivita-component-main small {
+  color: #666666;
+}
+
+.attivita-component-button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.attivita-component-button:hover {
+  background-color: #ebebeb;
+}
+
+.attivita-component-button p {
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #666666;
+}
+
+.freccia-dx {
+  font-size: 1.5rem;
+  color: #666666;
+  margin-left: 0.5rem;
+}
+
+.autore-commento {
+  font-size: 0.8rem;
+  color: #666666;
+}
+.comment-body {
+  cursor: pointer;
+}
+
+.attivita-component-main div:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.crea-un-post-btn {
+  box-sizing: border-box;
+  color: #0a66c2;
+  font-weight: bold;
+  border: 1px solid #0a66c2;
+  padding: 0.25rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.crea-un-post-btn:hover {
+  background-color: #e2f0fe;
+  border: 2px solid #0a66c2;
+  padding: 3px 15px;
+}
+
+.matita-btn{
+  width: 48px;
+  height: 48px;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.matita-btn:hover, .ale-plus-btn:hover{
+  background-color: #ebebeb;
+}

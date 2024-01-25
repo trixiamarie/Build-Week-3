@@ -8,14 +8,14 @@ export default function InformazioniComponent() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="informazioni-component p-3">
-      <h3>Informazioni</h3>
+    <div className="informazioni-component p-3 mt-2">
+      <h4>Informazioni</h4>
       {informazioni.length < 150 || isOpen ? (
         <p>{informazioni}</p>
       ) : (
         <>
           {" "}
-          <p>{informazioni.substring(0, 150)} </p>{" "}
+          <p>{informazioni.substring(0, 150) + "..."} </p>
           <div className="vedi-altro">
           <p>...</p>
             <p className="vedi-altro-btn" onClick={() => setIsOpen(!isOpen)}>
