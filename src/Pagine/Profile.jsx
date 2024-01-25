@@ -17,10 +17,12 @@ import AltriProfiliComponent from '../Componenti/ComponentiProfilo/AltriProfiliC
 import PotrestiConoscereComponent from '../Componenti/ComponentiProfilo/PotrestiConoscereComponent';
 import PotrebbeInteressartiComponent from '../Componenti/ComponentiProfilo/PotrebbeInteressartiComponent';
 import InPrimoPianoComponent from '../Componenti/ComponentiProfilo/InPrimoPianoComponent';
+import SottoNavbarComponent from '../Componenti/ComponentiProfilo/SottoNavbarComponent';
 
 
 export default function Profile() {
-  return (
+  return (<>
+    <SottoNavbarComponent />
     <Container>
         <Row>
             <Col md={{span:8}}> {/* colonna Main */}
@@ -48,5 +50,6 @@ export default function Profile() {
             </Col>
         </Row>
     </Container>
+    </>
   )
 }
