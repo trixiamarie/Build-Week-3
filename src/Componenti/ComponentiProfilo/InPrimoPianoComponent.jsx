@@ -7,7 +7,7 @@ import CardPrimoPianoComponent from "./CardPrimoPianoComponent";
 export default function InPrimoPianoComponent() {
   return (
     <div className="in-primo-piano-component mt-2">
-      <div className="in-primo-piano-header">
+      <div className="in-primo-piano-header pb-3">
         <h4>In primo piano</h4>
         <div>
           <div className="ale-plus-btn">
