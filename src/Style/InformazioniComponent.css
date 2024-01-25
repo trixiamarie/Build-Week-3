@@ -1,6 +1,7 @@
 .informazioni-component{
     border: 1px solid #DFDEDA;
     border-radius: 10px;
+    background-color: #fff;
 }
 
 .informazioni-component h4{
