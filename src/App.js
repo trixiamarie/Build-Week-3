@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Pagine/Home';
 import Profile from './Pagine/Profile';
+import NotFound from './Pagine/NotFound';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
       <Routes>
       <Route path={'/'} element={<Home/>}></Route>
-      <Route path={'/profile/:id'} element={<Profile/>}></Route>
+      <Route path={'/profile'} element={<Profile/>}></Route>
       <Route path={'*'} element={<NotFound/>}></Route>
       </Routes>
       </BrowserRouter>
