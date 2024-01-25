@@ -5,7 +5,7 @@ export default function EsperienzaComponent() {
     <div className='border rounded px-4 pt-3 pb-0'>
 
 
-      <h4>Esperienza</h4>
+      <h4>Esperienza</h4> 
 
       <div className='esperienze mt-2 mb-0 pb-0'>
 
