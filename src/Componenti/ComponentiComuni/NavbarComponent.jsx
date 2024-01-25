@@ -22,7 +22,7 @@ export default function NavbarComponent() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar className="NavbarCustom">
+    <Navbar className="NavbarCustom fixed-top" style={{zIndex:"2"}}>
       <Container>
         <Container className="d-flex ContainerNavbarCustom">
           <div md={1} className="LogoContainer">
