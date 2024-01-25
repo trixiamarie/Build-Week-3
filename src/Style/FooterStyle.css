@@ -1,0 +1,68 @@
+.FooterCustom{
+    margin-top: 2rem;
+}
+.FooterListCustom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.FooterListCustom2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.FooterListCustom li{
+    color: #62615F;
+    font-weight: 500;
+    font-size: 0.8rem;
+    width: 10rem;
+    list-style: none;
+}
+.FooterListCustom2 li{
+    color: #62615F;
+    font-weight: 500;
+    font-size: 0.8rem;
+    width: 15rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.FooterListCustom li:hover{
+    color: #0A66C2;
+    text-decoration: underline;
+}
+
+.FooterListCustom2 li:hover{
+    color: #0A66C2;
+    text-decoration: underline;
+}
+
+.IconFooter{
+    color: #3D3D3C;
+    margin: 0.5rem 0.5rem;
+    font-size: 1.25rem;
+}
+
+.SelectFooter{
+    color: #656566;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.SelectFooter select{
+    width: 17.625rem;
+    height: 2rem;
+    color: #656566;
+}
+
+.SelectFooter option{
+    width: 15rem;
+    color: #656566;
+}
