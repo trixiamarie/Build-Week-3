@@ -18,7 +18,7 @@ export default function FormazioneComponent() {
 
 
   return (
-    <div className='border rounded px-4 pt-3 pb-0 bg-white'>
+    <div className='border rounded px-4 pt-3 pb-0 bg-white my-2'>
 
 
       <div className='d-flex justify-content-between alig-items-start'>
@@ -66,13 +66,13 @@ export default function FormazioneComponent() {
                   <div className='d-flex'>
                     <div>
                       <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzz2qFFUif3Gh3a7EnYLrovw-mJEtHydUkQg"
-                      className="img-fluid rounded"
-                      alt="..."
-                      style={{ width: 100 }}
-                    />
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzz2qFFUif3Gh3a7EnYLrovw-mJEtHydUkQg"
+                        className="img-fluid rounded"
+                        alt="..."
+                        style={{ width: 100 }}
+                      />
                     </div>
-                    
+
                     <div className='ms-2'>
                       <h6 className='mb-1'>Corso Full Stack Developer | Campus Digitale</h6>
                       <p className='text-secondary my-0'>Presentazione del corso e degli argomenti trattati</p>
