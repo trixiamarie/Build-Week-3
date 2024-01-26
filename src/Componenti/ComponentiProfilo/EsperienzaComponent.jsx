@@ -3,13 +3,17 @@ import { HiOutlinePencil } from "react-icons/hi2";
 import { IoAddSharp } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa";
 import '../../Style/greg.css';
-import { RiPencilLine } from "react-icons/ri";
 import MettiEsperienza from './ComponentiProfiloAtomizzati/MettiEsperienza';
 
 
 export default function EsperienzaComponent() {
+
+
+
   return (
-    <div  className='border rounded px-4 pt-3 pb-0 bg-white my-2' >
+    <>
+    
+    {  <div  className='border rounded px-4 pt-3 pb-0 bg-white my-2' >
 
 
       <div className='d-flex justify-content-between alig-items-start'>
@@ -38,6 +42,7 @@ export default function EsperienzaComponent() {
 
 
       </div>
-    </div>
+    </div>}
+    </>
   )
 }

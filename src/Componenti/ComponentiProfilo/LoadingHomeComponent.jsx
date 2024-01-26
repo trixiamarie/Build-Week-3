@@ -20,8 +20,8 @@ export default function LoadingHomeComponent() {
           </g>
         </g>
       </svg>
-      <div class="loading-bar">
-        <div class="blue-bar"></div>
+      <div className="loading-bar">
+        <div className="blue-bar"></div>
       </div>
     </div>
   );

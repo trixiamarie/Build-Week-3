@@ -41,7 +41,7 @@ export default function Profile() {
               <LingueComponent/>
               <InteressiComponent/>
             </Col>
-            <Col md={{span:4}}> {/* colonna Sidebar */}
+            <Col className="d-none d-md-block" md={{span:4}}> {/* colonna Sidebar */}
               <div style={{height:"10rem", border:"1px solid black"}}></div>
               <LinguaLinkComponent />
               <AltriProfiliComponent/>

@@ -1,10 +1,19 @@
 const userReducer = (
-  state = {
-    user: {
-      userData: [],
-      experiences: [],
-      userDataLoading: false,
-      userDataErrorMsg: "",
+  state =  {
+    userData: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    userExperiences: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    userPosts: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
     },
   },
   action
@@ -13,32 +22,48 @@ const userReducer = (
     case "GET_USER_DATA":
       return {
         ...state,
-        userData: action.payload,
+        userData:{
+          ...state.userData,
+          data : action.payload,
+        }
+       
       };
 
     case "SET_USER_ERROR":
       return {
         ...state,
-        userDataErrorMsg: action.payload,
-        userDataLoading: false
+        userData:{
+          ...state.userData,
+          dataErrorMsg: action.payload,
+          dataLoading: false
+        }
       };
 
     case "CLEAR_USER_ERROR":
       return {
         ...state,
-        userDataErrorMsg: "",
+        userData:{
+          ...state.userData,
+          dataErrorMsg: "",
+        }
       };
 
     case "SET_USER_LOADING":
       return {
         ...state,
-        userDataLoading: true,
+        userData:{
+          ...state.userData,
+          dataLoading: true
+        }
       };
 
     case "END_USER_LOADING":
       return {
         ...state,
-        userDataLoading: false,
+        userData:{
+          ...state.userData,
+          dataLoading: false
+        }
       };
 
     default:
