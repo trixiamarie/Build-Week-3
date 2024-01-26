@@ -1,8 +1,8 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import { FaPlus } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa6";
 
 
 
@@ -33,14 +33,14 @@ export default function UnderProfileCardComponent() {
         style={{ cursor: "pointer" }}>
         <span className="fw-light text-secondary">Raggiungi nuove vette professionali con Premium</span>
         <div className="d-flex align-items-center">
-          <FontAwesomeIcon icon={faPlus} style={{ color: "#575757", cursor: "pointer" }} />
+          <FaPlus style={{ color: "#575757", cursor: "pointer" }} />
           <span className="fw-bold homeSidebarHover ms-2">Prova Premium gratis</span>
         </div>
       </Card>
       <Card
         className="border-top rounded-bottom-3 rounded-top-0 py-4 px-3 d-flex flex-row align-items-center  d-none d-md-block"
         style={{ cursor: "pointer" }}>
-        <FontAwesomeIcon icon={faBookmark} style={{ color: "#575757" }} />
+        <FaBookmark style={{ color: "#575757" }} />
         <span className="fw-bold ms-3">I miei elementi</span>
       </Card>
       <Card className="bg-white mt-3 pt-4 pb-1 px-3 text-primary fw-bold rounded-bottom-0 d-none d-md-block">
@@ -49,7 +49,7 @@ export default function UnderProfileCardComponent() {
         </div>
         <div className="d-flex justify-content-between mt-3 homeSidebarHover">
           <span style={{ cursor: "pointer" }}>Eventi</span>
-          <FontAwesomeIcon icon={faPlus} style={{ color: "#575757", cursor: "pointer" }} />
+          <FaPlus style={{ color: "#575757", cursor: "pointer" }} />
         </div>
         <div className="my-3 homeSidebarHover">
           <span style={{ cursor: "pointer" }}>Hashtag seguiti</span>
