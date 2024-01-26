@@ -1,0 +1,4 @@
+.esperienze > div:last-child, .formazione > div:last-child {
+    border: none !important;
+}
+
