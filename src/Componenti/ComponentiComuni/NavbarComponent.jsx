@@ -3,7 +3,14 @@ import React from "react";
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaLinkedin } from "react-icons/fa";
-import { Container, Form, InputGroup, Nav, Navbar } from "react-bootstrap";
+import {
+  Container,
+  Dropdown,
+  Form,
+  InputGroup,
+  Nav,
+  Navbar,
+} from "react-bootstrap";
 import { HiMiniHome } from "react-icons/hi2";
 import { MdPeople } from "react-icons/md";
 import { MdOutlineWork } from "react-icons/md";
@@ -24,8 +31,8 @@ export default function NavbarComponent() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const user = useSelector(state => state.user.userData.data)
-  console.log(user)
+  const user = useSelector((state) => state.user.userData.data);
+  console.log(user);
 
   return (
     <Navbar
@@ -100,26 +107,38 @@ export default function NavbarComponent() {
             </div>
           </div>
 
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown-basic" className="custom-dropdown-toggle">
+              <div
+                md={1}
+                className="text-center HoverIcon dropdown-toggle"
+                style={{ borderRight: "1px solid #E8E8E8" }}
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img
+                  src={user.image}
+                  alt="LinkedIn Logo"
+                  style={{
+                    borderRadius: "50%",
+                    height: "1.5rem",
+                    width: "1.5rem",
+                  }}
+                />
+                {/* <FaUserCircle /> */}
+                <p>
+                  Tu <IoMdArrowDropdown />
+                </p>
+              </div>
+            </Dropdown.Toggle>
 
-            <div
-              md={1}
-              className="text-center HoverIcon dropdown-toggle"
-              style={{ borderRight: "1px solid #E8E8E8" }}
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            >
-             <img
-        src={user.image} 
-        alt="LinkedIn Logo"
-        style={{borderRadius:"50%", height:"1.5rem", width:"1.5rem"}}
-      />
-              {/* <FaUserCircle /> */}
-              <p>
-                Tu <IoMdArrowDropdown />
-              </p>
-            </div>
+            <Dropdown.Menu>
+              <ProfileCardNavbar user={user} />
+            </Dropdown.Menu>
+          </Dropdown>
 
-            {/* <ProfileCardNavbar user={user} class="dropdown-menu" aria-labelledby="dropdownMenuButton"/> */}
-          
           <div className="d-none d-lg-flex" md={2} style={{ display: "flex" }}>
             <div>
               <div

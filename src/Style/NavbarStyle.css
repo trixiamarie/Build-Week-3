@@ -1,151 +1,196 @@
-.navbar>.container{
-    flex-wrap: nowrap;
+.navbar > .container {
+  flex-wrap: nowrap;
 }
 
-.Logo{
-    font-size: 2.5rem;
-    color: #0A66C2;
-    
+.Logo {
+  font-size: 2.5rem;
+  color: #0a66c2;
 }
 
-.LogoContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.LogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.NavbarCustom{
-    height: 3.31rem;
-    background-color: white;
-    color: #656566;
-    padding: 0rem;
+.NavbarCustom {
+  height: 3.31rem;
+  background-color: white;
+  color: #656566;
+  padding: 0rem;
 }
 
-.NavbarBtnCustom{
-    border-radius: none;
-    border: none;
-    background-color: #EDF3F8;
-    
+.NavbarBtnCustom {
+  border-radius: none;
+  border: none;
+  background-color: #edf3f8;
 }
 
-.IconSearchCustom{
-    font-weight: bold;
+.IconSearchCustom {
+  font-weight: bold;
 }
 
-.InputCustomNavbar{
-    border: none;
-    background-color: #EDF3F8;
-    height: 2.125rem;
+.InputCustomNavbar {
+  border: none;
+  background-color: #edf3f8;
+  height: 2.125rem;
 }
 
-.Icon{
-    font-size: 1.5rem;
+.Icon {
+  font-size: 1.5rem;
 }
 
-.HoverIcon{
-    height: 3rem;
-    width: 4rem;
-    margin: 0.5rem 0.5rem 0rem 0rem;
+.HoverIcon {
+  height: 3rem;
+  width: 4rem;
+  margin: 0.5rem 0.5rem 0rem 0rem;
 }
 
 @media (max-width: 540px) {
-    .HoverIcon {
-      width: 3rem;
-    }
+  .HoverIcon {
+    width: 3rem;
   }
-  
-  @media (min-width: 300px) and (max-width: 430px) {
-    .HoverIcon {
-      width: 1.5rem;
-    }
-  }
+}
 
-.HoverIcon:hover{
-    color: black;
+@media (min-width: 300px) and (max-width: 430px) {
+  .HoverIcon {
+    width: 1.5rem;
+  }
+}
+
+.HoverIcon:hover {
+  color: black;
 }
 
 .HoverIcon p {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
-.ContainerNavbarCustom{
-    padding: 0%;
+.ContainerNavbarCustom {
+  padding: 0%;
 }
 
-.btnOffCanvasCustom{
-    border: none;
-    background-color: transparent;
-    height: 3rem;
-    color: #656566;
+.btnOffCanvasCustom {
+  border: none;
+  background-color: transparent;
+  height: 3rem;
+  color: #656566;
 }
 
-.btnOffCanvasCustom:hover{
-    color: black;
+.btnOffCanvasCustom:hover {
+  color: black;
 }
 
 .offcanvas-backdrop.show {
-    top: 3.313rem;
-  }
-
-.SideBarNavbarUl{
-    list-style: none;
-    font-size: 0.875rem;
-    padding-left: 0px;
-}
-.SideBarNavbarUl li:hover{
-    text-decoration: underline;
-    text-decoration-color: #0A66C2;
-}
-.SideBarNavbarUl p{
-    color: #656566;
-    font-size: 0.75rem;
-    margin: 0px;
-    padding: 0.25rem 0rem;
-}
-.SideBarNavbarUl a{
-    color: #252525;
-    font-weight: 500;
+  top: 3.313rem;
 }
 
-.IconSVGSidebar{
-    border:1px solid #E8E8E8;
-    width:2.5rem;
-    height:2.5rem;
-    border-radius:0.5rem;
+.SideBarNavbarUl {
+  list-style: none;
+  font-size: 0.875rem;
+  padding-left: 0px;
+}
+.SideBarNavbarUl li:hover {
+  text-decoration: underline;
+  text-decoration-color: #0a66c2;
+}
+.SideBarNavbarUl p {
+  color: #656566;
+  font-size: 0.75rem;
+  margin: 0px;
+  padding: 0.25rem 0rem;
+}
+.SideBarNavbarUl a {
+  color: #252525;
+  font-weight: 500;
 }
 
-.IconSVGSidebar:hover{
-    box-shadow: 0px 5px 5px #7f7f80aa;
+.IconSVGSidebar {
+  border: 1px solid #e8e8e8;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
 }
 
+.IconSVGSidebar:hover {
+  box-shadow: 0px 5px 5px #7f7f80aa;
+}
 
 .search-click {
-    border: 1px solid #ccc;
-    outline: none;
-    background-size: 22px;
-    background-position: 13px;
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    padding: 25px;
-    transition: all 0.5s;
-  }
-  .search-click:focus {
-    width: 300px;
-    padding-left: 50px;
-  }
-  .search-click {
-    position: relative;
-    overflow: hidden;
-    height: 50px;
-  }
-  .search-click input {
-    background: transparent;
-    border: 1px solid #ccc;
-    outline: none;
-    position: absolute;
-    width: 300px;
-    height: 50px;
-    left: 0%;
-    padding: 10px;
-  }
+  border: 1px solid #ccc;
+  outline: none;
+  background-size: 22px;
+  background-position: 13px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  padding: 25px;
+  transition: all 0.5s;
+}
+.search-click:focus {
+  width: 300px;
+  padding-left: 50px;
+}
+.search-click {
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+}
+.search-click input {
+  background: transparent;
+  border: 1px solid #ccc;
+  outline: none;
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  left: 0%;
+  padding: 10px;
+}
+
+.custom-dropdown-toggle {
+  height: 3.309rem;
+  width: 4rem;
+  padding: 0px;
+  background-color: transparent !important;
+  color: #656566;
+  border: none;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+/* 17rem */
+.PCNImage {
+  height: 3.25rem;
+  width: 3.25rem;
+  border-radius: 50%;
+}
+
+.PCNNameTitle p{
+    margin: 0px 0.5rem;
+}
+.PCNNameTitle p:first-child{
+    font-weight: bold;
+}
+
+.dropdown-menu[data-bs-popper] {
+  left: -210px;
+}
+
+.btnPCN{
+    font-weight: 500;
+    color: #0a66c2;;
+    background-color: transparent;
+    border: #0a66c2 1px solid;
+    border-radius: 1rem;
+    width:16rem ;
+    margin-left: 0.5rem;
+}
+
+.btnPCN:hover{
+    
+    background-color: #0a66c20f;
+
+    
+}

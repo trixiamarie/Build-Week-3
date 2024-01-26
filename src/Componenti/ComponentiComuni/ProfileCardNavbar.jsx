@@ -1,18 +1,17 @@
 import React from 'react'
 import "../../Style/NavbarStyle.css";
-import { Button } from 'react-bootstrap';
 
 export default function ProfileCardNavbar(props) {
   return (
-    <div className='ProfileCardNavbar'>
-        <div>
+    <div className='ProfileCardNavbar' style={{width:"17rem"}}>
+        <div style={{margin:"0.5rem", display:"flex"}}>
             <img className="PCNImage" src={props.user.image}/>
-            <div>
-                <p>{props.user.name}{props.user.surname}</p>
+            <div className='PCNNameTitle'>
+                <p>{props.user.name} {props.user.surname}</p>
                 <p>{props.user.title}</p>
             </div>
         </div>
-        <Button className='btn btn-outline-primary'>Visualizza Profilo</Button>
+        <button className='btnPCN'>Visualizza Profilo</button>
         <hr/>
         <p>Account</p>
         <p>Prova Premium Gratis</p>

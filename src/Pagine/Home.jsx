@@ -11,21 +11,21 @@ import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeCompon
 export default function Home() {
   return (
     <Container>
-      <Row>
+      <Row style={{marginTop:"4.809rem"}}>
         <Col className="d-none d-md-block" md={{ span: 3 }}>
-          <div style={{ height: "10rem", border: "1px solid black" }}></div>
+          {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <ProfileCardHome />
           <UnderProfileCardComponent />
         </Col>
         <Col md={{ span: 6 }}>
           {/* Componenti Main*/}
-          <div style={{ height: "10rem", border: "1px solid black" }}></div>
+          {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <NewPostComponent />
           <HomePostComponent />
         </Col>
         <Col className="d-none d-md-block" md={3}>
           {/* Componenti Sidebar Destro*/}
-          <div style={{ height: "10rem", border: "1px solid black" }}></div>
+          {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <AltriProfiliComponent />
           <FooterHomeComponent/>
         </Col>
