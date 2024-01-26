@@ -18,15 +18,16 @@ import PotrestiConoscereComponent from '../Componenti/ComponentiProfilo/Potresti
 import PotrebbeInteressartiComponent from '../Componenti/ComponentiProfilo/PotrebbeInteressartiComponent';
 import InPrimoPianoComponent from '../Componenti/ComponentiProfilo/InPrimoPianoComponent';
 import SottoNavbarComponent from '../Componenti/ComponentiProfilo/SottoNavbarComponent';
+import FooterProfileComponent from '../Componenti/ComponentiComuni/FooterProfileComponent';
 
 
 export default function Profile() {
   return (<>
     <SottoNavbarComponent />
     <Container>
-        <Row>
+        <Row style={{marginTop:"4.809rem"}}>
             <Col md={{span:8}}> {/* colonna Main */}
-              <div style={{height:"10rem",  border:"1px solid black"}}></div>
+              {/* <div style={{height:"10rem",  border:"1px solid black"}}></div> */}
               <ProfileCardComponent />
               <AnalisiComponent/>
               <RisorseComponent/>
@@ -42,7 +43,7 @@ export default function Profile() {
               <InteressiComponent/>
             </Col>
             <Col className="d-none d-md-block" md={{span:4}}> {/* colonna Sidebar */}
-              <div style={{height:"10rem", border:"1px solid black"}}></div>
+              {/* <div style={{height:"10rem", border:"1px solid black"}}></div> */}
               <LinguaLinkComponent />
               <AltriProfiliComponent/>
               <PotrestiConoscereComponent/>
@@ -50,6 +51,7 @@ export default function Profile() {
             </Col>
         </Row>
     </Container>
+    <FooterProfileComponent/>
     </>
   )
 }

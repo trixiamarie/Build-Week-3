@@ -5,15 +5,25 @@ import { RiPencilLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { getUserData } from "../../Action/userActions";
 import { getProfileData } from "../../Action/profileActions";
+import { useSelector } from "react-redux";
+import { getAllPostsData } from "../../Action/postsActions";
+import AttivitaSinglePostComponent from "./AttivitaSinglePostComponent";
+import NoActivityComponent from "./NoActivityComponent";
 
 export default function AttivitaComponent() {
-  const username = "Vincenzo Arpaia";
+
+  const allPosts = useSelector(state => state.posts.data)
+  const userData = useSelector(state => state.user.userData.data)
+  console.log(allPosts)
+  console.log(userData)
+  const userPosts = allPosts.filter(post => post.user._id === userData._id)
 
 const dispatch = useDispatch();
   
 useEffect(() => {
-dispatch((getUserData()))
-dispatch((getProfileData("6552694bc55e7e0018f83d01")))
+dispatch(getUserData())
+dispatch(getProfileData("6552694bc55e7e0018f83d01"))
+dispatch(getAllPostsData())
 }, [])
 
 
@@ -31,15 +41,11 @@ dispatch((getProfileData("6552694bc55e7e0018f83d01")))
           </div>
         </div>
         <p>178 follower</p>
-        <div className="comment-body">
-          <p className="autore-commento m-0">
-            <b>{username} </b>
-            <span>
-              ha commentato un post <b>·</b> 1s
-            </span>
-          </p>
-          <p className="testo-commento m-0">👏💪👏</p>
-        </div>
+        {userPosts.length > 0 ? userPosts.slice(0,3).map( post => {
+          return (
+            <AttivitaSinglePostComponent key={post._id} post={post}/>
+          )
+        }) : <NoActivityComponent />}
       </div>
       <div className="attivita-component-button ">
         <p>Mostra tutti i commenti</p>

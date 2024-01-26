@@ -6,13 +6,13 @@ import UnderProfileCardComponent from "../Componenti/ComponentiHome/UnderProfile
 import NewPostComponent from "../Componenti/ComponentiHome/NewPostComponent";
 import HomePostComponent from "../Componenti/ComponentiHome/HomePostComponent";
 import AltriProfiliComponent from "../Componenti/ComponentiProfilo/AltriProfiliComponent";
-import FooterComponent from "../Componenti/ComponentiComuni/FooterComponent";
+import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeComponent";
 
 export default function Home() {
   return (
     <Container>
       <Row>
-        <Col md={{ span: 3 }}>
+        <Col className="d-none d-md-block" md={{ span: 3 }}>
           <div style={{ height: "10rem", border: "1px solid black" }}></div>
           <ProfileCardHome />
           <UnderProfileCardComponent />
@@ -23,13 +23,12 @@ export default function Home() {
           <NewPostComponent />
           <HomePostComponent />
         </Col>
-        <Col md={3}>
+        <Col className="d-none d-md-block" md={3}>
           {/* Componenti Sidebar Destro*/}
           <div style={{ height: "10rem", border: "1px solid black" }}></div>
           <AltriProfiliComponent />
+          <FooterHomeComponent/>
         </Col>
-
-        {/* <FooterComponent/> */}
       </Row>
       {/*<LoadingHomeComponent />*/}
     </Container>

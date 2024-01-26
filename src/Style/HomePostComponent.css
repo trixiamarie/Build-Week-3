@@ -1,0 +1,70 @@
+.filter-home-line {
+  height: 1px;
+  background-color: #666666;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.posts-filter {
+  width: 440px;
+  text-align: end;
+  font-size: 0.9rem;
+  margin-left: 16px;
+  color: #666666;
+}
+
+.filter-posts-home-btn {
+  color: black;
+  cursor: pointer;
+}
+
+.filter-box {
+  width: 365px;
+  border: 1px solid #666666;
+  background-color: #fff;
+  position: absolute;
+  right: 10px;
+  top: 30px;
+}
+
+.filter-posts-home {
+  position: relative;
+
+}
+
+.selection-filter.filtro-attivo {
+  border-left: 4px solid green;
+  padding-left: 12px;
+}
+
+.selection-filter {
+  padding-left: 16px;
+  cursor: pointer;
+  color: #5c5c5c;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+}
+
+.selection-filter:hover {
+  color: black;
+  background-color: #f3f2ee;
+}
+.filter-box{
+    border-radius: 8px;
+    padding: 16px 0;
+}
+
+.filter-info{
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    padding-top: 1rem;
+    color: #666666;
+    padding-bottom: 0.5rem;
+}
+.filter-info b{
+    color: black;
+    cursor: pointer;
+}
