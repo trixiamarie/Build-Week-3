@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import Pagination from 'react-bootstrap/Pagination';
+import React, { useState } from "react";
+import Pagination from "react-bootstrap/Pagination";
 
-function Nullo() {
-  const totalPages = 20; // Numero totale di pagine
-  const [currentPage, setCurrentPage] = useState(1); // Pagina attuale (inizializzata a 1)
+export default function EsperimentoPaginazione() {
+  const totalPages = 20;
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageClick = (page) => {
     setCurrentPage(page);
-    // Aggiungi qui la logica per caricare i dati della nuova pagina o eseguire altre azioni necessarie.
   };
 
   const pageItems = Array.from({ length: totalPages }, (_, index) => (
@@ -30,5 +29,3 @@ function Nullo() {
     </Pagination>
   );
 }
-
-export default Nullo;

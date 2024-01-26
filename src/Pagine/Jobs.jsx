@@ -7,14 +7,13 @@ import ColonnaSx from '../Componenti/ComponentiJobs/ColonnaSx';
 export default function Jobs() {
   return (
     <>
-      <Container className='mt-5 bg-white'>
+      <Container className='bg-white ' style={{marginTop:"4.809rem"}}>
       <Row>
-        <Col xs={12} md={6}>
+        <Col xs={12} md={5} className='p-0'>
           <ColonnaSx/>
         </Col>
-        <Col xs={12} md={6}>
-          <div className="p-3">Contenuto Colonna Destra Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque rerum optio voluptate expedita itaque aperiam quis iure atque deserunt numquam magnam ad delectus, voluptates excepturi pariatur earum laudantium beatae accusantium.
-          </div>
+        <Col xs={12} md={7}>
+          <ColonnaDx/>
         </Col>
       </Row>
     </Container>
