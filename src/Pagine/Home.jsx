@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import LoadingHomeComponent from '../Componenti/ComponentiProfilo/LoadingHomeComponent';
-import ProfileCardHome from '../Componenti/ComponentiHome/ProfileCardHomeComponent';
-import UnderProfileCardComponent from '../Componenti/ComponentiHome/UnderProfileCardComponent';
-import NewPostComponent from '../Componenti/ComponentiHome/NewPostComponent';
-import HomePostComponent from '../Componenti/ComponentiHome/HomePostComponent';
-import AltriProfiliComponent from '../Componenti/ComponentiProfilo/AltriProfiliComponent';
-import FooterComponent from '../Componenti/ComponentiComuni/FooterComponent';
+import LoadingHomeComponent from "../Componenti/ComponentiProfilo/LoadingHomeComponent";
+import ProfileCardHome from "../Componenti/ComponentiHome/ProfileCardHomeComponent";
+import UnderProfileCardComponent from "../Componenti/ComponentiHome/UnderProfileCardComponent";
+import NewPostComponent from "../Componenti/ComponentiHome/NewPostComponent";
+import HomePostComponent from "../Componenti/ComponentiHome/HomePostComponent";
+import AltriProfiliComponent from "../Componenti/ComponentiProfilo/AltriProfiliComponent";
+import FooterComponent from "../Componenti/ComponentiComuni/FooterComponent";
 
 export default function Home() {
   return (
@@ -25,13 +25,13 @@ export default function Home() {
         </Col>
         <Col md={3}>
           {/* Componenti Sidebar Destro*/}
-          <div style={{ height: "10rem", border: "1px solid black" }}></div></Col>
-        <AltriProfiliComponent />
+          <div style={{ height: "10rem", border: "1px solid black" }}></div>
+          <AltriProfiliComponent />
+        </Col>
+
         {/* <FooterComponent/> */}
       </Row>
       <LoadingHomeComponent />
     </Container>
-
-  )
+  );
 }
-
