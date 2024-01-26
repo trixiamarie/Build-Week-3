@@ -12,11 +12,11 @@ export default function CompetenzeComponent() {
   return (
     <>
 
-      <Card>
-        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} >
-          <Card.Title>Competenze</Card.Title>
+      <Card className="mt-2">
+        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} className="softLine">
+          <h4>Competenze</h4>
             {/* componente figlio da ciclare*/}
-            <div style={{borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} className="mt-2 fs14">
+            <div className="mt-2 fs14">
               <h6>Sviluppo Front-end</h6>
               <div className="d-flex">
                   <img className="me-2" width="24" height="24" src="https://media.licdn.com/dms/image/C560BAQGKHWgSsI9ZVg/company-logo_100_100/0/1631368771194?e=1714003200&amp;v=beta&amp;t=tt2HxpSFNG3R1ht_AbCqPf2Vingo-jA6Co68Kp3UTRU" alt="" ></img>

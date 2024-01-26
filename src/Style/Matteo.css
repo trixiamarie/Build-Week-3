@@ -42,6 +42,23 @@ a {
     color: #00000099;
 }
 
-.fs14 {
+
+.softLine>div:not(:last-child){
+    border-bottom: 1px solid rgb(0, 0, 0, 0.17);
+}
+
+h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.fs14{
     font-size: 14px;
+}
+
+.fw600{
+    font-weight: 600;
+}
+.fw400{
+    font-weight: 400;
 }

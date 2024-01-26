@@ -13,13 +13,13 @@ export default function PubblicazioniComponent() {
   return (
     <>
 
-      <Card>
-        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} >
-          <Card.Title>Pubblicazioni</Card.Title>
+      <Card className="mt-2">
+        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} className="softLine">
+          <h4>Pubblicazioni</h4>
             {/* componente figlio da ciclare*/}
-            <div style={{borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} className="mt-2">
-              <span style={{fontWeight: "bold"}}>Recycling of multilayer packaging waste with switchable anionic surfactants</span><br></br>
-              <span classname="fs14">Resources, Conservation and Recycling · 1 nov 2023</span>
+            <div className="mt-2">
+              <span className="fw600">Recycling of multilayer packaging waste with switchable anionic surfactants</span><br></br>
+              <span className="fs14 fw400">Resources, Conservation and Recycling · 1 nov 2023</span>
               <div className="d-flex" style={{padding: "10px 0px 20px 0px" }}>
                 <span className="mostraPubb">
                   <a  href="pippo">Mostra Pubblicazioni </a><BsBoxArrowUpRight style={{marginLeft: "5px"}}/>
@@ -27,11 +27,11 @@ export default function PubblicazioniComponent() {
               </div>
 
               {informazioni.length < 100 || isOpen ? (
-              <p>{informazioni}</p>
+              <p className="fs14">{informazioni}</p>
               ) : (
-                <div>
+                <div className="fs14">
                   <p>{informazioni.substring(0, 100)} 
-                  <span className="vedi-altro">
+                  <span>
                     <span className="pointer" onClick={() => setIsOpen(!isOpen)}>
                       ...vedi altro
                     </span>
@@ -43,12 +43,12 @@ export default function PubblicazioniComponent() {
             </div>
             {/* componente figlio da ciclare*/}
             
-          </Card.Body>
+        </Card.Body>
         
           <Card.Body className="mostraComp">
           {/* Card.Link da cambiare con un link o un navigate */}
-          <Card.Link href="#"><b style={{color: "#00000099"}} >Mostra Tutte le Compentenze</b></Card.Link>
-        </Card.Body>
+          <Card.Link href="#"><b style={{color: "#00000099"}} >Mostra Tutte le Pubblicazioni</b></Card.Link>
+          </Card.Body>
       </Card>
             
 
