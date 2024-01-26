@@ -51,24 +51,25 @@ export default function UnderProfileCardComponent() {
           <span className="fw-bold ">Gruppi</span>
           
         </div>
-        <div className='py-2 px-3 d-flex align-items-center justify-content-between bgHover'>
-          <span className="fw-bold ">Espandi la tua rete</span>
-          <FaPlus style={{ color: "#575757", cursor: "pointer" }} />
+        <div className='py-2 px-3 d-flex align-items-center justify-content-between '>
+          <span className="fw-bold bgHover">Espandi la tua rete</span>
+          <div className='rounded-circle bgHover'>
+            <FaPlus className="mx-auto" style={{ color: "#575757", cursor: "pointer" }} />
+          </div>
+          
         </div>
         <div className="py-2 px-3 bgHover">
-          <span className="fw-bold">Invito</span>
+          <span className="fw-bold-">Invito</span>
           
         </div> 
 
         <a
           href="/"
-          className="text-secondary border-top text-decoration-none d-flex justify-content-center fw-bold py-3">
+          className="text-secondary border  text-decoration-none d-flex justify-content-center fw-bold py-3 bgHover">
           Scopri di più
         </a>
       </Card>
-      <Card className="border-top-0 rounded-top-0 d-none d-md-block">
-        
-      </Card>
+      
 
     </>
   )
