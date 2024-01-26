@@ -4,7 +4,7 @@ import FooterHomeComponent from "../ComponentiComuni/FooterHomeComponent";
 
 export default function JobsList() {
   return (
-    <div className="px-2 overflow-y-scroll " style={{ height: "35rem" }}>
+    <div className="px-2 overflow-y-scroll" style={{ height: "80vh" }}>
 {/* 
         25 risultati a pagina */}
       <CardJobs />
