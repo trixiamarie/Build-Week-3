@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "../../Style/SottoNavbarComponent.css";
 import { BsThreeDots } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 export default function SottoNavbarComponent() {
+
+  const userData = useSelector(state => state.user.userData.data)
+
   const username = "Vincenzo Arpaia";
   const lavoro = "Full-stack Developer Student";
 
@@ -55,13 +59,13 @@ export default function SottoNavbarComponent() {
       <Container>
         <div className="sotto-navbar">
           <div className="sotto-navbar-sx">
-            <div className="sotto-navbar-avatar">
-              {username.substring(0, 1)}
+            <div className="sotto-navbar-avatar" style={{backgroundImage: `url(${userData.image})`, backgroundSize: "fill" }}>
+              {userData.image ? "" : userData.name.substring(0, 1)}
               <div className="avatar-pallino"></div>
             </div>
             <div className="sotto-navbar-info">
-              <div className="sotto-navbar-username">{username}</div>
-              <div className="sotto-navbar-lavoro">{lavoro}</div>
+              <div className="sotto-navbar-username">{userData.name + ' ' + userData.surname}</div>
+              <div className="sotto-navbar-lavoro">{userData.title}</div>
             </div>
           </div>
           <div className="sotto-navbar-btns">
