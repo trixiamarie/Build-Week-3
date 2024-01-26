@@ -10,10 +10,10 @@ console.log(allPosts)
     <>
       <div className="home-post-component">
         <FilterHomePostsComponent />
-        <SinglePostHomePageComponent post={"ciao"}/>
-{/* 
+        {/* <SinglePostHomePageComponent post={"ciao"}/> */}
+
         {allPosts &&
-          allPosts.map((post) => <SinglePostHomePageComponent key={post._id} post={post}/>)} */}
+          allPosts.map((post) => <SinglePostHomePageComponent key={post._id} post={post}/>)}
       </div>
     </>
   );

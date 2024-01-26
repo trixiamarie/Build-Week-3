@@ -12,19 +12,19 @@ import { IoIosSend } from "react-icons/io";
 
 export default function SinglePostHomePageComponent({ post }) {
   return (
-    <div className="card-home-post">
+    <div className="card-home-post mt-2">
       <div className="card-home-post-header d-flex  align-items-center justify-content-between">
         <div className="card-home-post-header-left d-flex align-items-center">
           <div className="card-home-post-logo">
             <img
               className="img-fluid w-100"
-              src="https://picsum.photos/100"
+              src={`https://picsum.photos/100?random=${Math.round(Math.random() * 30) }`}
               alt=""
             />
             {/* {post.image && <img src={post.image} alt={post.title} />} */}
           </div>
           <div className="user-info-post ms-3">
-            <p className="nome-post my-0">nome cognome</p>
+            <p className="nome-post my-0">{post.user.name ? post.user.name + ' ' + post.user.surname : post.user.username}</p>
             <p className="followers-user-post my-0">
               {Math.round(Math.random() * 12434)} follower
             </p>
@@ -40,11 +40,11 @@ export default function SinglePostHomePageComponent({ post }) {
           </div>
         </div>
       </div>
-      <div className="home-post-body mb-3">testom dfvsldfk sdfs f</div>
+      <div className="home-post-body mb-3">{post.text}</div>
       <div className="image-post">
         <img
           className="img-fluid w-100"
-          src="https://picsum.photos/600"
+          src={post.image ? post.image : `https://picsum.photos/600?random=${Math.round(Math.random() * 30) }`}
           alt=""
         />
       </div>
