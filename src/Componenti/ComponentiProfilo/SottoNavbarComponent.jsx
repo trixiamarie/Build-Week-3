@@ -47,7 +47,7 @@ export default function SottoNavbarComponent() {
 
     scrollPosition > 200
       ? (sottoNavBarComponent.style.top = "50px")
-      : (sottoNavBarComponent.style.top = "0px");
+      : (sottoNavBarComponent.style.top = "-20px");
   }, [scrollPosition]);
 
   return (
