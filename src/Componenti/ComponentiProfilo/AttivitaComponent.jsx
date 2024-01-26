@@ -5,15 +5,21 @@ import { RiPencilLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { getUserData } from "../../Action/userActions";
 import { getProfileData } from "../../Action/profileActions";
+import { useSelector } from "react-redux";
+import { getAllPostsData } from "../../Action/postsActions";
 
 export default function AttivitaComponent() {
+
+  const attivita = useSelector(state => state.user.userPosts.data)
+  console.log(attivita)
   const username = "Vincenzo Arpaia";
 
 const dispatch = useDispatch();
   
 useEffect(() => {
-dispatch((getUserData()))
-dispatch((getProfileData("6552694bc55e7e0018f83d01")))
+dispatch(getUserData())
+dispatch(getProfileData("6552694bc55e7e0018f83d01"))
+dispatch(getAllPostsData())
 }, [])
 
 

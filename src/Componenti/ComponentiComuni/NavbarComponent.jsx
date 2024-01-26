@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaLinkedin } from "react-icons/fa";
-import { Container, Form, InputGroup, Navbar } from "react-bootstrap";
+import { Container, Form, InputGroup, Nav, Navbar } from "react-bootstrap";
 import { HiMiniHome } from "react-icons/hi2";
 import { MdPeople } from "react-icons/md";
 import { MdOutlineWork } from "react-icons/md";
@@ -14,6 +14,7 @@ import { BiSolidGrid } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SidebarNavbarComponent from "./SidebarNavbarComponent";
+import { Link } from "react-router-dom";
 
 export default function NavbarComponent() {
   const [show, setShow] = useState(false);
@@ -22,12 +23,14 @@ export default function NavbarComponent() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar className="NavbarCustom fixed-top" style={{zIndex:"2", borderBottom:"1px solid #E8E8E8"}}>
+    <Navbar expand="md" className="NavbarCustom fixed-top" style={{zIndex:"2", borderBottom:"1px solid #E8E8E8"}}>
       <Container>
         <Container className="d-flex ContainerNavbarCustom">
+        <Link to={"/"}>
           <div md={1} className="LogoContainer">
             <FaLinkedin className="Logo" />
           </div>
+          </Link>
           <div
           className="d-none d-md-block"
             md={4}
@@ -59,11 +62,12 @@ export default function NavbarComponent() {
           </div>
         </Container>
         <Container className="d-flex ContainerNavbarCustom">
-          <div className="d-flex" md={4}>
+          <div className="d-flex align-items-start">
+          <Link to={"/"}>
             <div className="text-center HoverIcon">
               <HiMiniHome className="Icon" />
               <p className="d-none d-md-block">Home</p>
-            </div>
+            </div></Link>
             <div className="text-center HoverIcon">
               <MdPeople className="Icon" />
               <p className="d-none d-md-block">Rete</p>
@@ -81,6 +85,8 @@ export default function NavbarComponent() {
               <p className="d-none d-md-block">Notifiche</p>
             </div>
           </div>
+
+<Link to={"/profile"}>
           <div
             md={1}
             className="text-center HoverIcon"
@@ -90,8 +96,8 @@ export default function NavbarComponent() {
             <p>
               Tu <IoMdArrowDropdown />
             </p>
-          </div>
-          <div className="d-none d-md-flex" md={2} style={{ display: "flex" }}>
+          </div></Link>
+          <div className="d-none d-lg-flex" md={2} style={{ display: "flex" }}>
             <div>
               <div
                 md={1}
