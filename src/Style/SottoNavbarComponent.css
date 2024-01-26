@@ -2,7 +2,7 @@
     background-color: white;
     box-shadow: 4px 4px 10px grey;
     position: fixed;
-    top: -7px;
+    top: -20px;
     width: 100%;
     z-index: 1;
     transition: all 0.5s ease-in-out;
