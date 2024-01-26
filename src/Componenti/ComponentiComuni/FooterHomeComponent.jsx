@@ -20,7 +20,8 @@ export default function FooterHomeComponent() {
 
   return (
     <>
-      <ul className="FooterListCustomHome">
+    <div style={{position:"sticky", top: "22rem"}}>
+      <ul className="FooterListCustomHome mt-3" >
         {FooterListLi.map((x, index) => (
           <li key={index}>
             <a>{x}</a>
@@ -51,6 +52,7 @@ export default function FooterHomeComponent() {
           </svg>
         </svg>
         <p style={{fontSize:"0.75rem", margin:"0px  0px 0px 0.5rem"}}>LinkedIn Corporation © 2024</p>
+      </div>
       </div>
     </>
   );

@@ -8,7 +8,6 @@ import {
   Dropdown,
   Form,
   InputGroup,
-  Nav,
   Navbar,
 } from "react-bootstrap";
 import { HiMiniHome } from "react-icons/hi2";
@@ -18,12 +17,12 @@ import { RiMessage3Fill } from "react-icons/ri";
 import { BsBellFill } from "react-icons/bs";
 import { IoMdSearch } from "react-icons/io";
 import { BiSolidGrid } from "react-icons/bi";
-import { FaUserCircle } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SidebarNavbarComponent from "./SidebarNavbarComponent";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileCardNavbar from "./ProfileCardNavbar";
+import { BelleNotificheLinkedin, HomeLinkedin, MessagesLinkedin, UsersLinkedin, WorkBagLinkedin } from "../../SVG/svgTrixia";
 
 export default function NavbarComponent() {
   const [show, setShow] = useState(false);
@@ -75,7 +74,6 @@ export default function NavbarComponent() {
               type="text"
               className="border-0 InputCustomNavbar search-click"
               name=""
-              placeholder="search here..."
             />
           </div>
         </Container>
@@ -83,26 +81,26 @@ export default function NavbarComponent() {
           <div className="d-flex align-items-start">
             <Link to={"/"}>
               <div className="text-center HoverIcon">
-                <HiMiniHome className="Icon" />
+                <HomeLinkedin className="Icon" />
                 <p className="d-none d-md-block">Home</p>
               </div>
             </Link>
             <div className="text-center HoverIcon">
-              <MdPeople className="Icon" />
+              <UsersLinkedin className="Icon" />
               <p className="d-none d-md-block">Rete</p>
             </div>
             <Link to={"/jobs"}>
               <div className="text-center HoverIcon">
-                <MdOutlineWork className="Icon" />
+                <WorkBagLinkedin className="Icon" />
                 <p className="d-none d-md-block">Lavoro</p>
               </div>
             </Link>
             <div className="text-center HoverIcon">
-              <RiMessage3Fill className="Icon" />
+              <MessagesLinkedin className="Icon" />
               <p className="d-none d-md-block">Messaggistica</p>
             </div>
             <div className="text-center HoverIcon">
-              <BsBellFill className="Icon" />
+              <BelleNotificheLinkedin className="Icon" />
               <p className="d-none d-md-block">Notifiche</p>
             </div>
           </div>

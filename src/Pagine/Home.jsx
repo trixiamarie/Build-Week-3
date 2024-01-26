@@ -24,7 +24,7 @@ export default function Home() {
           <NewPostComponent />
           <HomePostComponent />
         </Col>
-        <Col className="d-none d-md-block" md={3}>
+        <Col className="d-none d-md-block" md={3} style={{position:"relative"}}>
           {/* Componenti Sidebar Destro*/}
           {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <AltriProfiliComponent />

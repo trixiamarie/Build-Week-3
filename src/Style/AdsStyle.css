@@ -1,4 +1,6 @@
 .AdsContainer {
+    position: sticky;
+    top: 4.813rem;
     max-width: 100%;
     height: auto;
     overflow: hidden;
@@ -7,6 +9,21 @@
 }
   
 .AdsContainer img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.AdsContainer1 {
+    top: 4.813rem;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+  
+.AdsContainer1 img {
     width: 100%;
     height: auto;
     display: block;

@@ -19,7 +19,7 @@ import PotrebbeInteressartiComponent from '../Componenti/ComponentiProfilo/Potre
 import InPrimoPianoComponent from '../Componenti/ComponentiProfilo/InPrimoPianoComponent';
 import SottoNavbarComponent from '../Componenti/ComponentiProfilo/SottoNavbarComponent';
 import FooterProfileComponent from '../Componenti/ComponentiComuni/FooterProfileComponent';
-import AdsComponent from '../Componenti/ComponentiComuni/AdsComponent';
+import Ads2Component from '../Componenti/ComponentiComuni/Ads2Component';
 
 
 export default function Profile() {
@@ -49,7 +49,7 @@ export default function Profile() {
               <AltriProfiliComponent/>
               <PotrestiConoscereComponent/>
               <PotrebbeInteressartiComponent/>
-              <AdsComponent/>
+              <Ads2Component/>
             </Col>
         </Row>
     </Container>

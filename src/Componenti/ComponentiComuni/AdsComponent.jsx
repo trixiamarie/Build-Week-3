@@ -7,3 +7,5 @@ export default function AdsComponent() {
     <img src='https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png'/></div>
   )
 }
+
+
