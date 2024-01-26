@@ -57,5 +57,10 @@
 }
 
 .img-footer-post-home{
-    border-bottom: 1px solid #666666;
+    border-bottom: 1px solid #E2F0FE;
+    padding: 0;
+}
+
+.btn-post-footer{
+    cursor: pointer
 }
