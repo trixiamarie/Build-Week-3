@@ -42,7 +42,7 @@ export default function FooterHomeComponent() {
         >
           <svg>
             <image
-              href="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr"
+              href={`https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr`}
               x="0"
               y="0"
               width="56"

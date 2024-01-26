@@ -1,9 +1,13 @@
 import React from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 
-export default function CardJobs() {
+export default function CardJobs({setDettaglioJob}) {
+  function prova() {
+      setDettaglioJob("ciao")
+  }
+
   return (
-    <div className="lavoroGreg mt-3 d-flex justify-content-between bg-white border-bottom">
+    <div className="lavoroGreg mt-3 d-flex justify-content-between bg-white border-bottom" onClick={prova}>
       <div className="card mb-0 border border-0" style={{ maxWidth: 540 }}>
         <div className="d-flex">
           <div className="flex-shrink-0">

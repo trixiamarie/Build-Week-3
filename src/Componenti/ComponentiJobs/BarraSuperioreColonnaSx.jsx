@@ -11,13 +11,13 @@ export default function BarraSuperioreColonnaSx() {
 
         <div className="d-flex align-self-center">
 
-            <small class="form-check-label">
+            <small className="form-check-label">
             imposta avviso
           </small>
-           <div class="form-check form-switch ms-1">
+           <div className="form-check form-switch ms-1">
           
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             role="switch"
           />
