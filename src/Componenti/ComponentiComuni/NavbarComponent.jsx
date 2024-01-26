@@ -22,13 +22,14 @@ export default function NavbarComponent() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar className="NavbarCustom fixed-top" style={{zIndex:"2"}}>
+    <Navbar className="NavbarCustom fixed-top" style={{zIndex:"2", borderBottom:"1px solid #E8E8E8"}}>
       <Container>
         <Container className="d-flex ContainerNavbarCustom">
           <div md={1} className="LogoContainer">
             <FaLinkedin className="Logo" />
           </div>
           <div
+          className="d-none d-md-block"
             md={4}
             style={{
               display: "flex",
@@ -50,28 +51,34 @@ export default function NavbarComponent() {
               />
             </InputGroup>
           </div>
+          <div
+          className="d-block d-md-none"
+            md={4}
+          >
+          <input type="text" className="border-0 InputCustomNavbar search-click" name="" placeholder="search here..." />
+          </div>
         </Container>
         <Container className="d-flex ContainerNavbarCustom">
           <div className="d-flex" md={4}>
             <div className="text-center HoverIcon">
               <HiMiniHome className="Icon" />
-              <p>Home</p>
+              <p className="d-none d-md-block">Home</p>
             </div>
             <div className="text-center HoverIcon">
               <MdPeople className="Icon" />
-              <p>Rete</p>
+              <p className="d-none d-md-block">Rete</p>
             </div>
             <div className="text-center HoverIcon">
               <MdOutlineWork className="Icon" />
-              <p>Lavoro</p>
+              <p className="d-none d-md-block">Lavoro</p>
             </div>
             <div className="text-center HoverIcon">
               <RiMessage3Fill className="Icon" />
-              <p>Messaggistica</p>
+              <p className="d-none d-md-block">Messaggistica</p>
             </div>
             <div className="text-center HoverIcon">
               <BsBellFill className="Icon" />
-              <p>Notifiche</p>
+              <p className="d-none d-md-block">Notifiche</p>
             </div>
           </div>
           <div
@@ -84,7 +91,7 @@ export default function NavbarComponent() {
               Tu <IoMdArrowDropdown />
             </p>
           </div>
-          <div md={2} style={{ display: "flex" }}>
+          <div className="d-none d-md-flex" md={2} style={{ display: "flex" }}>
             <div>
               <div
                 md={1}

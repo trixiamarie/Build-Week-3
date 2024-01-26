@@ -88,37 +88,39 @@ export default function FooterComponent() {
             </Col>
 
             <Col>
-              <div style={{ display: "flex" }}>
-                <ul className="FooterListCustom2">
-                {footerItems.map((x, index) => (
-                    <li key={index}>
-                 {x.icon}
-                    <div>
-                      <a>{x.title}</a>
-
-                      <p>{x.linkText}</p>
-                    </div>
-                  </li>
-                ))}
-                </ul>
-
-                <div className="SelectFooter">
-                  <label>Seleziona lingua</label>
-
-                  <select defaultValue="it_IT">
-                    {lingueArray.map((x, index) => (
-                      <option value={x.value} lang={x.lang} key={index}>
-                        {x.lingua}
-                      </option>
-                    ))}
-                  </select>
+      <div className="row">
+        {/* Colonna 1 (occupa tutta la larghezza su schermi di dimensioni extra piccole e piccole) */}
+        <div className="col-12 col-sm-12 col-md-12 col-lg-6" style={{ display: "flex" }}>
+          <ul className="FooterListCustom2">
+            {footerItems.map((x, index) => (
+              <li key={index}>
+                {x.icon}
+                <div>
+                  <a>{x.title}</a>
+                  <p>{x.linkText}</p>
                 </div>
-              </div>
-            </Col>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Colonna 2 (occupa tutta la larghezza su schermi di dimensioni extra piccole e piccole) */}
+        <div className="col-12 col-sm-12 col-md-12 col-lg-6 SelectFooter">
+          <label>Seleziona lingua</label>
+          <select defaultValue="it_IT">
+            {lingueArray.map((x, index) => (
+              <option value={x.value} lang={x.lang} key={index}>
+                {x.lingua}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </Col>
           </Row>
             <Row>
             <Col>
-          <p style={{fontSize:"0.8rem", marginLeft:"2rem", color: "#656566"}}>
+          <p style={{fontSize:"0.8rem", color: "#656566"}}>
             LinkedIn Corporation © 2024
           </p></Col></Row>
         </Container>
