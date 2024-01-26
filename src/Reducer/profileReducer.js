@@ -1,50 +1,73 @@
 const profileReducer = (
-    state = {
-      profile: {
-        profileData: [],
-        experiences: [],
-        profileDataLoading: false,
-        profileDataErrorMsg: "",
-      },
+  state =  {
+    profileData: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
     },
-    action
-  ) => {
-    switch (action.type) {
-      case "GET_PROFILE_DATA":
-        return {
-          ...state,
-          profileData: action.payload,
-        };
-  
-      case "SET_PROFILE_ERROR":
-        return {
-          ...state,
-          profileDataErrorMsg: action.payload,
-          profileDataLoading: false
-        };
-  
-      case "CLEAR_PROFILE_ERROR":
-        return {
-          ...state,
-          profileDataErrorMsg: "",
-        };
-  
-      case "SET_PROFILE_LOADING":
-        return {
-          ...state,
-          profileDataLoading: true,
-        };
-  
-      case "END_PROFILE_LOADING":
-        return {
-          ...state,
-          profileDataLoading: false,
-        };
-  
-      default:
-        return state;
-    }
-  };
-  
-  export default profileReducer;
-  
+    profileExperiences: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    profilePosts: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+  },
+  action
+) => {
+  switch (action.type) {
+    case "GET_PROFILE_DATA":
+      return {
+        ...state,
+        profileData:{
+          ...state.profileData,
+          data : action.payload,
+        }       
+      };
+
+    case "SET_PROFILE_ERROR":
+      return {
+        ...state,
+        profileData:{
+          ...state.profileData,
+          dataErrorMsg: action.payload,
+          dataLoading: false
+        }
+      };
+
+    case "CLEAR_PROFILE_ERROR":
+      return {
+        ...state,
+        profileData:{
+          ...state.profileData,
+          dataErrorMsg: "",
+        }
+      };
+
+    case "SET_PROFILE_LOADING":
+      return {
+        ...state,
+        profileData:{
+          ...state.profileData,
+          dataLoading: true
+        }
+      };
+
+    case "END_PROFILE_LOADING":
+      return {
+        ...state,
+        profileData:{
+          ...state.profileData,
+          dataLoading: false
+        }
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default profileReducer;

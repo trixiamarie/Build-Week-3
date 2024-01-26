@@ -10,22 +10,49 @@ import searchReducer from "../Reducer/searchReducer";
 
 const initialState = {
   user: {
-    userData: [],
-    experiences: [],
-    userDataLoading: false,
-    userDataErrorMsg: "",
+    userData: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    userExperiences: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    userPosts: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
   },
   profile: {
-    profileData: [],
-    experiences: [],
-    profileDataLoading: false,
-    profileDataErrorMsg: "",
+    profileData:{
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    profileExperiences:{
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
+    profilePosts: {
+      data: [],
+      dataLoading: false,
+      dataErrorMsg: "",
+    },
   },
   search: {
     searchData: [],
     searchDataLoading: false,
     searchDataErrorMsg: "",
   },
+  posts:{
+    data: [],           //L'array dei post della Home. Son circa 450
+    dataLoading: false,
+    dataErrorMsg: "",
+  },  
 };
 
 const bigReducer = combineReducers({

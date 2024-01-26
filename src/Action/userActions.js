@@ -21,7 +21,7 @@ export const getUserData = () => {
                 dispatch(setUserError(res.request.status))
             }
         })
-        .catch(err => dispatch(setUserError(err)));
+        .catch(err => dispatch(setUserError(err.message)));
     }
 }
 

@@ -21,7 +21,7 @@ export const getProfileData = (profileId) => {
                 dispatch(setProfileError(res.request.status))
             }
         })
-        .catch(err => dispatch(setProfileError(err)));
+        .catch(err => dispatch(setProfileError(err.message)));
     }
 }
 
