@@ -26,6 +26,11 @@
   color: #666666;
 }
 
+.attivita-component-main p:first-of-type{
+  font-size: 0.9rem;
+  margin-top: -1rem;
+}
+
 .attivita-component-button {
   display: flex;
   text-align: center;
@@ -96,4 +101,7 @@
 
 .matita-btn:hover, .ale-plus-btn:hover{
   background-color: #ebebeb;
+}
+.testo-commento{
+  font-size: 0.9rem;
 }

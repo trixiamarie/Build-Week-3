@@ -41,7 +41,7 @@ dispatch(getAllPostsData())
           </div>
         </div>
         <p>178 follower</p>
-        {userPosts.length > 0 ? userPosts.map( post => {
+        {userPosts.length > 0 ? userPosts.slice(0,3).map( post => {
           return (
             <AttivitaSinglePostComponent key={post._id} post={post}/>
           )
