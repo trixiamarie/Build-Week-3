@@ -7,6 +7,7 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "../Reducer/userReducer";
 import profileReducer from "../Reducer/profileReducer";
 import searchReducer from "../Reducer/searchReducer";
+import postsReducer from "../Reducer/postsReducer";
 
 const initialState = {
   user: {
@@ -59,6 +60,7 @@ const bigReducer = combineReducers({
   user: userReducer,
   profile: profileReducer,
   search: searchReducer,
+  posts: postsReducer
 });
 
 const persistentConfig = {
