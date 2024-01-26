@@ -118,7 +118,7 @@ export default function NavbarComponent() {
               </p>
             </div>
 
-            <ProfileCardNavbar user={user} class="dropdown-menu" aria-labelledby="dropdownMenuButton"/>
+            {/* <ProfileCardNavbar user={user} class="dropdown-menu" aria-labelledby="dropdownMenuButton"/> */}
           
           <div className="d-none d-lg-flex" md={2} style={{ display: "flex" }}>
             <div>
