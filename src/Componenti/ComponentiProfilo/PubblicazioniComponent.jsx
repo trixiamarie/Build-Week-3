@@ -22,7 +22,7 @@ export default function PubblicazioniComponent() {
               <span className="fs14 fw400">Resources, Conservation and Recycling · 1 nov 2023</span>
               <div className="d-flex" style={{padding: "10px 0px 20px 0px" }}>
                 <span className="mostraPubb">
-                  <a  href="pippo">Mostra Pubblicazioni </a><BsBoxArrowUpRight style={{marginLeft: "5px"}}/>
+                  <a>Mostra Pubblicazioni </a><BsBoxArrowUpRight style={{marginLeft: "5px"}}/>
                 </span>
               </div>
 
@@ -47,7 +47,7 @@ export default function PubblicazioniComponent() {
         
           <Card.Body className="mostraComp">
           {/* Card.Link da cambiare con un link o un navigate */}
-          <Card.Link href="#"><b style={{color: "#00000099"}} >Mostra Tutte le Pubblicazioni</b></Card.Link>
+          <Card.Link ><b style={{color: "#00000099"}} >Mostra Tutte le Pubblicazioni</b></Card.Link>
           </Card.Body>
       </Card>
             

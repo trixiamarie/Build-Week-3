@@ -1,6 +1,4 @@
 import React from 'react'
-import { Container,Row, Col } from 'react-bootstrap';
-import { BsFillPeopleFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import ModaleComp from './ModaleCompComponent';
 
@@ -37,7 +35,7 @@ export default function CompetenzeComponent() {
         
           <Card.Body className="mostraComp">
           {/* Card.Link da cambiare con un link o un navigate */}
-          <Card.Link href="#"><b style={{color: "#00000099"}}>Mostra Tutte le Compentenze <FaArrowRightLong /></b></Card.Link>
+          <Card.Link><b style={{color: "#00000099"}}>Mostra Tutte le Compentenze <FaArrowRightLong /></b></Card.Link>
         </Card.Body>
       </Card>
             

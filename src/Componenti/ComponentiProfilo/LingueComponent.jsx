@@ -23,7 +23,7 @@ export default function LingueComponent() {
         
         <Card.Body className="mostraComp">
           {/* Card.Link da cambiare con un link o un navigate */}
-          <Card.Link href="#"><b style={{color: "#00000099"}}>Mostra Tutte le Lingue <FaArrowRightLong /></b></Card.Link>
+          <Card.Link><b style={{color: "#00000099"}}>Mostra Tutte le Lingue <FaArrowRightLong /></b></Card.Link>
         </Card.Body>
       </Card>
     </>
