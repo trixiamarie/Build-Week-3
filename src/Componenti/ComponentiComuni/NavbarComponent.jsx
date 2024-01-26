@@ -72,10 +72,11 @@ export default function NavbarComponent() {
               <MdPeople className="Icon" />
               <p className="d-none d-md-block">Rete</p>
             </div>
+            <Link to={"/jobs"}>
             <div className="text-center HoverIcon">
               <MdOutlineWork className="Icon" />
               <p className="d-none d-md-block">Lavoro</p>
-            </div>
+            </div></Link>
             <div className="text-center HoverIcon">
               <RiMessage3Fill className="Icon" />
               <p className="d-none d-md-block">Messaggistica</p>
