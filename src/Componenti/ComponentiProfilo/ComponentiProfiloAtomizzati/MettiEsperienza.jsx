@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function MettiEsperienza({ esperienza }) {
   const [lgShow, setLgShow] = useState(false);
-  const esperienzaRef = useRef();
+  
   const icone = useRef();
 
   const mostraIcone = () => {
@@ -20,7 +20,6 @@ export default function MettiEsperienza({ esperienza }) {
   return (
     <>
       <div
-        ref={esperienzaRef}
         className="esperienza border-bottom mt-3 d-flex justify-content-between"
         onMouseEnter={mostraIcone}
         onMouseLeave={nascondiIcone}

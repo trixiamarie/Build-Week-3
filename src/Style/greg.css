@@ -1,4 +1,6 @@
 .esperienze > div:last-child, .formazione > div:last-child {
     border: none !important;
 }
-
+.lavoroGreg h5{
+    color: #0A66C2 !important;
+}
