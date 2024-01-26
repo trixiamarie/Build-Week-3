@@ -1,25 +1,38 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { FaArrowRightLong } from "react-icons/fa6";
+import { RiPencilLine } from "react-icons/ri";
+import { FaPlus } from "react-icons/fa6";
 import "../../Style/Matteo.css"
 
 export default function LingueComponent() {
   return (
     <>
-    <Card className="mt-2">
-        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} className="softLine">
-          <h4>Lingue</h4>
-            {/* componente figlio da ciclare*/}
-            <div className="mt-2">
-              <span className="fw600">Inglese</span>
-              <p className="fs14" style={{color: "#00000099"}}>Conoscenza professionale</p>
+      <Card className="mt-2">
+        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} >
+          <div className="d-flex justify-content-between align-items-center">
+            <h4>Lingue</h4>
+            <div className="d-flex">
+              <div className="ale-plus-btn">
+                <FaPlus className="mx-auto" />
+              </div>
+              <div className="matita-btn">
+                <RiPencilLine />
+              </div>
             </div>
-            <div className="mt-2">
-              <span className="fw600">Inglese</span>
-              <p className="fs14" style={{color: "#00000099"}}>Conoscenza professionale</p>
-            </div>
-            {/* componente figlio da ciclare*/}
-          </Card.Body>
+          </div>
+          
+          <div className="softLine">
+              <div className="mt-2">
+                  <span className="fw600">Inglese</span>
+                  <p className="fs14" style={{color: "#00000099"}}>Conoscenza professionale</p>
+              </div>
+              <div className="mt-2">
+                <span className="fw600">Uzbeko</span>
+                <p className="fs14" style={{color: "#00000099"}}>Conoscenza limitata al rimorchio</p>
+              </div>
+          </div>
+        </Card.Body>
         
         <Card.Body className="mostraComp">
           {/* Card.Link da cambiare con un link o un navigate */}

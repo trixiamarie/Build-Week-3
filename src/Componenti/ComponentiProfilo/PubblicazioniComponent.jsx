@@ -1,6 +1,9 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { RiPencilLine } from "react-icons/ri";
+import { FaPlus } from "react-icons/fa6";
 import { useState } from 'react';
 import "../../Style/Matteo.css"
 
@@ -14,9 +17,20 @@ export default function PubblicazioniComponent() {
     <>
 
       <Card className="mt-2">
-        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} className="softLine">
-          <h4>Pubblicazioni</h4>
-            {/* componente figlio da ciclare*/}
+        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}}>
+          <div className="d-flex justify-content-between align-items-center">
+            <h4>Pubblicazioni</h4>
+            <div className="d-flex">
+              <div className="ale-plus-btn">
+                <FaPlus className="mx-auto" />
+              </div>
+              <div className="matita-btn">
+                <RiPencilLine />
+              </div>
+            </div>
+          </div>
+
+          <div className="softLine">
             <div className="mt-2">
               <span className="fw600">Recycling of multilayer packaging waste with switchable anionic surfactants</span><br></br>
               <span className="fs14 fw400">Resources, Conservation and Recycling · 1 nov 2023</span>
@@ -38,16 +52,16 @@ export default function PubblicazioniComponent() {
                   </span>
                   </p>
                 </div>
-              )}
-                            
+              )}                          
             </div>
-            {/* componente figlio da ciclare*/}
+          </div>
+          
             
         </Card.Body>
         
           <Card.Body className="mostraComp">
           {/* Card.Link da cambiare con un link o un navigate */}
-          <Card.Link ><b style={{color: "#00000099"}} >Mostra Tutte le Pubblicazioni</b></Card.Link>
+          <Card.Link ><b style={{color: "#00000099"}} >Mostra Tutte le Pubblicazioni <FaArrowRightLong /></b></Card.Link>
           </Card.Body>
       </Card>
             
