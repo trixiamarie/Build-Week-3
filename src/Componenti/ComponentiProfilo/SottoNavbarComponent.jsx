@@ -8,8 +8,8 @@ export default function SottoNavbarComponent() {
 
   const userData = useSelector(state => state.user.userData.data)
 
-  const username = "Vincenzo Arpaia";
-  const lavoro = "Full-stack Developer Student";
+  // const username = "Vincenzo Arpaia";
+  // const lavoro = "Full-stack Developer Student";
 
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
@@ -59,7 +59,7 @@ export default function SottoNavbarComponent() {
       <Container>
         <div className="sotto-navbar">
           <div className="sotto-navbar-sx">
-            <div className="sotto-navbar-avatar" style={{backgroundImage: `url(${userData.image})`, backgroundSize: "fill" }}>
+            <div className="sotto-navbar-avatar" style={{backgroundImage: `url(${userData.image})`, backgroundSize: "cover" }}>
               {userData.image ? "" : userData.name.substring(0, 1)}
               <div className="avatar-pallino"></div>
             </div>
