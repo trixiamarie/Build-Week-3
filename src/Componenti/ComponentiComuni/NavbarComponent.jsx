@@ -15,6 +15,8 @@ import { FaUserCircle } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SidebarNavbarComponent from "./SidebarNavbarComponent";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProfileCardNavbar from "./ProfileCardNavbar";
 
 export default function NavbarComponent() {
   const [show, setShow] = useState(false);
@@ -22,17 +24,24 @@ export default function NavbarComponent() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const user = useSelector(state => state.user.userData.data)
+  console.log(user)
+
   return (
-    <Navbar expand="md" className="NavbarCustom fixed-top" style={{zIndex:"2", borderBottom:"1px solid #E8E8E8"}}>
+    <Navbar
+      expand="md"
+      className="NavbarCustom fixed-top"
+      style={{ zIndex: "2", borderBottom: "1px solid #E8E8E8" }}
+    >
       <Container>
-        <Container className="d-flex ContainerNavbarCustom">
-        <Link to={"/"}>
-          <div md={1} className="LogoContainer">
-            <FaLinkedin className="Logo" />
-          </div>
+        <Container className="d-flex justify-content-flex-start ContainerNavbarCustom">
+          <Link to={"/"}>
+            <div md={1} className="LogoContainer">
+              <FaLinkedin className="Logo" />
+            </div>
           </Link>
           <div
-          className="d-none d-md-block"
+            className="d-none d-md-block"
             md={4}
             style={{
               display: "flex",
@@ -54,29 +63,33 @@ export default function NavbarComponent() {
               />
             </InputGroup>
           </div>
-          <div
-          className="d-block d-md-none"
-            md={4}
-          >
-          <input type="text" className="border-0 InputCustomNavbar search-click" name="" placeholder="search here..." />
+          <div className="d-block d-md-none" md={4}>
+            <input
+              type="text"
+              className="border-0 InputCustomNavbar search-click"
+              name=""
+              placeholder="search here..."
+            />
           </div>
         </Container>
         <Container className="d-flex ContainerNavbarCustom">
           <div className="d-flex align-items-start">
-          <Link to={"/"}>
-            <div className="text-center HoverIcon">
-              <HiMiniHome className="Icon" />
-              <p className="d-none d-md-block">Home</p>
-            </div></Link>
+            <Link to={"/"}>
+              <div className="text-center HoverIcon">
+                <HiMiniHome className="Icon" />
+                <p className="d-none d-md-block">Home</p>
+              </div>
+            </Link>
             <div className="text-center HoverIcon">
               <MdPeople className="Icon" />
               <p className="d-none d-md-block">Rete</p>
             </div>
             <Link to={"/jobs"}>
-            <div className="text-center HoverIcon">
-              <MdOutlineWork className="Icon" />
-              <p className="d-none d-md-block">Lavoro</p>
-            </div></Link>
+              <div className="text-center HoverIcon">
+                <MdOutlineWork className="Icon" />
+                <p className="d-none d-md-block">Lavoro</p>
+              </div>
+            </Link>
             <div className="text-center HoverIcon">
               <RiMessage3Fill className="Icon" />
               <p className="d-none d-md-block">Messaggistica</p>
@@ -87,17 +100,26 @@ export default function NavbarComponent() {
             </div>
           </div>
 
-<Link to={"/profile"}>
-          <div
-            md={1}
-            className="text-center HoverIcon"
-            style={{ borderRight: "1px solid #E8E8E8" }}
-          >
-            <FaUserCircle />
-            <p>
-              Tu <IoMdArrowDropdown />
-            </p>
-          </div></Link>
+
+            <div
+              md={1}
+              className="text-center HoverIcon dropdown-toggle"
+              style={{ borderRight: "1px solid #E8E8E8" }}
+              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            >
+             <img
+        src={user.image} 
+        alt="LinkedIn Logo"
+        style={{borderRadius:"50%", height:"1.5rem", width:"1.5rem"}}
+      />
+              {/* <FaUserCircle /> */}
+              <p>
+                Tu <IoMdArrowDropdown />
+              </p>
+            </div>
+
+            <ProfileCardNavbar user={user} class="dropdown-menu" aria-labelledby="dropdownMenuButton"/>
+          
           <div className="d-none d-lg-flex" md={2} style={{ display: "flex" }}>
             <div>
               <div
@@ -112,14 +134,33 @@ export default function NavbarComponent() {
                   </p>
                 </button>
               </div>
-              <Offcanvas show={show} onHide={handleClose} placement="end" style={{overflowY: 'auto', top: "3.31rem",
-    height: "100vh", width: "23.75rem", border:"1px solid #E8E8E8"}}>
+              <Offcanvas
+                show={show}
+                onHide={handleClose}
+                placement="end"
+                style={{
+                  overflowY: "auto",
+                  top: "3.31rem",
+                  height: "100vh",
+                  width: "23.75rem",
+                  border: "1px solid #E8E8E8",
+                  borderRadius: "0.5rem 0rem 0rem 0.5rem",
+                }}
+              >
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title style={{paddingLeft:" 0.5rem"}}>Per le aziende</Offcanvas.Title>
+                  <Offcanvas.Title style={{ paddingLeft: " 0.5rem" }}>
+                    Per le aziende
+                  </Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body style={{overflowY: 'auto', top: "3.31rem",
-    height: "100vh", margin:"auto"}}>
-                 <SidebarNavbarComponent/>
+                <Offcanvas.Body
+                  style={{
+                    overflowY: "auto",
+                    top: "3.31rem",
+                    height: "100vh",
+                    margin: "auto",
+                  }}
+                >
+                  <SidebarNavbarComponent />
                 </Offcanvas.Body>
               </Offcanvas>
             </div>

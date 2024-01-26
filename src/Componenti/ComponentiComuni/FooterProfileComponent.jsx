@@ -5,7 +5,7 @@ import { FaCircleQuestion } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoShieldHalf } from "react-icons/io5";
 
-export default function FooterComponent() {
+export default function FooterProfileComponent() {
   const FooterListLi = [
     "Informazioni",
     "Accessiblità",
@@ -69,9 +69,6 @@ export default function FooterComponent() {
     },
   ];
   
-  console.log(footerItems);
-  
-
   return (
     <footer className="FooterCustom">
       <div>
@@ -89,7 +86,6 @@ export default function FooterComponent() {
 
             <Col>
       <div className="row">
-        {/* Colonna 1 (occupa tutta la larghezza su schermi di dimensioni extra piccole e piccole) */}
         <div className="col-12 col-sm-12 col-md-12 col-lg-6" style={{ display: "flex" }}>
           <ul className="FooterListCustom2">
             {footerItems.map((x, index) => (
@@ -103,8 +99,6 @@ export default function FooterComponent() {
             ))}
           </ul>
         </div>
-
-        {/* Colonna 2 (occupa tutta la larghezza su schermi di dimensioni extra piccole e piccole) */}
         <div className="col-12 col-sm-12 col-md-12 col-lg-6 SelectFooter">
           <label>Seleziona lingua</label>
           <select defaultValue="it_IT">
