@@ -17,7 +17,7 @@ export default function NewPostComponent() {
 	const user = useSelector(state =>state.user.userData.data)
 
   return (
-    <div className="bg-white rounded-3 border border-2 p-3 my-4">
+    <div className="bg-white rounded-3 border border-2 p-3">
 			<div className="d-flex align-items-center ">
 				<img
 					src={user.image}

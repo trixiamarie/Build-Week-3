@@ -11,7 +11,7 @@ export default function ProfileCardHome() {
   const user = useSelector(state => state.user.userData.data)
   console.log(user)
   return (
-    <Card className="position-relative mt-4 rounded-bottom-sm-3 rounded-bottom-md-0 border-bottom">
+    <Card className="position-relative rounded-bottom-sm-3 rounded-bottom-md-0 border-bottom">
         <Card.Img
           variant="top"
           src="https://media.licdn.com/dms/image/D4E16AQFX1VYtIB7Gsw/profile-displaybackgroundimage-shrink_350_1400/0/1670241902799?e=1711584000&v=beta&t=Y1TCjyHZN68WHlbtVLAmIK98zJGu5kYfcfWhr95q0BA"
