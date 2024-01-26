@@ -1,0 +1,13 @@
+.AdsContainer {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+  
+.AdsContainer img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

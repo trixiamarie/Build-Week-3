@@ -41,7 +41,7 @@ export default function NavbarComponent() {
       style={{ zIndex: "2", borderBottom: "1px solid #E8E8E8" }}
     >
       <Container>
-        <Container className="d-flex justify-content-flex-start ContainerNavbarCustom">
+        <Container className="d-flex justify-content-flex-start align-items-center ContainerNavbarCustom">
           <Link to={"/"}>
             <div md={1} className="LogoContainer">
               <FaLinkedin className="Logo" />

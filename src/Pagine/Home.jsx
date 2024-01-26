@@ -7,6 +7,7 @@ import NewPostComponent from "../Componenti/ComponentiHome/NewPostComponent";
 import HomePostComponent from "../Componenti/ComponentiHome/HomePostComponent";
 import AltriProfiliComponent from "../Componenti/ComponentiProfilo/AltriProfiliComponent";
 import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeComponent";
+import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           {/* Componenti Sidebar Destro*/}
           {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <AltriProfiliComponent />
+          <AdsComponent/>
           <FooterHomeComponent/>
         </Col>
       </Row>
