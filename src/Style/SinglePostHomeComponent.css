@@ -1,0 +1,61 @@
+.card-home-post{
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #dfdeda;
+}
+
+.card-home-post-logo{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.nome-post{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.followers-user-post, .ore-post{
+    font-size: 0.8rem;
+    color:  #666666;
+}
+
+.card-home-post-header{
+    padding: 16px;
+}
+
+.card-home-post-header-right{
+    color:  #666666;
+}    
+.home-post-body{
+    font-size: 0.9rem;
+    color:  #333333;
+    padding: 0 1rem;
+}
+.home-post-segui{
+    font-weight: bold;
+    color: #0A66C2;
+    padding: 0 0.5rem;
+    cursor: pointer;
+}
+
+.home-post-segui span{
+    font-size: 20px;
+
+}
+.home-post-segui:hover{
+    background-color: #E2F0FE;
+}
+
+.img-footer-post-home-left{
+    font-size: 0.9rem;
+}
+
+.img-footer-post-home-right{
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+.img-footer-post-home{
+    border-bottom: 1px solid #666666;
+}
