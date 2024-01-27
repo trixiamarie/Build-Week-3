@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import CardJobs from '../Componenti/ComponentiJobs/CardJobs';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import ColonnaDx from '../Componenti/ComponentiJobs/ColonnaDx';
 import ColonnaSx from '../Componenti/ComponentiJobs/ColonnaSx';
@@ -9,23 +8,18 @@ export default function Jobs() {
 
   const [dettaglioJob, setDettaglioJob] = useState("r") 
 
-  return (
- 
+  return ( 
     <div>
-      <Container className='bg-white ' style={{marginTop:"4.809rem"}}>
+      <Container className='bg-white pb-0' style={{marginTop:"4.809rem"}}>
       <Row>
-        <Col xs={12} md={5} className='p-0'>
+        <Col xs={12} md={5} className='p-0 border border-secondary-subtle'>
           <ColonnaSx setDettaglioJob={setDettaglioJob}/>
         </Col>
-        <Col xs={12} md={7} className='d-sm-none d-md-block'>
+        <Col xs={12} md={7} className='d-sm-none d-md-block overflow-y-scroll pt-5 px-3 border border-secondary-subtle border-start-0'>
           <ColonnaDx dettaglioJob={dettaglioJob}/>
         </Col>
       </Row>
-    </Container>
-     
-    </div>
-      
-
-   
+    </Container>     
+    </div>   
   )
 }

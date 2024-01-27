@@ -3,6 +3,11 @@ import CardJobs from "./CardJobs";
 import FooterHomeComponent from "../ComponentiComuni/FooterHomeComponent";
 
 export default function JobsList({setDettaglioJob}) {
+
+
+
+
+  
   return (
     <div className="px-2 overflow-y-scroll" style={{ height: "79vh" }}>
 {/* 
