@@ -15,7 +15,7 @@ export default function Jobs() {
         <Col xs={12} md={5} className='p-0 border border-secondary-subtle'>
           <ColonnaSx setDettaglioJob={setDettaglioJob}/>
         </Col>
-        <Col xs={12} md={7} className='d-sm-none d-md-block overflow-y-scroll pt-5 px-3 border border-secondary-subtle border-start-0'>
+        <Col  md={7} className='d-sm-none  d-md-block overflow-y-scroll pt-5 px-3 border border-secondary-subtle border-start-0'>
           <ColonnaDx dettaglioJob={dettaglioJob}/>
         </Col>
       </Row>

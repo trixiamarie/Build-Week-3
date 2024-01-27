@@ -48,6 +48,7 @@ const initialState = {
     searchData: [],
     searchDataLoading: false,
     searchDataErrorMsg: "",
+    query:"",
   },
   posts:{
     data: [],           //L'array dei post della Home. Son circa 450
