@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import LoadingHomeComponent from "../Componenti/ComponentiProfilo/LoadingHomeComponent";
 import ProfileCardHome from "../Componenti/ComponentiHome/ProfileCardHomeComponent";
@@ -10,6 +10,15 @@ import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeCompon
 import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
 
 export default function Home() {
+
+  useEffect(() => {
+    document.title = " Feed | LinkedIn";
+
+    return () => {
+      document.title = '';
+    };
+  }, []);
+
   return (
     <Container>
       <Row style={{marginTop:"4.809rem"}}>

@@ -20,9 +20,22 @@ import InPrimoPianoComponent from '../Componenti/ComponentiProfilo/InPrimoPianoC
 import SottoNavbarComponent from '../Componenti/ComponentiProfilo/SottoNavbarComponent';
 import FooterProfileComponent from '../Componenti/ComponentiComuni/FooterProfileComponent';
 import Ads2Component from '../Componenti/ComponentiComuni/Ads2Component';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 
 export default function Profile() {
+
+  const user = useSelector((state) => state.user.userData.data);
+
+  useEffect(() => {
+    document.title = user.name +" " + user.surname + " | LinkedIn";
+
+    return () => {
+      document.title = '';
+    };
+  }, []);
+
   return (<>
     <SottoNavbarComponent />
     <Container>
@@ -43,7 +56,7 @@ export default function Profile() {
               <LingueComponent/>
               <InteressiComponent/>
             </Col>
-            <Col className="d-none d-md-block" md={{span:4}}> {/* colonna Sidebar */}
+            <Col md={{span:4}}> {/* colonna Sidebar */}
               {/* <div style={{height:"10rem", border:"1px solid black"}}></div> */}
               <LinguaLinkComponent />
               <AltriProfiliComponent/>
