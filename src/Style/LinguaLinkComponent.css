@@ -25,6 +25,11 @@
     background-color: #01754F;
     margin-right: 1rem;
 }
+
+.btnCustomLL:hover{
+    background-color: #004C33;
+    border: 1px solid #6C757D;
+}
 .btnCustomLL2{
     color: #6C757D;
     border: 1px solid #6C757D;
@@ -32,4 +37,10 @@
     border-radius: 1rem;
     padding: 0.2rem 3rem;
     background-color: white;
+}
+
+.btnCustomLL2:hover{
+    color: black;
+    border: 1.6px solid #6C757D;
+    background-color: #F3F3F3;
 }
