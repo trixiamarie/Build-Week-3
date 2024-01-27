@@ -1,0 +1,46 @@
+.LLContainer{
+    min-height: min-content;
+}
+
+.language-section{
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.profile-section{
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.ps-p{
+    overflow-wrap: break-word;
+    color: grey;
+}
+
+.btnCustomLL{
+    border: 1px solid #6C757D;
+    font-weight: 500;
+    border-radius: 1rem;
+    padding: 0.2rem 3rem;
+    background-color: #01754F;
+    margin-right: 1rem;
+}
+
+.btnCustomLL:hover{
+    background-color: #004C33;
+    border: 1px solid #6C757D;
+}
+.btnCustomLL2{
+    color: #6C757D;
+    border: 1px solid #6C757D;
+    font-weight: 500;
+    border-radius: 1rem;
+    padding: 0.2rem 3rem;
+    background-color: white;
+}
+
+.btnCustomLL2:hover{
+    color: black;
+    border: 1.6px solid #6C757D;
+    background-color: #F3F3F3;
+}

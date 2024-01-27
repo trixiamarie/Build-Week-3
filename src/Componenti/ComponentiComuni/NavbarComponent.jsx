@@ -2,36 +2,21 @@ import "../../Style/NavbarStyle.css";
 import React from "react";
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { FaLinkedin } from "react-icons/fa";
-import {
-  Container,
-  Dropdown,
-  Form,
-  InputGroup,
-  Navbar,
-} from "react-bootstrap";
-import { HiMiniHome } from "react-icons/hi2";
-import { MdPeople } from "react-icons/md";
-import { MdOutlineWork } from "react-icons/md";
-import { RiMessage3Fill } from "react-icons/ri";
-import { BsBellFill } from "react-icons/bs";
-import { IoMdSearch } from "react-icons/io";
+import { Container, Navbar } from "react-bootstrap";
 import { BiSolidGrid } from "react-icons/bi";
-import { IoMdArrowDropdown } from "react-icons/io";
 import SidebarNavbarComponent from "./SidebarNavbarComponent";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileCardNavbar from "./ProfileCardNavbar";
-import { BelleNotificheLinkedin, HomeLinkedin, MessagesLinkedin, UsersLinkedin, WorkBagLinkedin } from "../../SVG/svgTrixia";
+import InputNavbarComponent from "./InputNavbarComponent";
+import IconNavbarComponent from "./IconNavbarComponent";
+import DropdownCardNavbar from "./DropdownCardNavbar";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 export default function NavbarComponent() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const user = useSelector((state) => state.user.userData.data);
-  console.log(user);
 
   return (
     <Navbar
@@ -40,103 +25,11 @@ export default function NavbarComponent() {
       style={{ zIndex: "2", borderBottom: "1px solid #E8E8E8" }}
     >
       <Container>
-        <Container className="d-flex justify-content-flex-start align-items-center ContainerNavbarCustom">
-          <Link to={"/"}>
-            <div md={1} className="LogoContainer">
-              <FaLinkedin className="Logo" />
-            </div>
-          </Link>
-          <div
-            className="d-none d-md-block"
-            md={4}
-            style={{
-              display: "flex",
-              width: "20rem",
-              alignItems: "center",
-            }}
-          >
-            <InputGroup className="mx-1">
-              <InputGroup.Text className="border-0 InputCustomNavbar">
-                {" "}
-                <IoMdSearch className="IconSearchCustom" />
-              </InputGroup.Text>
-
-              <Form.Control
-                className="InputCustomNavbar"
-                placeholder="Cerca"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </InputGroup>
-          </div>
-          <div className="d-block d-md-none" md={4}>
-            <input
-              type="text"
-              className="border-0 InputCustomNavbar search-click"
-              name=""
-            />
-          </div>
-        </Container>
+        <InputNavbarComponent />
         <Container className="d-flex ContainerNavbarCustom">
-          <div className="d-flex align-items-start">
-            <Link to={"/"}>
-              <div className="text-center HoverIcon">
-                <HomeLinkedin className="Icon" />
-                <p className="d-none d-md-block">Home</p>
-              </div>
-            </Link>
-            <div className="text-center HoverIcon">
-              <UsersLinkedin className="Icon" />
-              <p className="d-none d-md-block">Rete</p>
-            </div>
-            <Link to={"/jobs"}>
-              <div className="text-center HoverIcon">
-                <WorkBagLinkedin className="Icon" />
-                <p className="d-none d-md-block">Lavoro</p>
-              </div>
-            </Link>
-            <div className="text-center HoverIcon">
-              <MessagesLinkedin className="Icon" />
-              <p className="d-none d-md-block">Messaggistica</p>
-            </div>
-            <div className="text-center HoverIcon">
-              <BelleNotificheLinkedin className="Icon" />
-              <p className="d-none d-md-block">Notifiche</p>
-            </div>
-          </div>
+          <IconNavbarComponent />
 
-          <Dropdown>
-            <Dropdown.Toggle id="dropdown-basic" className="custom-dropdown-toggle">
-              <div
-                md={1}
-                className="text-center HoverIcon dropdown-toggle"
-                style={{ borderRight: "1px solid #E8E8E8" }}
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <img
-                  src={user.image}
-                  alt="LinkedIn Logo"
-                  style={{
-                    borderRadius: "50%",
-                    height: "1.5rem",
-                    width: "1.5rem",
-                  }}
-                />
-                {/* <FaUserCircle /> */}
-                <p>
-                  Tu <IoMdArrowDropdown />
-                </p>
-              </div>
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <ProfileCardNavbar user={user} />
-            </Dropdown.Menu>
-          </Dropdown>
-
+          <DropdownCardNavbar user={user} />
           <div className="d-none d-lg-flex" md={2} style={{ display: "flex" }}>
             <div>
               <div

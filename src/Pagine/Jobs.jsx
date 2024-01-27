@@ -8,6 +8,14 @@ export default function Jobs() {
 
   const [dettaglioJob, setDettaglioJob] = useState("r") 
 
+  useEffect(() => {
+    document.title = "Offerte di lavoro per " + '"' + "da cambiare con termine del search" + '"' + " | Linkedin";
+
+    return () => {
+      document.title = '';
+    };
+  }, []);
+
   return ( 
     <div>
       <Container className='bg-white pb-0' style={{marginTop:"4.809rem"}}>
