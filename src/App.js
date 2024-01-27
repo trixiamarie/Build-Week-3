@@ -6,13 +6,16 @@ import Profile from "./Pagine/Profile";
 import NotFound from "./Pagine/NotFound";
 import NavbarComponent from "./Componenti/ComponentiComuni/NavbarComponent";
 import Jobs from "./Pagine/Jobs";
+import FakeComponent from "./Componenti/ComponentiHome/FakeComponent";
 
 function App() {
 
   
   return (
     <>
+    
       <BrowserRouter>
+      <FakeComponent/>
         <NavbarComponent />
         <Routes>
           <Route path={"/"} element={<Home/>}></Route>

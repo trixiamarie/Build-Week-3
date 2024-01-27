@@ -1,4 +1,4 @@
-import axios from "axios"
+/* import axios from "axios"
 import { BEARER_TOKEN, profileBaseURL } from "../Config"
 
 export const getSearchJob = (profileId) => {
@@ -48,4 +48,4 @@ export const endSearchLoading = () => {
     return {
         type: "END_SEARCH_LOADING"
       };
-}
+} */
