@@ -8,7 +8,23 @@
 }
 
 .bgHover:hover {
-    background-color: #c6cace; /* Grigio chiaro */
-    transition: all 0.3s;
+    background-color: #EBEBEB; /* Grigio chiaro */
+    transition: all 0.7s;
   }
   
+
+.plus{
+    width: 32px;
+    height: 32px;    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.underlineHover:hover{
+    text-decoration:solid underline;
+   
+}
+
