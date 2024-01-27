@@ -12,7 +12,7 @@ export default function UnderProfileCardComponent() {
     <Card
         className="border-top-0 border-bottom-0 rounded-0 d-none d-md-block"
         style={{ cursor: "pointer" }}>
-        <div className="d-flex justify-content-between lh-1 bgHover pt-4 pb-2 px-3 " style={{ height: "50%" }}>
+        <div className="d-flex justify-content-between lh-1 bgHover pt-4 pb-2 px-3" style={{ height: "50%" }}>
           <span className="text-secondary ">Collegamenti</span>
           <span className="text-primary">3</span>
         </div>
@@ -31,10 +31,10 @@ export default function UnderProfileCardComponent() {
         
       </Card>
       <Card
-        className="border-top border-bottom-0 rounded-0 py-4 px-3  d-none d-md-block bgHover"
+        className="border-top border-bottom-0 rounded-0 py-4 px-3 d-none d-md-block bgHover"
         style={{ cursor: "pointer" }}>
         <span className="fw-light text-secondary">Raggiungi nuove vette professionali con Premium</span>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center ">
           <FaPlus style={{ color: "#575757", cursor: "pointer" }} />
           <span className="fw-bold bgHover ms-2">Prova Premium gratis</span>
         </div>
@@ -45,21 +45,21 @@ export default function UnderProfileCardComponent() {
         <FaBookmark style={{ color: "#575757" }} />
         <span className="fw-bold ms-3">I miei elementi</span>
       </Card>
-      <Card className="border-top-0 border-bottom-0 rounded-1 d-none d-md-block text-primary my-5"
+      <Card className="border-top-0 border-bottom-0 rounded-1 d-none d-md-block text-primary my-3"
         style={{ cursor: "pointer" }}>
-        <div className="d-flex  lh-1 bgHover pt-4 pb-2 px-3 " style={{ height: "50%" }}>
+        <div className="d-flex  lh-1 underlineHover pt-4 pb-2 px-3 " style={{ height: "50%" }}>
           <span className="fw-bold ">Gruppi</span>
           
         </div>
         <div className='py-2 px-3 d-flex align-items-center justify-content-between '>
-          <span className="fw-bold bgHover">Espandi la tua rete</span>
-          <div className='rounded-circle bgHover'>
+          <span className="fw-bold underlineHover">Espandi la tua rete</span>
+          <div className='rounded-circle plus bgHover'>
             <FaPlus className="mx-auto" style={{ color: "#575757", cursor: "pointer" }} />
           </div>
           
         </div>
-        <div className="py-2 px-3 bgHover">
-          <span className="fw-bold-">Invito</span>
+        <div className="py-2 px-3 underlineHover">
+          <span className="fw-bold">Invito</span>
           
         </div> 
 
@@ -74,7 +74,6 @@ export default function UnderProfileCardComponent() {
     </>
   )
 }
-
 
 /*
 className="bg-white mt-3 pt-4 pb-1 px-3 text-primary fw-bold rounded-bottom-0 d-none d-md-block">

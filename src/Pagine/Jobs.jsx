@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import ColonnaDx from '../Componenti/ComponentiJobs/ColonnaDx';
 import ColonnaSx from '../Componenti/ComponentiJobs/ColonnaSx';
+import SottoNavbarJob from '../Componenti/ComponentiJobs/SottoNavbarJob';
 
 
 export default function Jobs() {
@@ -16,8 +17,9 @@ export default function Jobs() {
     };
   }, []);
 
-  return ( 
+  return (
     <div>
+      <SottoNavbarJob></SottoNavbarJob>
       <Container className='bg-white pb-0' style={{marginTop:"4.809rem"}}>
       <Row>
         <Col xs={12} md={5} className='p-0 border border-secondary-subtle'>
