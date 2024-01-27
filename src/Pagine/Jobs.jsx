@@ -20,7 +20,7 @@ export default function Jobs() {
   return (
     <div>
       <SottoNavbarJob></SottoNavbarJob>
-      <Container className='bg-white pb-0' style={{marginTop:"4.809rem"}}>
+      <Container className='bg-white pb-0' style={{marginTop:"8rem"}}>
       <Row>
         <Col xs={12} md={5} className='p-0 border border-secondary-subtle'>
           <ColonnaSx setDettaglioJob={setDettaglioJob}/>
