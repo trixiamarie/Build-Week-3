@@ -8,6 +8,7 @@ import { getAllProfilesData } from '../../Action/allProfilesActions';
 
 
 export default function FakeComponent() {
+    const stato = useSelector(state=>state)
 
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -15,6 +16,12 @@ export default function FakeComponent() {
         dispatch(getAllPostsData());
         dispatch(getAllProfilesData());
     },[])
+
+    useEffect(()=>{
+        console.log(stato);
+    },[stato])
+
+    
 
   return (
     <>
