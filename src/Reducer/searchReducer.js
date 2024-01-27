@@ -1,51 +1,47 @@
-/* import axios from "axios"
-import { BEARER_TOKEN, profileBaseURL } from "../Config"
-
-export const getSearchJob = (profileId) => {
-    return (dispatch, state) => {
-        dispatch(clearSearchError());
-        dispatch(setSearchLoading());
-
-        axios(profileBaseURL + profileId, {
-            headers: {
-                "authorization": "Bearer " + BEARER_TOKEN
-            }
-        })
-        .then(res => {
-            if (res.status === 200) {
-                console.log(res);
-                dispatch({type: "GET_SEARCH_DATA", payload: res.data});
-                dispatch(endSearchLoading());
-            } else {
-                console.log("errore");
-                dispatch(setSearchError(res.request.status))
-            }
-        })
-        .catch(err => dispatch(setSearchError(err.message)));
-    }
-}
-
-export const setSearchError = (errorMsg) => {
-    return {
-        type: "SET_SEARCH_ERROR",
-        payload: errorMsg
+const searchReducer = (
+  state = {
+    data: [],
+    dataLoading: false,
+    errorMsg: "",
+    query:"",
+  },
+  action
+) => {
+  switch (action.type) {
+    case "GET_SEARCH_DATA":
+      return {
+        ...state,
+        data: action.payload,
       };
-}
 
-export const clearSearchError = () => {
-    return {
-        type: "CLEAR_SEARCH_ERROR"
+    case "SET_SEARCH_ERROR":
+      return {
+        ...state,
+        errorMsg: action.payload,
+        dataLoading: false
       };
-}
 
-export const setSearchLoading = () => {
-    return {
-        type: "SET_SEARCH_LOADING"
+    case "CLEAR_SEARCH_ERROR":
+      return {
+        ...state,
+        errorMsg: "",
       };
-}
 
-export const endSearchLoading = () => {
-    return {
-        type: "END_SEARCH_LOADING"
+    case "SET_SEARCH_LOADING":
+      return {
+        ...state,
+        dataLoading: true,
       };
-} */
+
+    case "END_SEARCH_LOADING":
+      return {
+        ...state,
+        dataLoading: false,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default searchReducer;

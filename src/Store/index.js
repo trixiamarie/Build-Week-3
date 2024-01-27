@@ -51,9 +51,9 @@ const initialState = {
     dataErrorMsg: "",
   },
   search: {
-    searchData: [],
-    searchDataLoading: false,
-    searchDataErrorMsg: "",
+    data: [],
+    dataLoading: false,
+    dataErrorMsg: "",
     query: "",
   },
   posts: {
@@ -74,6 +74,7 @@ const bigReducer = combineReducers({
 const persistentConfig = {
   key: "root",
   storage,
+  blacklist:['search','posts'],
   transform: [
     encryptTransform({
       secretKey: SECRET_KEY,
@@ -85,6 +86,7 @@ const persistentConfig = {
 };
 
 const persistedReducer = persistReducer(persistentConfig, bigReducer);
+
 
 export const store = createStore(
   persistedReducer,

@@ -1,30 +1,27 @@
-import React from 'react'
+import React from "react";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getUserData } from '../../Action/userActions';
-import { getAllPostsData } from '../../Action/postsActions';
-import { getAllProfilesData } from '../../Action/allProfilesActions';
-
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserData } from "../../Action/userActions";
+import { getAllPostsData } from "../../Action/postsActions";
+import { getAllProfilesData } from "../../Action/allProfilesActions";
+import { getSearchJob } from "../../Action/searchActions";
 
 export default function FakeComponent() {
-    const stato = useSelector(state=>state)
+  const stato = useSelector((state) => state);
 
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(getUserData());
-        dispatch(getAllPostsData());
-        dispatch(getAllProfilesData());
-    },[])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProfilesData());
+    dispatch(getSearchJob())
 
-    useEffect(()=>{
-        console.log(stato);
-    },[stato])
+    dispatch(getAllPostsData());
+    dispatch(getUserData());
+  }, []);
 
-    
+  useEffect(() => {
+    console.log(stato);
+  }, [stato]);
 
-  return (
-    <>
-    </>
-  )
+  return <></>;
 }
