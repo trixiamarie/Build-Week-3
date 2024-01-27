@@ -22,6 +22,7 @@ import FooterProfileComponent from '../Componenti/ComponentiComuni/FooterProfile
 import Ads2Component from '../Componenti/ComponentiComuni/Ads2Component';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import AdsComponent from '../Componenti/ComponentiComuni/AdsComponent';
 
 
 export default function Profile() {
@@ -59,10 +60,11 @@ export default function Profile() {
             <Col md={{span:4}}> {/* colonna Sidebar */}
               {/* <div style={{height:"10rem", border:"1px solid black"}}></div> */}
               <LinguaLinkComponent />
+              <Ads2Component/>
               <AltriProfiliComponent/>
               <PotrestiConoscereComponent/>
               <PotrebbeInteressartiComponent/>
-              <Ads2Component/>
+              <AdsComponent/>
             </Col>
         </Row>
     </Container>
