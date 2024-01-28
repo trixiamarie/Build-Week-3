@@ -81,7 +81,7 @@ const bigReducer = combineReducers({
 const persistentConfig = {
   key: "root",
   storage,
-  blacklist:['search','posts'],
+  blacklist:['search','posts',"jobsSaved"],
   transform: [
     encryptTransform({
       secretKey: SECRET_KEY,

@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
-import { useDispatch, useSelector } from 'react-redux';
-import { jobsSavedAction, removejobsSavedAction } from "../../Action/jobsSavedActions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  jobsSavedAction,
+  removejobsSavedAction,
+} from "../../Action/jobsSavedActions";
 
-export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob, indice }) {
+export default function CardJobs({
+  setDettaglioJob,
+  impiego,
+  dettaglioJob,
+  indice,
+}) {
   const dispatch = useDispatch();
 
-  const listJobs = useSelector(state => state.jobsSaved)
-  console.log(listJobs)
-  const jobs = listJobs.find(x => x === impiego._id)
-  console.log(jobs)
+  const listJobs = useSelector((state) => state.jobsSaved);
+  console.log(listJobs);
+  const jobs = listJobs.includes(impiego._id);
+  console.log(jobs);
 
-   useEffect(()=>{
-    if (indice==0){
+  useEffect(() => {
+    if (indice == 0) {
       setDettaglioJob(impiego.description);
     }
-   },[])
+  }, []);
 
+  useEffect(() => {}, [listJobs]);
 
   function prova() {
     setDettaglioJob(impiego.description);
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
   const [nCandidati, setNCandidati] = useState(
@@ -65,7 +74,7 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob, indic
                 <p className="mb-0 ">{impiego.company_name}</p>
               </div>
               <small className="text-body-secondary mb-0">
-                {impiego.category }
+                {impiego.category}
                 {impiego.job_type
                   ? " (" + impiego.job_type.replace(/_/g, "-") + ")"
                   : ""}
@@ -87,7 +96,15 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob, indic
 
       <div className="fs-5 me-2 d-flex text-secondary">
         <div className="matita-btn">
-         {jobs ? <IoMdHeart onClick={() => dispatch(removejobsSavedAction(impiego._id))}/> : <IoIosHeartEmpty  onClick={() => dispatch(jobsSavedAction(impiego._id))}/>} 
+          {jobs ? (
+            <IoMdHeart
+              onClick={() => dispatch(removejobsSavedAction(impiego._id))}
+            />
+          ) : (
+            <IoIosHeartEmpty
+              onClick={() => dispatch(jobsSavedAction(impiego._id))}
+            />
+          )}
         </div>
       </div>
     </div>
