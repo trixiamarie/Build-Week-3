@@ -116,7 +116,7 @@
   box-shadow: 0px 5px 5px #7f7f80aa;
 }
 
-input[type=text] {
+input[type=text].InputNAVCOMP{
     width: 0.0625rem; 
     box-sizing: border-box;
     border: 0.125rem solid #ccc; 
@@ -135,7 +135,7 @@ input[type=text] {
 }
 
   
-  input[type=text]:focus {
+  input[type=text].InputNAVCOMP:focus {
     width: 10rem;
     background-color: #edf3f8;
 

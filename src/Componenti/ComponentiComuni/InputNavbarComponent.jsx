@@ -52,24 +52,24 @@ export default function InputNavbarComponent() {
                 <IoMdSearch className="IconSearchCustom" />
               </InputGroup.Text>
 
-              <Form.Control
-                className="InputCustomNavbar"
-                placeholder="Cerca"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-                onChange={handleQuery}
-              />
-            </InputGroup>
-          </Form>
-        </div>
-        <div className="d-block d-md-none" md={4}>
-          <input
-            type="text"
-            className="border-0 InputCustomNavbar search-click"
-            name=""
-          />
-        </div>
-      </Container>
+                <Form.Control
+                  className="InputCustomNavbar"
+                  placeholder="Cerca"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  onChange = {handleQuery}
+                />
+              </InputGroup>
+            </Form>
+          </div>
+          <div className="d-block d-md-none" md={4}>
+            <input
+              type="text"
+              className="InputNAVCOMP border-0 InputCustomNavbar search-click"
+              name=""
+            />
+          </div>
+        </Container>
     </>
   );
 }
