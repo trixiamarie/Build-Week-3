@@ -6,8 +6,12 @@ import { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function MettiEsperienza({ esperienza }) {
+
+  const { idUrl } = useParams()
+
   const [id, setId] = useState("65b238dc082963001801ea7e");
   const [validated, setValidated] = useState(false);
   const [newExp, setNewExp] = useState({role:'', company:'', startDate: '2022-02-02', endDate: null, description: '', area: ''})
@@ -143,13 +147,13 @@ export default function MettiEsperienza({ esperienza }) {
         </div>
 
         <div ref={icone} className="fs-5 me-2 d-flex text-secondary d-none">
-          <div className="matita-btn" onClick={() => {setShowPutMod(true)
+        { idUrl ? null : <> <div className="matita-btn" onClick={() => {setShowPutMod(true)
                                                       console.log(esperienza)}}>
             <RiPencilLine />
           </div>
           <div className="matita-btn" onClick={handleShow}>
             <FaTrash className="gregTrash" />
-          </div>
+          </div></>} 
         </div>
       </div>
 

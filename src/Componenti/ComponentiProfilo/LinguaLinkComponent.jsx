@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 export default function LinguaLinkComponent() {
 
-  const { id } = useParams()
+  const { idUrl } = useParams()
   const user = useSelector((state) => state.user.userData.data);
 
   const username =
@@ -18,7 +18,7 @@ export default function LinguaLinkComponent() {
 
   return (
     <>
-    {id ? null :
+    {idUrl ? null :
     <div className="LLContainer bg-white rounded border border-1 p-3">
       <div className="language-section d-flex justify-content-between">
         <p>Lingua del profilo</p>

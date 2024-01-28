@@ -3,11 +3,12 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { RiPencilLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa6";
 import ModaleComp from './ModaleCompComponent';
-
+import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
 
 export default function CompetenzeComponent() {
+  const { idUrl } = useParams()
  
   return (
     <>
@@ -17,12 +18,12 @@ export default function CompetenzeComponent() {
         <div className="d-flex justify-content-between align-items-center">
           <h4>Competenze</h4>
           <div className="d-flex">
-            <div className="ale-plus-btn">
+          { idUrl ? null : <><div className="ale-plus-btn">
               <FaPlus className="mx-auto" />
             </div>
             <div className="matita-btn">
               <RiPencilLine />
-            </div>
+            </div></>}
           </div>
         </div>
   

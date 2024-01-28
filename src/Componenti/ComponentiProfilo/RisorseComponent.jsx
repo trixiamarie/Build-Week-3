@@ -9,14 +9,14 @@ import { FaSatelliteDish } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
 
 export default function RisorseComponent() {
- const { id } = useParams()
+ const { idUrl } = useParams()
 
 
 
     
   return (
     <>
-    {id ? null :
+    {idUrl ? null :
     <div className='border rounded-2 pt-3 bg-white'>
     <Container className='mx-2 mb-3'>
     <h3 className='m-0'>Risorse</h3>

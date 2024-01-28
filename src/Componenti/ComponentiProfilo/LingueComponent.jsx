@@ -4,8 +4,12 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { RiPencilLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa6";
 import "../../Style/Matteo.css"
+import { useParams } from 'react-router-dom';
 
 export default function LingueComponent() {
+
+  const { idUrl } = useParams()
+
   return (
     <>
       <Card className="mt-2">
@@ -13,12 +17,12 @@ export default function LingueComponent() {
           <div className="d-flex justify-content-between align-items-center">
             <h4>Lingue</h4>
             <div className="d-flex">
-              <div className="ale-plus-btn">
+            { idUrl ? null : <><div className="ale-plus-btn">
                 <FaPlus className="mx-auto" />
               </div>
               <div className="matita-btn">
                 <RiPencilLine />
-              </div>
+              </div></>}
             </div>
           </div>
           

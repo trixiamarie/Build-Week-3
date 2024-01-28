@@ -13,6 +13,9 @@ import { FaPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 
 export default function EsperienzaComponent() {
+
+  const { idUrl } = useParams()
+
   /* const [ id, setId] = useState(useParams()); */
   const [id, setId] = useState("65b238dc082963001801ea7e");
   const [esperienze, setEsperienze] = useState([]);
@@ -116,7 +119,7 @@ export default function EsperienzaComponent() {
           <h4>Esperienza</h4>
 
           <div className="text-secondary fs-5 d-flex">
-            <div
+            { idUrl ? null : <div
               className="matita-btn"
               onClick={() => {
                 setshowPostMod(true);
@@ -124,7 +127,7 @@ export default function EsperienzaComponent() {
               }}
             >
               <IoAddSharp />
-            </div>
+            </div>}
           </div>
         </div>
         {esperienze.length > 0 && (

@@ -7,9 +7,15 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { TbInfoSquareFilled } from "react-icons/tb";
 import { FiCornerUpRight } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 
 export default function ProfileCardComponent() {
+
+  const { idUrl } = useParams()
+
+  console.log(idUrl)
+
   const user = useSelector(state => state.user.userData)
   /* const [ id, setId] = useState(useParams()); */
   const [id, setId] = useState("6551e7bbc55e7e0018f83bfb");
@@ -56,16 +62,16 @@ export default function ProfileCardComponent() {
         <Card.Img variant="top" src="https://picsum.photos/800/200" />
         <Image roundedCircle className='border border-white border-5 position-absolute ms-3 w-25' src={user.image} style={{ marginTop: '4rem' }} />
 
-        <div className="matita-btn position-absolute top-0 end-0 m-4 bg-white text-primary">
+        { idUrl ? null : <div className="matita-btn position-absolute top-0 end-0 m-4 bg-white text-primary">
           <RiPencilLine />
-        </div>
+        </div> }
         <Card.Body>
           <Row xs={1} className='my-3 '>
-            <Col className='offset-11 matita-btn' onClick={handleShow}>
+            { idUrl ? null :<Col className='offset-11 matita-btn' onClick={handleShow}>
 
-              <RiPencilLine />
+             <RiPencilLine /> 
 
-            </Col>
+            </Col>}
           </Row>
           <Row className=' justify-content-between'>
             <Col>

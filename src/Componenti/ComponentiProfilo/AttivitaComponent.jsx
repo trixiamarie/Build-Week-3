@@ -9,9 +9,11 @@ import { useSelector } from "react-redux";
 import { getAllPostsData } from "../../Action/postsActions";
 import AttivitaSinglePostComponent from "./AttivitaSinglePostComponent";
 import NoActivityComponent from "./NoActivityComponent";
+import { useParams } from "react-router-dom";
 
 export default function AttivitaComponent() {
 
+  const {idUrl} = useParams()
   const allPosts = useSelector(state => state.posts.data)
   const userData = useSelector(state => state.user.userData.data)
   console.log(allPosts)
@@ -34,13 +36,13 @@ dispatch(getAllPostsData())
         <div>
           <h4>Attività</h4>
           <div>
-            <div className="crea-un-post-btn">Crea un post</div>
-            <div className="matita-btn">
-            <RiPencilLine />
-            </div>
+          { idUrl ? null : <div className="crea-un-post-btn">Crea un post</div>}
+           { idUrl ? null : <div className="matita-btn">
+             <RiPencilLine />
+            </div>}
           </div>
         </div>
-        <p>178 follower</p>
+        <p style={{marginTop:"0.5rem"}}>178 follower</p>
         {userPosts.length > 0 ? userPosts.slice(0,3).map( post => {
           return (
             <AttivitaSinglePostComponent key={post._id} post={post}/>

@@ -9,6 +9,8 @@ import profileReducer from "../Reducer/profileReducer";
 import searchReducer from "../Reducer/searchReducer";
 import postsReducer from "../Reducer/postsReducer";
 import allProfilesReducer from "../Reducer/allProfilesReducer";
+import userFriendsReducer from "../Reducer/userFriendsReducer";
+import jobsSavedReducer from "../Reducer/jobsSavedReducer";
 
 const initialState = {
   user: {
@@ -62,6 +64,8 @@ const initialState = {
     dataLoading: false,
     dataErrorMsg: "",
   },
+  userFriends: [],
+  jobsSaved: [],
 };
 
 const bigReducer = combineReducers({
@@ -70,6 +74,8 @@ const bigReducer = combineReducers({
   search: searchReducer,
   posts: postsReducer,
   allProfiles: allProfilesReducer,
+  userFriends: userFriendsReducer,
+  jobsSaved: jobsSavedReducer,
 });
 
 const persistentConfig = {

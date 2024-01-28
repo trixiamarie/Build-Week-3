@@ -2,8 +2,11 @@ import React, { useRef } from "react";
 import { FaTrash } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
 import { IoAddSharp } from "react-icons/io5";
+import { useParams } from "react-router-dom";
 
 export default function FormazioneComponent() {
+
+  const { idUrl } = useParams();
   const icone = useRef();
 
   const mostraIcone = () => {
@@ -20,14 +23,14 @@ export default function FormazioneComponent() {
         <h4>Formazione</h4>
 
         <div className="text-secondary fs-5 d-flex">
-          <div className="matita-btn">
+        { idUrl ? null : <div className="matita-btn">
             <IoAddSharp
               className=" "
               onClick={() => {
                 console.log("ciao");
               }}
             />
-          </div>
+          </div>}
         </div>
       </div>
 
@@ -86,12 +89,12 @@ export default function FormazioneComponent() {
           </div>
 
           <div ref={icone} className="fs-5 me-2 d-flex text-secondary d-none">
-            <div className="matita-btn">
+          { idUrl ? null : <><div className="matita-btn">
               <RiPencilLine />
             </div>
             <div className="matita-btn">
               <FaTrash className="gregTrash" />
-            </div>
+            </div> </> }
           </div>
         </div>
       </div>
@@ -139,12 +142,12 @@ export default function FormazioneComponent() {
             </div>
           </div>
           <div ref={icone} className="fs-5 me-2 d-flex text-secondary d-none">
-            <div className="matita-btn">
+          { idUrl ? null : <><div className="matita-btn">
               <RiPencilLine />
             </div>
             <div className="matita-btn">
               <FaTrash className="gregTrash" />
-            </div>
+            </div> </> }
           </div>
         </div>
       </div>

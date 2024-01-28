@@ -10,12 +10,12 @@ import { useParams } from 'react-router-dom';
 
 export default function AnalisiComponent() {
 
-    const {id} = useParams()
-    console.log(id)
+    const {idUrl} = useParams()
+    console.log(idUrl)
 
     return (
         <>
-        {id ? null : <div className='border rounded-2 pt-3 bg-white' style={{marginBottom: "0.5rem"}}>
+        {idUrl ? null : <div className='border rounded-2 pt-3 bg-white' style={{marginBottom: "0.5rem"}}>
             <Container className='mx-2 mb-3'>
             <h3 className='m-0'>Analisi</h3>
             <p className='text-secondary m-0 d-flex align-items-center fs-6'><MdRemoveRedEye className='me-1' /> Solo per te</p>

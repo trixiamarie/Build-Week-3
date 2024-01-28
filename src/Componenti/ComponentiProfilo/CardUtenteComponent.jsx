@@ -2,8 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../Style/CardUtenteStyle.css'
 import { HiUserAdd } from "react-icons/hi";
+import { useDispatch, useSelector } from 'react-redux';
+import { userFriendsAction } from '../../Action/userFriendsActions';
+import { BiLogoTelegram } from "react-icons/bi";
+
 
 export default function CardUtenteComponent(props) {
+
+  const dispatch = useDispatch();
+
+  const listFriends = useSelector(state => state.userFriends)
+  console.log(listFriends)
+  const friends = listFriends.find(x => x._id === props.profile._id)
+  console.log(friends)
   console.log(props.profile)
   return (
     <>
@@ -20,7 +31,7 @@ export default function CardUtenteComponent(props) {
             <div className="flex-grow-1">
               <h5 className="fs-6 mb-1">{`${props.profile.name} ${props.profile.surname}`}</h5>
               <p className="mb-2 text-muted">{props.profile.title}</p>
-              <button className="btnCardUtente rounded-pill mb-2"><HiUserAdd/> Collegati</button>
+              {friends ? <button className="btnCardUtente rounded-pill mb-2"><BiLogoTelegram />Messaggio</button> :  <button className="btnCardUtente rounded-pill mb-2" onClick={() => dispatch(userFriendsAction(props.profile))}><HiUserAdd/> Collegati</button>}
             </div>
           </Link>
         </div>
