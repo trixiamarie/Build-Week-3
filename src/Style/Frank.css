@@ -28,3 +28,37 @@
    
 }
 
+
+
+
+
+
+
+
+
+
+  
+  
+  
+.testoTitolo{
+    font-size: 0.9rem;
+    margin-bottom: -0.1rem;
+    font-weight: bold;
+}
+  
+  
+  .font-weight-bold {
+    font-weight: bold;
+  }
+  
+  .sottoTitolo {
+    color: #6c757d;
+    font-size: 0.7rem;
+    margin-bottom: -0.2rem;
+    
+  }
+  
+  .linkedinNotizieCard{
+border: none;
+  }
+  

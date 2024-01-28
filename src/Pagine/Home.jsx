@@ -8,6 +8,7 @@ import HomePostComponent from "../Componenti/ComponentiHome/HomePostComponent";
 import AltriProfiliComponent from "../Componenti/ComponentiProfilo/AltriProfiliComponent";
 import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeComponent";
 import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
+import LinkedinNotizie from "../Componenti/ComponentiProfilo/LinkedinNotizie.jsx";
 
 export default function Home() {
 
@@ -36,7 +37,7 @@ export default function Home() {
         <Col className="d-none d-md-block" md={3} style={{position:"relative"}}>
           {/* Componenti Sidebar Destro*/}
           {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
-          <AltriProfiliComponent />
+          <LinkedinNotizie />
           <AdsComponent/>
           <FooterHomeComponent/>
         </Col>
