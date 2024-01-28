@@ -2,9 +2,20 @@ import { useSelector } from "react-redux";
 import "../../Style/HomePostComponent.css";
 import FilterHomePostsComponent from "./FilterHomePostsComponent";
 import SinglePostHomePageComponent from "./SinglePostHomePageComponent";
+import { useEffect } from "react";
 
 export default function HomePostComponent() {
   const allPosts = useSelector((state) => state.posts.data);
+  let postreversed = [];
+
+  useEffect(() => {
+    postreversed = [...allPosts]
+  }, [allPosts])
+
+  useEffect(() => {
+    postreversed = [...allPosts]
+  }, [])
+
 console.log(allPosts)
   return (
     <>
@@ -13,7 +24,7 @@ console.log(allPosts)
         {/* <SinglePostHomePageComponent post={"ciao"}/> */}
 
         {allPosts &&
-          allPosts.map((post) => <SinglePostHomePageComponent key={post._id} post={post}/>)}
+          postreversed.reverse().map((post) => <SinglePostHomePageComponent key={post._id} post={post}/>)}
       </div>
     </>
   );
