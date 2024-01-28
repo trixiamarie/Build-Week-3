@@ -4,6 +4,7 @@ const searchReducer = (
     dataLoading: false,
     errorMsg: "",
     query:"",
+    filtro:"Lavoro"
   },
   action
 ) => {
@@ -43,6 +44,12 @@ const searchReducer = (
           ...state,
           query: action.payload,
         };
+        case " SET_SEARCH_FILTRO":
+          return {
+            ...state,
+            filtro: action.payload,
+          };
+       
 
     default:
       return state;

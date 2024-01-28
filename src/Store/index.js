@@ -55,6 +55,7 @@ const initialState = {
     dataLoading: false,
     dataErrorMsg: "",
     query: "",
+    filtro:"Lavoro",
   },
   posts: {
     data: [], //L'array dei post della Home. Son circa 450

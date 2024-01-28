@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CardJobs from "./CardJobs";
 import FooterHomeComponent from "../ComponentiComuni/FooterHomeComponent";
 import EsperimentoPaginazione from "./EsperimentoPaginazione";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function JobsList({ setDettaglioJob, dettaglioJob }) {
   const [paginaCorrente, setPaginaCorrente] = useState(1);
   const risultatiSearch = useSelector((state) => state.search.data);
   let indiceRisultati;
+  let listaLavori = useRef();
+  useEffect(()=>{
+    listaLavori.current.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+  },[paginaCorrente])
 
   console.log(risultatiSearch);
 
   return (
-    <div className="overflow-y-scroll" style={{ height: "75vh" }}>
+    <div className="overflow-y-scroll" style={{ height: "75vh" }} ref={listaLavori}>
       {/* 
         25 risultati a pagina */}
 

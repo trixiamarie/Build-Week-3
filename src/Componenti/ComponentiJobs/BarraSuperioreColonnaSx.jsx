@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function BarraSuperioreColonnaSx() {
+  const risultatiSearch = useSelector(state => state.search.data);
+  const query = useSelector(state => state.search.query);
+  let [parola, setParola] = useState(query);
+
+
+
+
+
+  useEffect(() => {
+    setParola(query);
+    console.log(query);
+    console.log(parola);
+    if(0){
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    }
+  }, [risultatiSearch]);
+
   return (
     <div className="barraNavigazioneColonnaSxGreg py-3 px-3">
       <div className="d-flex justify-content-between">
-        <div >
-          <p className="mb-0">analyst qui: Italia</p>
-          <small>2.066 risultati</small>
+        <div>
+          <p className="mb-0">
+            {parola ? parola : "Tutte le offerte"} qui: Italia
+          </p>
+          <small>{risultatiSearch.length} risultati</small>
         </div>
 
         <div className="d-flex align-self-center">
