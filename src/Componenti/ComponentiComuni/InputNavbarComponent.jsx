@@ -59,7 +59,7 @@ export default function InputNavbarComponent() {
           <div className="d-block d-md-none" md={4}>
             <input
               type="text"
-              className="border-0 InputCustomNavbar search-click"
+              className="InputNAVCOMP border-0 InputCustomNavbar search-click"
               name=""
             />
           </div>
