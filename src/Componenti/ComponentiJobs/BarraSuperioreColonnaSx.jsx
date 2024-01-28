@@ -12,11 +12,6 @@ export default function BarraSuperioreColonnaSx() {
 
   useEffect(() => {
     setParola(query);
-    console.log(query);
-    console.log(parola);
-    if(0){
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-    }
   }, [risultatiSearch]);
 
   return (

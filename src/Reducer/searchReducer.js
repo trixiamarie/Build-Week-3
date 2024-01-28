@@ -3,8 +3,8 @@ const searchReducer = (
     data: [],
     dataLoading: false,
     errorMsg: "",
-    query:"",
-    filtro:"Lavoro"
+    query: "",
+    filtro: "",
   },
   action
 ) => {
@@ -19,7 +19,7 @@ const searchReducer = (
       return {
         ...state,
         errorMsg: action.payload,
-        dataLoading: false
+        dataLoading: false,
       };
 
     case "CLEAR_SEARCH_ERROR":
@@ -39,17 +39,16 @@ const searchReducer = (
         ...state,
         dataLoading: false,
       };
-      case "SET_SEARCH_QUERY":
-        return {
-          ...state,
-          query: action.payload,
-        };
-        case " SET_SEARCH_FILTRO":
-          return {
-            ...state,
-            filtro: action.payload,
-          };
-       
+    case "SET_SEARCH_QUERY":
+      return {
+        ...state,
+        query: action.payload,
+      };
+    case "SET_SEARCH_FILTRO":
+      return {
+        ...state,
+        filtro: action.payload,
+      };
 
     default:
       return state;

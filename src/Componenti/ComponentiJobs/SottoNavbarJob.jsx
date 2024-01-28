@@ -15,7 +15,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 export default function SottoNavbarJob() {
 
   const dispatch = useDispatch();
-  const filtro = useSelector(state => state.search.filtro)
+  const filtro = useSelector(state => state.search.filtro);
 
   //gestione del toggle
   const [radioValue, setRadioValue] = useState('1');

@@ -21,7 +21,6 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob, indic
   const [nCandidati, setNCandidati] = useState(
     Math.floor(Math.random() * 25) + 1
   );
-  console.log(impiego);
 
   return (
     <div

@@ -120,7 +120,7 @@ export const setSearchQuery =(parola)=>{
 export const setSearchFiltro = (filtro) => {
   return {
     type: "SET_SEARCH_FILTRO",
-    payload:filtro,
+    payload: filtro,
   };
 };
 
