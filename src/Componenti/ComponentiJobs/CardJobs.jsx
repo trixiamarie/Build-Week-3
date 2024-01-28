@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 
-export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
+export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob, indice }) {
+
+
+   useEffect(()=>{
+    if (indice==0){
+      setDettaglioJob(impiego.description);
+    }
+   },[])
+
 
   function prova() {
     setDettaglioJob(impiego.description);
