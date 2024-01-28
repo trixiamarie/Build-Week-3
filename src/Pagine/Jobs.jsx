@@ -30,8 +30,8 @@ export default function Jobs() {
   return (
     <div>
       <SottoNavbarJob></SottoNavbarJob>
-      <Container className="bg-white pb-0" style={{ marginTop: "8rem" }}>
-        <Row>
+      <Container className="bg-white pb-0" style={{ marginTop: "6.8rem" }}>
+        <Row >
           <Col xs={12} md={5} className="p-0 border border-secondary-subtle">
             <ColonnaSx
               setDettaglioJob={setDettaglioJob}
@@ -40,7 +40,7 @@ export default function Jobs() {
           </Col>
           <Col
             md={7}
-            className="d-sm-none  d-md-block overflow-y-scroll pt-5 px-3 border border-secondary-subtle border-start-0"
+            className="finestraDettaglioGreg d-sm-none  d-md-block overflow-y-scroll pt-5 px-3 border border-secondary-subtle border-start-0"
              ref={finestraDettaglio}
           >
             <ColonnaDx dettaglioJob={dettaglioJob}/>

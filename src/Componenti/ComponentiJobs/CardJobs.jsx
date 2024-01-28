@@ -18,7 +18,7 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
   return (
     <div
       className={
-        "lavoroGreg pt-3 d-flex justify-content-between border-bottom px-2 " +
+        "lavoroGreg pt-2 d-flex justify-content-between border-bottom px-2 " +
         (dettaglioJob === impiego.description
           ? " lavoroSelezionato"
           : " bg-white")
@@ -59,7 +59,7 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
                 {impiego.candidate_required_location}
               </p>
 
-              <small className="mb-1 mt-2 text-body-secondary">
+              <small className="mb-1 mt-1 text-body-secondary">
                 Promosso ·
                 <span className="fw-medium text-success">
                   {" " + nCandidati} candidati

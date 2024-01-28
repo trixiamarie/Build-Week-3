@@ -77,7 +77,7 @@ export default function MettiEsperienza({ esperienza }) {
       </div>
 
       <Modal
-      className="d-none"
+      className=""
         size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}

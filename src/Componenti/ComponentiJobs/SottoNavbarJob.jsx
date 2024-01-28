@@ -30,7 +30,7 @@ export default function SottoNavbarJob() {
   
   const radios = [
     { name: 'Lavoro', value: '1' , endPoint: "search", ajax: job},
-    { name: 'Compagnia', value: '2' , endPoint: "company", ajax: company},
+    { name: 'Azienda', value: '2' , endPoint: "company", ajax: company},
     { name: 'Categoria', value: '3' , endPoint: "category", ajax: category},
   ];
 
