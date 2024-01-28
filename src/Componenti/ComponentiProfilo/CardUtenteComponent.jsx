@@ -2,17 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../Style/CardUtenteStyle.css'
 import { HiUserAdd } from "react-icons/hi";
-import { BiLogoTelegram } from "react-icons/bi";
 
 export default function CardUtenteComponent(props) {
   return (
     <>
-    <div key={props.key} className="CardUtente mt-2">
+    <div key={props.index} className="CardUtente mt-2">
         <div className="d-flex">
           <Link to={`/profile/${props.profile.id}`} className="text-decoration-none text-dark d-flex">
             <img 
               src={props.profile.image}
-              alt="Profilo di ${profile.name}"
+              alt={props.profile.name}
               width={50}
               height={50}
               className="border border-3 border-white rounded-circle me-3"

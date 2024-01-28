@@ -1,7 +1,6 @@
 import React from "react";
-import { Button, Col, Modal, Card } from "react-bootstrap";
+import { Button, Col, Modal } from "react-bootstrap";
 import {useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
 import CardUtenteComponent from "./CardUtenteComponent";
 
 function ModaleAltriProfiliComponent(props) {
@@ -43,7 +42,7 @@ const n = Math.floor(Math.random()*allProfiles.length/2)
     <Col md={12} className="rounded border border-secondary-subtle p-3 bg-white mb-2">
     <h6 className="ms-1 mb-3">Altri profili consultati</h6>
     {profileToShow.map((profile, index) => (
-      <CardUtenteComponent profile={profile} key={index}/>
+      <CardUtenteComponent profile={profile} index={index} key={index}/>
     ))}
       <Button
         className="w-100 text-center border-top rounded-top-0 bg-white"
