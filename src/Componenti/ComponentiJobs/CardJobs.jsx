@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 
-export default function CardJobs({setDettaglioJob}) {
+export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
   function prova() {
-      setDettaglioJob("ciao")
+    setDettaglioJob(impiego.description);
   }
+  const [nCandidati, setNCandidati] = useState(
+    Math.floor(Math.random() * 25) + 1
+  );
+  console.log(impiego);
 
   return (
-    <div className="lavoroGreg mt-3 d-flex justify-content-between bg-white border-bottom" onClick={prova}>
-      <div className="card mb-0 border border-0" style={{ maxWidth: 540 }}>
+    <div
+      className={
+        "lavoroGreg pt-3 d-flex justify-content-between border-bottom px-2 " +
+        (dettaglioJob === impiego.description ? " lavoroSelezionato" : " bg-white")
+      }
+      onClick={prova}
+    >
+      <div
+        className={
+          "card mb-0 border border-0 " +
+          (dettaglioJob === impiego.description ? " lavoroSelezionato" : " bg-white")
+        }
+        style={{ maxWidth: 540 }}
+      >
         <div className="d-flex">
           <div className="flex-shrink-0">
             <img
@@ -20,20 +36,18 @@ export default function CardJobs({setDettaglioJob}) {
           </div>
           <div className="flex-grow-1 mx-1">
             <div className="card-body ps-2 pt-1">
-              <h5 className="card-title mb-1 text-primary">
-                Junior Technical Analyst M&A
-              </h5>
+              <h5 className="card-title mb-1 text-primary">{impiego.title}</h5>
               <div className="card-text mb-0">
-                <p className="mb-0 ">LCF Alliance</p>
+                <p className="mb-0 ">{impiego.company_name}</p>
               </div>
               <p className="text-body-secondary mb-2">
-                Roma, Lazio, Italia (Ibrido)
+                {impiego.candidate_required_location} {impiego.job_type ?  " - ("+impiego.job_type.replace(/_/g, "-") +")" : ""}
               </p>
 
               <small className="mb-1 mt-2 text-body-secondary">
                 Promosso ·
                 <span className="fw-medium text-success">
-                  {" "+ (Math.floor(Math.random() * 25) + 1)} candidati
+                  {" " + nCandidati} candidati
                 </span>
               </small>
             </div>

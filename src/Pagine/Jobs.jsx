@@ -23,7 +23,7 @@ export default function Jobs() {
       <Container className='bg-white pb-0' style={{marginTop:"8rem"}}>
       <Row>
         <Col xs={12} md={5} className='p-0 border border-secondary-subtle'>
-          <ColonnaSx setDettaglioJob={setDettaglioJob}/>
+          <ColonnaSx setDettaglioJob={setDettaglioJob} dettaglioJob={dettaglioJob}/>
         </Col>
         <Col  md={7} className='d-sm-none  d-md-block overflow-y-scroll pt-5 px-3 border border-secondary-subtle border-start-0'>
           <ColonnaDx dettaglioJob={dettaglioJob}/>

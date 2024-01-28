@@ -38,6 +38,11 @@ const searchReducer = (
         ...state,
         dataLoading: false,
       };
+      case "SET_SEARCH_QUERY":
+        return {
+          ...state,
+          query: action.payload,
+        };
 
     default:
       return state;

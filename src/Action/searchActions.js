@@ -106,7 +106,12 @@ export const getSearchCategory = () => {
   };
 };
 
-
+export const setSearchQuery =(parola)=>{
+    return {
+        type: "SET_SEARCH_QUERY",
+        payload: parola,
+      };
+}
 
 
 export const setSearchError = (errorMsg) => {
