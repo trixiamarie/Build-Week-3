@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Col, Modal, Card } from "react-bootstrap";
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import CardUtenteComponent from "./CardUtenteComponent";
 
 function ModaleAltriProfiliComponent(props) {
   return (
@@ -39,30 +40,13 @@ const n = Math.floor(Math.random()*allProfiles.length/2)
   const profileToShow = allProfiles.slice(n, n+6)
 
   return (
-    <Col md={12} className="rounded-1 border border-secondary-subtle p-3">
+    <Col md={12} className="rounded border border-secondary-subtle p-3 bg-white mb-2">
     <h6 className="ms-1 mb-3">Altri profili consultati</h6>
-    {profileToShow.map((profile) => (
-      <Card key={profile.id} className=" shadow-sm">
-        <Card.Body className="d-flex align-items-center">
-          <Link to={`/profile/${profile.id}`} className="text-decoration-none text-dark d-flex align-items-center">
-            <img 
-              src={profile.image}
-              alt="Profilo di ${profile.name}"
-              width={50}
-              height={50}
-              className="border border-3 border-white rounded-circle me-3"
-            />
-            <div className="flex-grow-1">
-              <h5 className="fs-6 mb-1">{`${profile.name} ${profile.surname}`}</h5>
-              <p className="mb-2 text-muted">{profile.title}</p>
-              <button className="btn btn-sm btn-outline-primary rounded-pill">Visualizza</button>
-            </div>
-          </Link>
-        </Card.Body>
-      </Card>
+    {profileToShow.map((profile, index) => (
+      <CardUtenteComponent profile={profile} key={index}/>
     ))}
       <Button
-        className="w-100 text-center border-top rounded-top-0"
+        className="w-100 text-center border-top rounded-top-0 bg-white"
         variant="light"
         onClick={() => setModalShow(true)}
       >
