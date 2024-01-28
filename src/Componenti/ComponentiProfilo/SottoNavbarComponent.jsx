@@ -41,7 +41,7 @@ export default function SottoNavbarComponent() {
   }, [innerWidth]);
 
   useEffect(() => {
-    console.log(scrollPosition);
+    // console.log(scrollPosition);
     window.addEventListener("scroll", () => {
       setScrollPosition(window.scrollY);
     });

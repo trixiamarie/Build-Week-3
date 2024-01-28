@@ -52,7 +52,7 @@ export default function ProfileCardComponent() {
   }, [id]);
   return (
     <>
-      <Card className='position-relative'>
+      <Card className='position-relative' style={{marginBottom: "0.5rem"}}>
         <Card.Img variant="top" src="https://picsum.photos/800/200" />
         <Image roundedCircle className='border border-white border-5 position-absolute ms-3 w-25' src={user.image} style={{ marginTop: '4rem' }} />
 
