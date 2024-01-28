@@ -5,16 +5,9 @@ import SinglePostHomePageComponent from "./SinglePostHomePageComponent";
 import { useEffect } from "react";
 
 export default function HomePostComponent() {
-  const allPosts = useSelector((state) => state.posts.data);
-  let postreversed = [];
+  const allPosts = useSelector(state => state.posts.data);
+ 
 
-  useEffect(() => {
-    postreversed = [...allPosts]
-  }, [allPosts])
-
-  useEffect(() => {
-    postreversed = [...allPosts]
-  }, [])
 
 console.log(allPosts)
   return (
@@ -24,7 +17,7 @@ console.log(allPosts)
         {/* <SinglePostHomePageComponent post={"ciao"}/> */}
 
         {allPosts &&
-          postreversed.reverse().map((post) => <SinglePostHomePageComponent key={post._id} post={post}/>)}
+          allPosts.map((post) => <SinglePostHomePageComponent key={post._id} post={post}/>)}
       </div>
     </>
   );

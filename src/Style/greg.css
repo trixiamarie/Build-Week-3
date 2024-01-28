@@ -94,3 +94,6 @@ input:focus + .slider {
   border-left: 3px solid #01754F;
 }
 
+span.page-link{
+  text-align: center !important;
+}

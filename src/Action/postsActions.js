@@ -14,7 +14,7 @@ export const getAllPostsData = () => {
         .then(res => {
             if (res.status === 200) {
                 console.log(res);
-                dispatch({type: "GET_ALL_POSTS", payload: res.data});
+                dispatch({type: "GET_ALL_POSTS", payload: res.data.reverse()});
                 dispatch(endPostsLoading());
             } else {
                 console.log("errore");
