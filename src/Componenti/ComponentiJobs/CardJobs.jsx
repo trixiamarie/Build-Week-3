@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 
 export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
+
   function prova() {
     setDettaglioJob(impiego.description);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
   const [nCandidati, setNCandidati] = useState(
     Math.floor(Math.random() * 25) + 1
@@ -14,14 +19,18 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
     <div
       className={
         "lavoroGreg pt-3 d-flex justify-content-between border-bottom px-2 " +
-        (dettaglioJob === impiego.description ? " lavoroSelezionato" : " bg-white")
+        (dettaglioJob === impiego.description
+          ? " lavoroSelezionato"
+          : " bg-white")
       }
       onClick={prova}
     >
       <div
         className={
           "card mb-0 border border-0 " +
-          (dettaglioJob === impiego.description ? " lavoroSelezionato" : " bg-white")
+          (dettaglioJob === impiego.description
+            ? " lavoroSelezionato"
+            : " bg-white")
         }
         style={{ maxWidth: 540 }}
       >
@@ -40,8 +49,14 @@ export default function CardJobs({ setDettaglioJob, impiego, dettaglioJob }) {
               <div className="card-text mb-0">
                 <p className="mb-0 ">{impiego.company_name}</p>
               </div>
+              <small className="text-body-secondary mb-0">
+                {impiego.category }
+                {impiego.job_type
+                  ? " (" + impiego.job_type.replace(/_/g, "-") + ")"
+                  : ""}
+              </small>
               <p className="text-body-secondary mb-2">
-                {impiego.candidate_required_location} {impiego.job_type ?  " - ("+impiego.job_type.replace(/_/g, "-") +")" : ""}
+                {impiego.candidate_required_location}
               </p>
 
               <small className="mb-1 mt-2 text-body-secondary">

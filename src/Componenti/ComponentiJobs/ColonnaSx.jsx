@@ -4,6 +4,7 @@ import BarraSuperioreColonnaSx from './BarraSuperioreColonnaSx'
 import JobsList from './JobsList'
 
 export default function ColonnaSx({setDettaglioJob, dettaglioJob}) {
+  
   return (
     <>
     <div className='p-0 m-0'>
