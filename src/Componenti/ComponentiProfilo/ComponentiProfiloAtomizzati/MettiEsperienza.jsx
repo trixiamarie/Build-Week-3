@@ -157,6 +157,7 @@ export default function MettiEsperienza({ esperienza }) {
 
       {/* modale chiamata PUT - modifica esperienza */}
       <Modal
+      className=""
         size="lg"
         show={showPutMod}
         onHide={() => setShowPutMod(false)}

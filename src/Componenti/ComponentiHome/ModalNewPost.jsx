@@ -1,19 +1,42 @@
 import React, { useState } from 'react';
 import { Modal, Form, Button } from "react-bootstrap";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { BEARER_TOKEN } from '../../Config';
+import { getAllPostsData } from '../../Action/postsActions';
 
 const ModalNewPost = ({ show, setShow }) => {
     const [postText, setPostText] = useState('');
-    // Gestore per il testo del post
+    const dispatch = useDispatch()
+    
     const handleTextChange = (e) => setPostText(e.target.value);
 
-    // Funzione per chiudere il modal
+  
     const handleClose = () => setShow(false);
 
     // Funzione per gestire l'invio del post (da implementare)
     const handlePost = () => {
         console.log("Posting:", postText);
-        // Qui puoi aggiungere la logica per inviare il post
+        
+    
+        fetch('https://striveschool-api.herokuapp.com/api/posts/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              "authorization": "Bearer " + BEARER_TOKEN
+              
+            },
+            body: JSON.stringify({ text: postText }),  
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log('Success:', data);
+              dispatch(getAllPostsData())
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              
+            });
+    
         setShow(false);
     };
 

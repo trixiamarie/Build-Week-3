@@ -15,7 +15,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 export default function SottoNavbarJob() {
 
   const dispatch = useDispatch();
-  const userData = useSelector(state => state.user.userData.data)
+  const filtro = useSelector(state => state.search.filtro);
 
   //gestione del toggle
   const [radioValue, setRadioValue] = useState('1');
@@ -30,7 +30,7 @@ export default function SottoNavbarJob() {
   
   const radios = [
     { name: 'Lavoro', value: '1' , endPoint: "search", ajax: job},
-    { name: 'Compagnia', value: '2' , endPoint: "company", ajax: company},
+    { name: 'Azienda', value: '2' , endPoint: "company", ajax: company},
     { name: 'Categoria', value: '3' , endPoint: "category", ajax: category},
   ];
 
@@ -38,7 +38,10 @@ export default function SottoNavbarJob() {
   useEffect(()=>{
     console.log(endPoint)
   },[endPoint])
-
+ 
+  useEffect(()=>{
+console.log(filtro);
+  },[filtro])
 
 
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -84,7 +87,7 @@ export default function SottoNavbarJob() {
                   variant={'outline-success'}
                   name="radio"
                   value={radio.value}
-                  checked={radioValue === radio.value}
+                  checked={radio.name === filtro}
                   onChange={(e) => setRadioValue(e.currentTarget.value)}
                   onClick={()=> { console.log("bottoni miei"); dispatch(radio.ajax) } }
                 >

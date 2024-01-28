@@ -88,3 +88,12 @@ input:focus + .slider {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.lavoroSelezionato{
+  background: #EDF3F8;
+  border-left: 3px solid #01754F;
+}
+
+span.page-link{
+  text-align: center !important;
+}

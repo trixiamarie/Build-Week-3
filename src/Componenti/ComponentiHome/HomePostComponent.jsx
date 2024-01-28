@@ -2,9 +2,13 @@ import { useSelector } from "react-redux";
 import "../../Style/HomePostComponent.css";
 import FilterHomePostsComponent from "./FilterHomePostsComponent";
 import SinglePostHomePageComponent from "./SinglePostHomePageComponent";
+import { useEffect } from "react";
 
 export default function HomePostComponent() {
-  const allPosts = useSelector((state) => state.posts.data);
+  const allPosts = useSelector(state => state.posts.data);
+ 
+
+
 console.log(allPosts)
   return (
     <>

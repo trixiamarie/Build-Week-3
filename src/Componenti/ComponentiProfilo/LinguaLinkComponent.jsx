@@ -3,8 +3,11 @@ import { Button, Col, Row } from "react-bootstrap";
 import { RiPencilLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import '../../Style/LinguaLinkComponent.css'
+import { useParams } from "react-router-dom";
 
 export default function LinguaLinkComponent() {
+
+  const { id } = useParams()
   const user = useSelector((state) => state.user.userData.data);
 
   const username =
@@ -14,6 +17,8 @@ export default function LinguaLinkComponent() {
     );
 
   return (
+    <>
+    {id ? null :
     <div className="LLContainer bg-white rounded border border-1 p-3">
       <div className="language-section d-flex justify-content-between">
         <p>Lingua del profilo</p>
@@ -38,5 +43,7 @@ export default function LinguaLinkComponent() {
         <p className="ps-p">www.linkedin.com/in/{username}</p>
       </div>
     </div>
+    }
+    </>
   );
 }

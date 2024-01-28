@@ -4,11 +4,12 @@ import '../../Style/CardUtenteStyle.css'
 import { HiUserAdd } from "react-icons/hi";
 
 export default function CardUtenteComponent(props) {
+  console.log(props.profile)
   return (
     <>
     <div key={props.index} className="CardUtente mt-2">
         <div className="d-flex">
-          <Link to={`/profile/${props.profile.id}`} className="text-decoration-none text-dark d-flex">
+          <Link to={`/profile/${props.profile._id}`} className="text-decoration-none text-dark d-flex">
             <img 
               src={props.profile.image}
               alt={props.profile.name}

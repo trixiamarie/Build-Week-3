@@ -21,6 +21,7 @@ export const getSearchJob = () => {
         if (res.status === 200) {
           console.log(res);
           dispatch({ type: "GET_SEARCH_DATA", payload: res.data.data });
+          dispatch(setSearchFiltro("Lavoro"))
           dispatch(endSearchLoading());
         } else {
           console.log("errore");
@@ -46,6 +47,7 @@ export const getSearchQueryJob = () => {
         if (res.status === 200) {
           console.log(res);
           dispatch({ type: "GET_SEARCH_DATA", payload: res.data.data });
+          dispatch(setSearchFiltro("Lavoro"))
           dispatch(endSearchLoading());
         } else {
           console.log("errore");
@@ -72,6 +74,7 @@ export const getSearchCompany = () => {
           console.log(res);
           dispatch({ type: "GET_SEARCH_DATA", payload: res.data.data });
           dispatch(endSearchLoading());
+          dispatch(setSearchFiltro("Azienda"))
         } else {
           console.log("errore");
           dispatch(setSearchError(res.request.status));
@@ -96,6 +99,7 @@ export const getSearchCategory = () => {
         if (res.status === 200) {
           console.log(res);
           dispatch({ type: "GET_SEARCH_DATA", payload: res.data.data });
+          dispatch(setSearchFiltro("Categoria"))
           dispatch(endSearchLoading());
         } else {
           console.log("errore");
@@ -106,8 +110,19 @@ export const getSearchCategory = () => {
   };
 };
 
+export const setSearchQuery =(parola)=>{
+    return {
+        type: "SET_SEARCH_QUERY",
+        payload: parola,
+      };
+}
 
-
+export const setSearchFiltro = (filtro) => {
+  return {
+    type: "SET_SEARCH_FILTRO",
+    payload: filtro,
+  };
+};
 
 export const setSearchError = (errorMsg) => {
   return {
@@ -133,3 +148,5 @@ export const endSearchLoading = () => {
     type: "END_SEARCH_LOADING",
   };
 };
+
+
