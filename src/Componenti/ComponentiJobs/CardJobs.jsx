@@ -16,9 +16,8 @@ export default function CardJobs({
   const dispatch = useDispatch();
 
   const listJobs = useSelector((state) => state.jobsSaved);
-  console.log(listJobs);
+
   const jobs = listJobs.includes(impiego._id);
-  console.log(jobs);
 
   useEffect(() => {
     if (indice == 0) {
