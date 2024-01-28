@@ -11,6 +11,29 @@ import { RiRepeat2Fill } from "react-icons/ri";
 import { IoIosSend } from "react-icons/io";
 
 export default function SinglePostHomePageComponent({ post }) {
+
+  const calculateTimeElapsed = (post) => {
+    const createdDate = new Date(post.createdAt);
+    const currentDate = new Date();
+  
+    const timeDifference = Math.abs(currentDate - createdDate) / 1000; 
+  
+    if (timeDifference < 60) {
+      return "now";
+    } else if (timeDifference < 3600) {
+      const minutes = Math.floor(timeDifference / 60);
+      return `${minutes} ${minutes === 1 ? 'minuto' : 'minuti'} fa`;
+    } else {
+      const hours = Math.floor(timeDifference / 3600);
+      return `${hours} ${hours === 1 ? 'ora' : 'ore'} fa`;
+    }
+  };
+  
+  const createdAt = "2024-01-28T15:21:41.318Z";
+  const timeElapsed = calculateTimeElapsed(createdAt);
+  console.log(timeElapsed);
+  
+
   return (
     <div className="card-home-post mt-2">
       <div className="card-home-post-header d-flex  align-items-center justify-content-between">
@@ -29,7 +52,7 @@ export default function SinglePostHomePageComponent({ post }) {
               {Math.round(Math.random() * 12434)} follower
             </p>
             <p className="ore-post my-0">
-              {Math.round(Math.random() * 20)} ore <b>·</b> <BiWorld />{" "}
+              {calculateTimeElapsed(post)}<b>·</b> <BiWorld />{" "}
             </p>
           </div>
         </div>
