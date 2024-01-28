@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "react-bootstrap/Pagination";
 import { UseSelector, useSelector } from "react-redux";
 
-export default function EsperimentoPaginazione({paginaCorrente, setPaginaCorrente}) {
+export default function EsperimentoPaginazione({
+  paginaCorrente,
+  setPaginaCorrente,
+}) {
+  const risultatiSearch = useSelector((state) => state.search.data);
+  useEffect(() => {
+    setPaginaCorrente(1);
+  }, [risultatiSearch]);
 
-  const risultatiSearch = useSelector(state=>state.search.data)
-
-  const pagineTotali = Math.ceil(risultatiSearch.length/25);
+  const pagineTotali = Math.ceil(risultatiSearch.length / 25);
   const mostraPagine = 8;
-
 
   const handlePageClick = (pagina) => {
     setPaginaCorrente(pagina);

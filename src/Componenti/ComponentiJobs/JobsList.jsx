@@ -9,13 +9,14 @@ export default function JobsList({ setDettaglioJob, dettaglioJob }) {
   const risultatiSearch = useSelector((state) => state.search.data);
   let indiceRisultati;
   let listaLavori = useRef();
+
   useEffect(()=>{
     listaLavori.current.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
-  },[paginaCorrente])
+  },[paginaCorrente,risultatiSearch])
 
   console.log(risultatiSearch);
 
