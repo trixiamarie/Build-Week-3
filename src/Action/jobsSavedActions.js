@@ -1,13 +1,13 @@
-export const jobsSavedAction = (jobId) => {
+export const jobsSavedAction = (job) => {
     return {
         type: "ADD_JOB",
-        payload: jobId
+        payload: job
       };
 }
 
-export const removejobsSavedAction = (jobId) => {
+export const removejobsSavedAction = (job) => {
     return {
         type: "REMOVE_JOB",
-        payload: jobId
+        payload: job
       };
 }

@@ -2,15 +2,17 @@ import React from 'react'
 import "../../Style/NavbarStyle.css";
 import { BsSlashSquareFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
-export default function ProfileCardNavbar(props) {
+export default function ProfileCardNavbar() {
+  const user = useSelector((state) => state.user.userData.data);
   return (
     <div className='ProfileCardNavbar' style={{width:"17rem"}}>
         <div style={{margin:"0.5rem", display:"flex"}}>
-            <img className="PCNImage" src={props.user.image}/>
+            <img className="PCNImage" src={user.image}/>
             <div className='PCNNameTitle'>
-               <Link to={"/profile"}><p>{props.user.name} {props.user.surname}</p></Link> 
-                <p>{props.user.title}</p>
+               <Link to={"/profile"}><p>{user.name} {user.surname}</p></Link> 
+                <p>{user.title}</p>
             </div>
         </div>
         <Link to={"/profile"}><button className='btnPCN'>Visualizza Profilo</button></Link>

@@ -2,8 +2,10 @@ import React from 'react'
 import ProfileCardNavbar from "./ProfileCardNavbar";
 import { Dropdown } from 'react-bootstrap';
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useSelector } from "react-redux";
 
-export default function DropdownCardNavbar(props) {
+export default function DropdownCardNavbar() {
+  const user = useSelector((state) => state.user.userData.data);
   return (
     <>
         <Dropdown>
@@ -21,7 +23,7 @@ export default function DropdownCardNavbar(props) {
                 aria-expanded="false"
               >
                 <img
-                  src={props.user.image}
+                  src={user.image}
                   alt="LinkedIn Logo"
                   style={{
                     borderRadius: "50%",
@@ -37,7 +39,7 @@ export default function DropdownCardNavbar(props) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <ProfileCardNavbar user={props.user} />
+              <ProfileCardNavbar />
             </Dropdown.Menu>
           </Dropdown>
 
