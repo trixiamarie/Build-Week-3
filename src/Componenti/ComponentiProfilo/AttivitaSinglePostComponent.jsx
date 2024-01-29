@@ -7,8 +7,10 @@ import { useDispatch } from "react-redux";
 import { getAllPostsData } from "../../Action/postsActions";
 import ModalNewPost from "../ComponentiHome/ModalNewPost";
 import ModalModifyPost from "./ModalModifyPost";
+import { useParams } from "react-router-dom";
 
 export default function AttivitaSinglePostComponent({ post }) {
+  const { idUrl } = useParams();
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const calculateTimeElapsed = (post) => {
@@ -86,14 +88,14 @@ export default function AttivitaSinglePostComponent({ post }) {
         </div>
         </div>
         <div ref={icone} className="d-flex d-none" >
-        
-          <div className="matita-btn">
+        {idUrl ? null :
+          <><div className="matita-btn">
             <RiPencilLine onClick={() => setShow(true)}/>
           </div>
           
           <div className="matita-btn">
             <FaTrash onClick={() => handleDelete(post)}/>
-          </div>
+          </div></>}
           {show && <ModalModifyPost post={post} show={show} setShow={setShow} />}
         </div>
       </div>

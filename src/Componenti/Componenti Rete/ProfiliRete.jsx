@@ -39,7 +39,7 @@ export default function ProfiliRete() {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-      <InputGroup>
+      <InputGroup className='d-none d-md-flex'>
         <FormControl
           type="text"
           placeholder="Cerca per nome"

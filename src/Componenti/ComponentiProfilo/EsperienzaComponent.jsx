@@ -108,7 +108,7 @@ export default function EsperienzaComponent() {
   };
 
   return (
-    <>
+    <>{esperienze.length > 0? 
       <div className="border rounded px-4 pt-3 pb-0 bg-white my-2">
         <div className="d-flex justify-content-between alig-items-start">
           <h4>Esperienza</h4>
@@ -132,7 +132,7 @@ export default function EsperienzaComponent() {
             ))}
           </div>
         )}
-      </div>
+      </div> : null }
 
       {/* modale per aggiungere una nuova esperienza chiamata POST */}
       <Modal

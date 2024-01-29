@@ -93,7 +93,7 @@ export default function SinglePostHomePageComponent({ post }) {
           </p>
         </div>
       </div>
-      <div className="card-home-post-footer d-flex justify-content-between">
+      <div className="d-none d-xl-flex card-home-post-footer d-flex justify-content-between">
         <div className="like-btn-post-footer text-center btn-post-footer">
           <PolliceInSuLinkedin/>
           <p className="fw-bold text-secondary m-0 ms-1">Consiglia</p>
