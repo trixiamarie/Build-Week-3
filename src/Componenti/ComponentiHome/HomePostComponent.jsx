@@ -10,7 +10,9 @@ export default function HomePostComponent() {
   const [postsStackNumber, setPostStackNumber] = useState(1);
   const [fakePostsLoader, setFakePostsLoader] = useState(false);
   const lastPostRef = useRef();
-  const postsStackSize = 10
+
+  const postsStackSize = 5;
+  
   useEffect(() => {
     console.log(allPosts);
     console.log("nuovo effect");
@@ -27,7 +29,7 @@ export default function HomePostComponent() {
           }, 2000);
         }
       },
-      { threshold: 0.5 } // L'observer viene notificato quando l'elemento è completamente visibile
+      { threshold: 0.5 } // L'observer viene notificato quando l'elemento è  entrato per metà; se metto 1 non funziona!
     );
     console.log(observer);
     if (lastPostRef.current) {
@@ -42,7 +44,7 @@ export default function HomePostComponent() {
         observer.unobserve(lastPostRef.current);
       }
     };
-  }, [lastPostRef, postsStackNumber]); // Osserva l'elemento dell'ultimo post
+  }, [ postsStackNumber, allPosts]); // Osserva l'elemento dell'ultimo post
 
   return (
     <>
