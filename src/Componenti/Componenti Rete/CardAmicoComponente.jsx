@@ -15,11 +15,6 @@ export default function CardAmicoComponente({ ele }) {
         dispatch(removeuserFriendsAction(ele))
     }
 
-<<<<<<< HEAD
-
-export default function CardAmicoComponente({ name, surname, title, image }) { 
-=======
->>>>>>> 88b1b03ab96dfa5bbd7079d93ed1facb315c9fe0
   return (
     <>
         <div className="d-flex justify-content-between align-items-center lineLight" style={{padding: "8px 8px 8px 24px", positon: "relative"}}>
@@ -28,13 +23,8 @@ export default function CardAmicoComponente({ name, surname, title, image }) {
                
                 <img
                 // src={image}
-<<<<<<< HEAD
-                src={image}
-                className="img-fluid rounded-circle"
-=======
                 src={ele.image}
                 className="img-fluid "
->>>>>>> 88b1b03ab96dfa5bbd7079d93ed1facb315c9fe0
                 alt="..."
                 style={{ width: 60, height: 60 }}
                 />
@@ -52,23 +42,6 @@ export default function CardAmicoComponente({ name, surname, title, image }) {
             <div className="rete-btn">
                 <button className="btn-messaggio ">Messaggio</button>
             
-<<<<<<< HEAD
-                <Dropdown >
-                    <Dropdown.Toggle variant="text" id="dropdown-custom-1"  >
-                        <button id="threeDots"><HiOutlineDotsHorizontal /></button>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className=""> 
-                    <Dropdown.Item eventKey="1" className=''>
-                        <div className="d-flex gap-2 align-items-center text-center ">
-                            <div ><MdDeleteOutline  />
-                            </div> 
-                            <p>Rimuovi collegamento</p> 
-                        </div>
-                        
-                    
-                    </Dropdown.Item>
-                    
-=======
                 <Dropdown>
                     <Dropdown.Toggle variant="text" id="dropdown-custom-1"  style={{border: "none"}}>
                         <button id="threeDots"><HiOutlineDotsHorizontal style={{width: "24px", height: "24px"}}/></button>
@@ -84,7 +57,6 @@ export default function CardAmicoComponente({ name, surname, title, image }) {
                                 </div>
                             </div>
                         </Dropdown.Item>
->>>>>>> 88b1b03ab96dfa5bbd7079d93ed1facb315c9fe0
                     </Dropdown.Menu>
                 </Dropdown>
           </div>
