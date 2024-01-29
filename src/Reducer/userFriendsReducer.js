@@ -7,10 +7,10 @@ const userFriendsReducer = (
         return [...state, action.payload];
 
     case "REMOVE_USER":
-            return {
-                ...state,
-                userFriends: state.userFriends.filter(x => x._id !== action.payload._id)
-            }
+      console.log(action.payload)
+      return   state.filter(
+          x => x._id !== action.payload._id
+        )
   
       default:
         return state;

@@ -7,6 +7,7 @@ import NotFound from "./Pagine/NotFound";
 import NavbarComponent from "./Componenti/ComponentiComuni/NavbarComponent";
 import Jobs from "./Pagine/Jobs";
 import FakeComponent from "./Componenti/ComponentiHome/FakeComponent";
+import Rete from "./Pagine/Rete";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path={"/profile/:idUrl"} element={<Profile/>}></Route>
           <Route path={"/jobs/:query"} element={<Jobs/>}></Route>
           <Route path={"/jobs/"} element={<Jobs/>}></Route>
+          <Route path={"/rete"} element={<Rete/>}></Route>
           <Route path={"*"} element={<NotFound/>}></Route>
         </Routes>
       </BrowserRouter>
