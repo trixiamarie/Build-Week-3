@@ -2,7 +2,7 @@ import React from "react";
 import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeComponent";
 import { Col, Container, Row } from "react-bootstrap";
 import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
-import ProfiliRete from "../Componenti/ComponentiProfilo/ProfiliRete";
+import ProfiliRete from "../Componenti/Componenti Rete/ProfiliRete";
 
 
 import CardAmicoComponente from "../Componenti/Componenti Rete/CardAmicoComponente";

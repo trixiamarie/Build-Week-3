@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Dropdown, ListGroup, FormControl, InputGroup } from 'react-bootstrap'
-import { MdDeleteOutline } from "react-icons/md";
-import { BsThreeDots } from "react-icons/bs";
+
 
 export default function ProfiliRete() {
   return (
@@ -36,7 +35,15 @@ export default function ProfiliRete() {
         </div>
         
     
-    <ListGroup>
+   
+    </>
+  )
+}
+
+
+/*
+
+ <ListGroup>
       <ListGroup.Item className="d-flex justify-content-between align-items-center">
         <div>
         <img 
@@ -78,6 +85,4 @@ export default function ProfiliRete() {
       </ListGroup.Item>
       
     </ListGroup>
-    </>
-  )
-}
+*/
