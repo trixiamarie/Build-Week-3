@@ -24,9 +24,8 @@ export default function HomePostComponent() {
           setFakePostsLoader(true);
           const timer = setTimeout(() => {
             setFakePostsLoader(false);
-
             setPostStackNumber((prevNumber) => prevNumber + 1);
-          }, 2000);
+          }, 1500);
         }
       },
       { threshold: 0.5 } // L'observer viene notificato quando l'elemento è completamente visibile
