@@ -55,10 +55,63 @@ h4{
 .fs14{
     font-size: 14px;
 }
+.fs12{
+    font-size: 12px;
+}
 
 .fw600{
     font-weight: 600;
 }
 .fw400{
     font-weight: 400;
+}
+
+#threeDots{
+    border-radius: 50%;
+    border: 0;
+    color: #0a66c2;
+    padding: 6px;
+    height: 36px;
+}
+
+#threeDots:hover{
+    background-color: #00000014;
+    color:  #00000099;
+}
+
+.btn-messaggio{
+    border-radius: 50px;
+    padding: 3px 10px;
+    /* border-radius: 1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem; */
+    color: #0a66c2;
+    border-color: #0a66c2;
+}
+.btn-messaggio:hover{
+    color: #0a66c2;
+    border-color: #0a66c2;
+    background-color: #70b5f933;
+    box-shadow: inset 0 0 0 2px #0a66c2;
+}
+.lineLight{
+    border-bottom: 1px solid rgb(0, 0, 0, 0.17);
+}
+.lineLight::after{
+    content: "";
+    width: 100px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.rete-btn{
+    /* display: flex;
+    padding-left: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.2rem;
 }

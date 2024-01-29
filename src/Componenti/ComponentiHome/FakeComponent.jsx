@@ -13,7 +13,7 @@ export default function FakeComponent() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllProfilesData());
-    dispatch(getSearchJob())
+    dispatch(getSearchJob());
 
     dispatch(getAllPostsData());
     dispatch(getUserData());

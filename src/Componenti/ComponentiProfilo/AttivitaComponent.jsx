@@ -23,13 +23,14 @@ export default function AttivitaComponent() {
     ? allPosts.filter((post) => post.user._id === userData._id)
     : allPosts.filter((post) => post.user._id === userData._id).slice(0, 3);
 
-  const dispatch = useDispatch();
+const dispatch = useDispatch();
+  
+useEffect(() => {
+dispatch(getUserData())
+dispatch(getAllPostsData())
+}, [])
 
-  useEffect(() => {
-    dispatch(getUserData());
-    dispatch(getProfileData("6552694bc55e7e0018f83d01"));
-    dispatch(getAllPostsData());
-  }, []);
+
 
   return (
     <div className="attivita-component mt-2">
