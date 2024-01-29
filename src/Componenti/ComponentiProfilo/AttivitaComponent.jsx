@@ -24,7 +24,7 @@ const dispatch = useDispatch();
   
 useEffect(() => {
 dispatch(getUserData())
-dispatch(getProfileData("6552694bc55e7e0018f83d01"))
+
 dispatch(getAllPostsData())
 }, [])
 

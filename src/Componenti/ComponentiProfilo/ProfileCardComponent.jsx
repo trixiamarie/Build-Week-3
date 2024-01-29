@@ -24,7 +24,7 @@ export default function ProfileCardComponent() {
   const dispatch = useDispatch();
 
   const profile = useSelector((state) => state.profile);
-
+  let [nContatti, setNContatti] = useState(Math.floor(Math.random() * 200))
   const { idUrl } = useParams();
 
   // Aggiorniamo l'URL corrente quando la location cambia
@@ -34,6 +34,8 @@ export default function ProfileCardComponent() {
     dispatch(getProfileData(idUrl));
     dispatch(getExperiences(idUrl));
     console.log(profile);
+   setNContatti(Math.floor(Math.random() * 200))
+   console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
   }, [idUrl]);
 
   const [show, setShow] = useState(false);
@@ -90,7 +92,7 @@ export default function ProfileCardComponent() {
                 </span>
               </p>
               <p className="text-primary fw-bold">
-                {Math.floor(Math.random() * 200)} contatti
+                {nContatti} contatti
               </p>
             </Col>
             <Col xs={5}>

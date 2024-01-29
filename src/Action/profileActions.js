@@ -2,6 +2,7 @@ import axios from "axios"
 import { BEARER_TOKEN, profileBaseURL } from "../Config"
 
 export const getProfileData = (profileId="me") => {
+    console.trace(profileId)
     return (dispatch, state) => {
         dispatch(clearProfileError());
         dispatch(setProfileLoading());
