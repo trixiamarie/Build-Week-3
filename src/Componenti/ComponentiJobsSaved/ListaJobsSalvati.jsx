@@ -2,6 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import CardJobs from '../ComponentiJobs/CardJobs';
+import CardJobsSaved from './CardJobsSaved';
 
 
 export default function () {
@@ -14,7 +15,7 @@ export default function () {
         <button type="button" class="btn btn-outline-secondary rounded-pill"><span className='fw-medium'>Archiviate</span></button>
       </div>
   
-        {jobsSaved.map((ele,index)=> <CardJobs impiego={ele} indice={index}/>)}
+        {jobsSaved.map((ele,index)=> <CardJobsSaved impiego={ele} indice={index}/>)}
 
       
     </Container>
