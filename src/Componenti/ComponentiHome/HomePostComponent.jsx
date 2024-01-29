@@ -8,10 +8,9 @@ import FakeLoaderComponent from "./FakeLoaderComponent";
 export default function HomePostComponent() {
   const allPosts = useSelector((state) => state.posts.data);
   const [postsStackNumber, setPostStackNumber] = useState(1);
-  const [postsStackSize, setPostStackSize] = useState(5);
   const [fakePostsLoader, setFakePostsLoader] = useState(false);
   const lastPostRef = useRef();
-
+  const postsStackSize = 10
   useEffect(() => {
     console.log(allPosts);
     console.log("nuovo effect");
@@ -25,7 +24,7 @@ export default function HomePostComponent() {
           const timer = setTimeout(() => {
             setFakePostsLoader(false);
             setPostStackNumber((prevNumber) => prevNumber + 1);
-          }, 1500);
+          }, 2000);
         }
       },
       { threshold: 0.5 } // L'observer viene notificato quando l'elemento è completamente visibile
@@ -49,8 +48,6 @@ export default function HomePostComponent() {
     <>
       <div className="home-post-component">
         <FilterHomePostsComponent />
-        {/* <SinglePostHomePageComponent post={"ciao"}/> */}
-
         {allPosts &&
           allPosts
             .slice(0, postsStackSize * postsStackNumber)
