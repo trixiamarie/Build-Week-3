@@ -29,7 +29,7 @@ export default function ProfileCardComponent() {
 
   // Aggiorniamo l'URL corrente quando la location cambia
 
-  console.log(idUrl);
+ 
   useEffect(() => {
     dispatch(getProfileData(idUrl));
     dispatch(getExperiences(idUrl));
