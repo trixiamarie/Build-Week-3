@@ -1,8 +1,13 @@
 import React from 'react'
-import { Button, Dropdown, ListGroup, FormControl, InputGroup } from 'react-bootstrap'
-
+import { Button, Dropdown, FormControl, InputGroup } from 'react-bootstrap'
+import CardAmicoComponente from './CardAmicoComponente'
+import {useSelector} from 'react-redux';
 
 export default function ProfiliRete() {
+  const listFriends = useSelector(state => state.userFriends)
+  console.log(listFriends)
+
+
   return (
     <>
       
@@ -33,6 +38,10 @@ export default function ProfiliRete() {
         </Button>
       </InputGroup> 
         </div>
+        {listFriends.map((x, index)=> 
+        <CardAmicoComponente key={index} name={x.name} surname={x.surname} image={x.image} title={x.title} index={index}/>)}
+        
+        
         
     
    
