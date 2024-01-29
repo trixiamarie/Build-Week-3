@@ -23,15 +23,21 @@ import Ads2Component from '../Componenti/ComponentiComuni/Ads2Component';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AdsComponent from '../Componenti/ComponentiComuni/AdsComponent';
+import { useParams } from 'react-router-dom';
 
 
 export default function Profile() {
 
+  const { idUrl } = useParams()
+
   const user = useSelector((state) => state.user.userData.data);
+  const profile = useSelector((state) => state.allProfiles.data)
+  const nameProfile = profile.filter((x) => x._id === idUrl)
+ 
 
 
   useEffect(() => {
-    document.title = user.name +" " + user.surname + " | LinkedIn";
+    {idUrl ? document.title = nameProfile[0].name +" " + nameProfile[0].surname + " | LinkedIn" : document.title = user.name +" " + user.surname + " | LinkedIn"}
 
     return () => {
       document.title = '';
@@ -42,7 +48,7 @@ export default function Profile() {
     <SottoNavbarComponent />
     <Container>
         <Row style={{marginTop:"4.809rem"}}>
-            <Col md={{span:8}}> {/* colonna Main */}
+            <Col md={{span:12}} lg={8}> {/* colonna Main */}
               {/* <div style={{height:"10rem",  border:"1px solid black"}}></div> */}
               <ProfileCardComponent />
               <AnalisiComponent/>
@@ -58,7 +64,7 @@ export default function Profile() {
               <LingueComponent/>
               <InteressiComponent/>
             </Col>
-            <Col md={{span:4}}> {/* colonna Sidebar */}
+            <Col className='d-none d-lg-block' md={{span:4}}> {/* colonna Sidebar */}
               {/* <div style={{height:"10rem", border:"1px solid black"}}></div> */}
               <LinguaLinkComponent />
               <Ads2Component/>

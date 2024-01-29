@@ -6,7 +6,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 import { removeuserFriendsAction } from '../../Action/userFriendsActions.js';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function CardAmicoComponente({ ele }) { 
     const navigate = useNavigate()
@@ -22,18 +22,18 @@ export default function CardAmicoComponente({ ele }) {
         <div className="d-flex justify-content-between align-items-center lineLight" style={{padding: "8px 8px 8px 24px", positon: "relative"}}>
            
             <div className="d-flex" onClick={()=>navigate("/profile/"+ele._id)}>
-               
+               <Link to={"/profile/" + ele._id}>
                 <img
                 // src={image}
                 src={ele.image}
                 className="img-fluid "
                 alt="..."
-                style={{ width: 60, height: 60 }}
+                style={{ width: 60, height: 60, borderRadius:"50%"}}
                 />
-               
+               </Link>
                 <div className="ms-2">
                     {/* {name}{surname} */}
-                    <span className="fs16">{ele.name+" "+ ele.surname}</span>
+                    <Link to={"/profile/" + ele._id}><span className="fs16">{ele.name+" "+ ele.surname}</span></Link>
                     <br></br>
                     {/* {title} */}
                     <span className="fs14">{ele.title}</span>

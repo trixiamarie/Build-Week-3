@@ -100,28 +100,30 @@ export default function ProfileCardComponent() {
         onMouseEnter={mostraIcone}
         onMouseLeave={nascondiIcone}
       >
-        <Card.Img variant="top" src="https://picsum.photos/800/200" />
-        <Image
+        <Card.Img variant="top" src="https://picsum.photos/800/200"  style={{height:"14rem"}}/>
+       <Image
           roundedCircle
-          className="border border-white border-5 position-absolute ms-3 w-25"
+          className="border border-white border-5 position-absolute ms-3"
           src={profile.profileData.data.image}
-          style={{ marginTop: "4rem" }}
+          style={{height:"12rem", width:"12rem",top:"5rem", left: "2rem " }}
         />
-
+  
         {idUrl == idAle ? (
-          <div className="matita-btn position-absolute top-0 end-0 m-4 bg-white text-primary">
-            <RiPencilLine className="text-dark" />
+          <div className="matita-btn m-4 bg-white" style={{color:"black", zIndex:"9999"}}>
+            <RiPencilLine className="text-dark" style={{color:"black", zIndex:"9999"}}/>
           </div>
         ) : null}
         <Card.Body>
-          <Row xs={1} className="my-3 ">
-            <Col
+          <Row xs={1} className="my-3" style={{height:"2rem"}}>
+          <div ref={icone}>
+          {idUrl? null : <RiPencilLine className="matita-btn" onClick={handleShow}/> }</div>
+            {/* <Col
               ref={icone}
               className="offset-11 matita-btn"
               onClick={handleShow}
             >
-              {idUrl == idAle ? <RiPencilLine /> : null}
-            </Col>
+              {idUrl == idAle ? <RiPencilLine/> : null}
+            </Col> */}
           </Row>
           <Row className=" justify-content-between">
             <Col>
@@ -167,12 +169,12 @@ export default function ProfileCardComponent() {
           </Row>
 
           <Dropdown className="d-inline">
-            <Dropdown.Toggle className="rounded-5 me-3 fw-semibold fs-6 px-3">
+            <Dropdown.Toggle className="d-none d-md-inline rounded-5 me-3 fw-semibold fs-6 px-3">
               Disponibile per
             </Dropdown.Toggle>
 
             <Dropdown.Menu className="fs-6 shadow-sm rounded-4 ">
-              <Dropdown.Item className="my-2">
+              <Dropdown.Item className="my-2 ">
                 <span className="fw-bold">Cambiare Lavoro</span>
                 <br />
                 <span className="text-secondary">
@@ -200,11 +202,11 @@ export default function ProfileCardComponent() {
 
           <Button
             variant="outline-primary"
-            className="rounded-5 me-3 fw-semibold fs-6 px-3"
+            className="d-none d-md-inline rounded-5 me-3 fw-semibold fs-6 px-3"
           >
             Aggiungi sezione del profilo
           </Button>
-          <Dropdown className="d-inline">
+          <Dropdown className="d-none d-md-inline">
             <Dropdown.Toggle
               variant="outline-secondary"
               className="rounded-5 me-3 fw-semibold fs-6 px-3 "

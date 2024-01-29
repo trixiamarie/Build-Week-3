@@ -11,7 +11,7 @@ export default function FilterHomePostsComponent() {
 
   return (
     <div className="filter-posts-home d-flex align-items-center justify-content-between w-100">
-      <div className="filter-home-line"> </div>
+      <div className="d-none d-lg-block filter-home-line"> </div>
       <div className="posts-filter d-flex">
         Seleziona la visualizzazione del feed:{" "}
         <div
