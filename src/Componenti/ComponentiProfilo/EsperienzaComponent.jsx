@@ -22,14 +22,10 @@ export default function EsperienzaComponent() {
   let {idUrl}=useParams();
 
   if(!idUrl){
-    idUrl="65b22820913f650018d09540"
+    idUrl=idAle
   }
 
-
-  
-
   const [showPostMod, setshowPostMod] = useState(false);
-
   const [validated, setValidated] = useState(false);
   const [newExp, setNewExp] = useState({
     role: "",
@@ -41,7 +37,7 @@ export default function EsperienzaComponent() {
   });
   const dispatch = useDispatch();
 
-  const addNewExp = (data) => {
+  const addnewExp = (data) => {
     axios
       .post(
         `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/`,
@@ -70,7 +66,7 @@ export default function EsperienzaComponent() {
     }
     console.log(newExp);
     setValidated(true);
-    addNewExp(newExp);
+    addnewExp(newExp);
     setshowPostMod(false);
   };
 
@@ -106,6 +102,11 @@ export default function EsperienzaComponent() {
    console.log(idUrl);
   }, [idUrl]);
 
+
+  const updateExperiences = (updatedExperience) => {
+    dispatch(getExperiences(idUrl))
+  };
+
   return (
     <>
       <div className="border rounded px-4 pt-3 pb-0 bg-white my-2">
@@ -127,7 +128,7 @@ export default function EsperienzaComponent() {
         {esperienze.length > 0 && (
           <div className="esperienze mt-2 mb-0 pb-0">
             {esperienze.map((ele) => (
-              <MettiEsperienza key={ele._id} esperienza={ele} />
+              <MettiEsperienza key={ele._id} esperienza={ele} onUpdate={updateExperiences}  />
             ))}
           </div>
         )}

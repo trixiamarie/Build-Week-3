@@ -2,14 +2,14 @@ import React, { useRef } from "react";
 import { FaTrash } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
 import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { idAle } from "../../../Config";
+import { idAle, BEARER_TOKEN } from "../../../Config";
 
-export default function MettiEsperienza({ esperienza }) {
+export default function MettiEsperienza({ esperienza, onUpdate }) {
   let { idUrl } = useParams();
   console.log(idUrl);
   if (!idUrl) {
@@ -18,7 +18,7 @@ export default function MettiEsperienza({ esperienza }) {
   }
 
   const [validated, setValidated] = useState(false);
-  const [newExp, setNewExp] = useState({
+  const [modExp, setModExp] = useState({
     role: "",
     company: "",
     startDate: "2022-02-02",
@@ -31,7 +31,7 @@ export default function MettiEsperienza({ esperienza }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const addNewExp = (data) => {
+  const addmodExp = (data) => {
     /* modifica esperienza chiamata PUT */
     axios
       .put(
@@ -40,16 +40,21 @@ export default function MettiEsperienza({ esperienza }) {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMzhkYzA4Mjk2MzAwMTgwMWVhN2UiLCJpYXQiOjE3MDY0NTMwNjEsImV4cCI6MTcwNzY2MjY2MX0.JMfviXDOUKx0n5GLsvkceHi8BQ2__jm5Uqix4trcPSI",
+            "Bearer "+BEARER_TOKEN ,
           },
         }
       )
       .then(function (response) {
         console.log(response);
+        onUpdate(response.data)
+
       })
       .catch(function (error) {
         console.log(error);
       });
+
+      setShowPutMod(false)
+      
   };
 
   const deleteExp = () => {
@@ -60,18 +65,20 @@ export default function MettiEsperienza({ esperienza }) {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMzhkYzA4Mjk2MzAwMTgwMWVhN2UiLCJpYXQiOjE3MDY0NTMwNjEsImV4cCI6MTcwNzY2MjY2MX0.JMfviXDOUKx0n5GLsvkceHi8BQ2__jm5Uqix4trcPSI",
+            "Bearer "+BEARER_TOKEN ,
           },
         }
       )
       .then(function (response) {
         console.log(response);
+        onUpdate(null)
       })
       .catch(function (error) {
         console.log(error);
       });
 
     handleClose();
+    
   };
 
   const handleSubmit = (event) => {
@@ -80,9 +87,9 @@ export default function MettiEsperienza({ esperienza }) {
       event.preventDefault();
       event.stopPropagation();
     }
-    console.log(newExp);
+    console.log(modExp);
     setValidated(true);
-    addNewExp(newExp);
+    addmodExp(modExp);
   };
 
   const mesi = [
@@ -119,6 +126,13 @@ export default function MettiEsperienza({ esperienza }) {
   const nascondiIcone = () => {
     icone.current.classList.add("d-none");
   };
+
+  useEffect(() => {
+
+    console.log('use Effect', modExp);
+
+  }, [modExp]);
+
 
   return (
     <>
@@ -177,10 +191,7 @@ export default function MettiEsperienza({ esperienza }) {
               {" "}
               <div
                 className="matita-btn"
-                onClick={() => {
-                  setShowPutMod(true);
-                  console.log(esperienza);
-                }}
+                onClick={() => setShowPutMod(true)}
               >
                 <RiPencilLine />
               </div>
@@ -214,7 +225,8 @@ export default function MettiEsperienza({ esperienza }) {
                 required
                 type="text"
                 placeholder="Esempio: Full StackDeveloper"
-                onChange={(e) => setNewExp({ ...newExp, role: e.target.value })}
+                defaultValue={esperienza.role}
+                onChange={(e) => setModExp({ ...modExp, role: e.target.value })}
               />
             </Form.Group>
             {/* tipo di impiego select */}
@@ -224,8 +236,10 @@ export default function MettiEsperienza({ esperienza }) {
                 required
                 type="text"
                 placeholder="Esempio: Microsoft"
+                defaultValue={esperienza.company}
+
                 onChange={(e) =>
-                  setNewExp({ ...newExp, company: e.target.value })
+                  setModExp({ ...modExp, company: e.target.value })
                 }
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -236,7 +250,8 @@ export default function MettiEsperienza({ esperienza }) {
               <Form.Control
                 type="text"
                 placeholder="Esempio: Cava dei Selci, Italia"
-                onChange={(e) => setNewExp({ ...newExp, area: e.target.value })}
+                defaultValue={esperienza.area}
+                onChange={(e) => setModExp({ ...modExp, area: e.target.value })}
               />
             </Form.Group>
             {/* tipo di località select */}
@@ -318,7 +333,7 @@ export default function MettiEsperienza({ esperienza }) {
 
             <Form.Group controlId="validationCustom04">
               <Form.Label className="text-secondary">Settore</Form.Label>
-              <Form.Control type="text" placeholder="" />
+              <Form.Control type="text" placeholder="Ricerca e sviluppo" />
             </Form.Group>
 
             <Form.Group controlId="validationCustom04">
@@ -327,8 +342,9 @@ export default function MettiEsperienza({ esperienza }) {
                 as="textarea"
                 placeholder=""
                 style={{ height: "100px" }}
+                defaultValue={esperienza.description}
                 onChange={(e) =>
-                  setNewExp({ ...newExp, description: e.target.value })
+                  setModExp({ ...modExp, description: e.target.value })
                 }
               />
             </Form.Group>
@@ -338,6 +354,7 @@ export default function MettiEsperienza({ esperienza }) {
               <Form.Control
                 type="text"
                 placeholder="Esempio: Baby pensionato"
+
               />
             </Form.Group>
 
