@@ -15,7 +15,6 @@ export default function JobsList({ setDettaglioJob, dettaglioJob }) {
       top: 0,
       behavior: "smooth",
     });
-
   },[paginaCorrente,risultatiSearch])
 
   console.log(risultatiSearch);

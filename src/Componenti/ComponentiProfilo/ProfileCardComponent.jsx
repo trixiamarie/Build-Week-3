@@ -20,32 +20,25 @@ import { FaPlus } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { getProfileData, getExperiences } from "../../Action/profileActions";
 import { idAle, BEARER_TOKEN } from "../../Config";
-
+import { getUserData } from "../../Action/userActions";
 
 export default function ProfileCardComponent() {
   const dispatch = useDispatch();
 
   const profile = useSelector((state) => state.profile);
-  let [nContatti, setNContatti] = useState(Math.floor(Math.random() * 200))
+  let [nContatti, setNContatti] = useState(Math.floor(Math.random() * 200));
   const { idUrl } = useParams();
-  const [update, setUpdate] = useState(false)
   // Aggiorniamo l'URL corrente quando la location cambia
 
-  console.log(idUrl);
-  
   useEffect(() => {
-    setUpdate(false)
-    
     dispatch(getProfileData(idUrl));
     dispatch(getExperiences(idUrl));
-    console.log(profile);
-    setNContatti(Math.floor(Math.random() * 200))
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-  }, [idUrl, update]);
+
+    setNContatti(Math.floor(Math.random() * 200));
+  }, [idUrl]);
 
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
-  
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -71,31 +64,23 @@ export default function ProfileCardComponent() {
     icone.current.classList.add("d-none");
   };
 
-  const updateProfile =  (data) => {
-     
-   axios
-       .put(
-         `https://striveschool-api.herokuapp.com/api/profile/`,
-         data,
-         {
-           headers: {
-             Authorization:
-             "Bearer "+BEARER_TOKEN ,
-           },
-         }
-       )
-       .then(function (response) {
-         console.log(response);
-        
- 
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
-       setUpdate(true)
-       handleClose()
-       dispatch(getProfileData())
-   };  
+  const updateProfile = (data) => {
+    axios
+      .put(`https://striveschool-api.herokuapp.com/api/profile/`, data, {
+        headers: {
+          Authorization: "Bearer " + BEARER_TOKEN,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    dispatch(getUserData());
+    handleClose();
+    dispatch(getProfileData());
+  };
   const [modProfile, setModProfile] = useState({
     name: "",
     surname: "",
@@ -105,11 +90,14 @@ export default function ProfileCardComponent() {
     area: "",
   });
 
-
   return (
     <>
-      <Card className="position-relative" style={{ marginBottom: "0.5rem" }} onMouseEnter={mostraIcone}
-        onMouseLeave={nascondiIcone}>
+      <Card
+        className="position-relative"
+        style={{ marginBottom: "0.5rem" }}
+        onMouseEnter={mostraIcone}
+        onMouseLeave={nascondiIcone}
+      >
         <Card.Img variant="top" src="https://picsum.photos/800/200" />
         <Image
           roundedCircle
@@ -124,13 +112,14 @@ export default function ProfileCardComponent() {
           </div>
         ) : null}
         <Card.Body>
-
           <Row xs={1} className="my-3 ">
-           
-              <Col ref={icone} className="offset-11 matita-btn" onClick={handleShow}>
-              {idUrl == idAle ? ( <RiPencilLine /> ) : null}
-              </Col>
-           
+            <Col
+              ref={icone}
+              className="offset-11 matita-btn"
+              onClick={handleShow}
+            >
+              {idUrl == idAle ? <RiPencilLine /> : null}
+            </Col>
           </Row>
           <Row className=" justify-content-between">
             <Col>
@@ -145,26 +134,33 @@ export default function ProfileCardComponent() {
                   Informazione di contatto
                 </span>
               </p>
-              <p className="text-primary fw-bold">
-                {nContatti} contatti
-              </p>
+              <p className="text-primary fw-bold">{nContatti} contatti</p>
             </Col>
             <Col xs={5}>
-              {profile.profileExperiences.data.length > 0 && <Row>
-                <Col xs={3}>
-                  <Image
-                    fluid
-                    rounded
-                    className=" float-end"
-
-                    src={profile.profileExperiences.data[0].image ? profile.profileExperiences.data[0].image : "https://kodilan.com/img/empty-company-logo.8437254b.png"}
-                  />
-                </Col>
-                <Col>
-                  <p className=" fs-6 m-0 text-truncate">{profile.profileExperiences.data[0].role}</p>
-                  <p className=" fs-6 m-0 fs-semibold">{profile.profileExperiences.data[0].company}</p>
-                </Col>
-              </Row>}
+              {profile.profileExperiences.data.length > 0 && (
+                <Row>
+                  <Col xs={3}>
+                    <Image
+                      fluid
+                      rounded
+                      className=" float-end"
+                      src={
+                        profile.profileExperiences.data[0].image
+                          ? profile.profileExperiences.data[0].image
+                          : "https://kodilan.com/img/empty-company-logo.8437254b.png"
+                      }
+                    />
+                  </Col>
+                  <Col>
+                    <p className=" fs-6 m-0 text-truncate">
+                      {profile.profileExperiences.data[0].role}
+                    </p>
+                    <p className=" fs-6 m-0 fs-semibold">
+                      {profile.profileExperiences.data[0].company}
+                    </p>
+                  </Col>
+                </Row>
+              )}
             </Col>
           </Row>
 
@@ -247,9 +243,9 @@ export default function ProfileCardComponent() {
                 type="text"
                 placeholder=""
                 defaultValue={profile.profileData.data.name}
-                onChange={(e) => setModProfile({ ...modProfile, name : e.target.value })}
-                
-
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, name: e.target.value })
+                }
               />
             </Form.Group>
 
@@ -260,7 +256,9 @@ export default function ProfileCardComponent() {
                 type="text"
                 placeholder="Last name"
                 defaultValue={profile.profileData.data.surname}
-                onChange={(e) => setModProfile({ ...modProfile, surname : e.target.value })}
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, surname: e.target.value })
+                }
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -290,7 +288,9 @@ export default function ProfileCardComponent() {
                 placeholder=""
                 required
                 defaultValue={profile.profileData.data.title}
-                onChange={(e) => setModProfile({ ...modProfile, title : e.target.value })}
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, title: e.target.value })
+                }
               />
             </Form.Group>
 
@@ -308,41 +308,69 @@ export default function ProfileCardComponent() {
 
             <Form.Group controlId="validationCustom05">
               <Form.Label className="text-secondary">Bio</Form.Label>
-              <Form.Control type="text" placeholder="" onChange={(e) => setModProfile({ ...modProfile, bio : e.target.value })}/>
-              
+              <Form.Control
+                type="text"
+                placeholder=""
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, bio: e.target.value })
+                }
+              />
             </Form.Group>
 
             <Form.Group controlId="validationCustom06">
               <Form.Label className="text-secondary">email</Form.Label>
-              <Form.Control type="text" placeholder="" onChange={(e) => setModProfile({ ...modProfile, email : e.target.value })}/>
-              
+              <Form.Control
+                type="text"
+                placeholder=""
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, email: e.target.value })
+                }
+              />
             </Form.Group>
 
             <Form.Group controlId="validationCustom06">
               <Form.Label className="text-secondary">area</Form.Label>
-              <Form.Control type="text" placeholder="" onChange={(e) => setModProfile({ ...modProfile, area : e.target.value })}/>
-              
+              <Form.Control
+                type="text"
+                placeholder=""
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, area: e.target.value })
+                }
+              />
             </Form.Group>
 
             <Form.Group controlId="validationCustom07">
               <Form.Label className="text-secondary">Formazione</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={profile.profileExperiences.data.length > 0 && profile.profileExperiences.data[0].company}
+                placeholder={
+                  profile.profileExperiences.data.length > 0 &&
+                  profile.profileExperiences.data[0].company
+                }
                 required
               />
             </Form.Group>
 
             <Form.Group controlId="validationCustom08">
               <Form.Label className="text-secondary">Località</Form.Label>
-              <Form.Control type="text" placeholder={profile.profileExperiences.data.length > 0 && profile.profileData.data.area} required />
+              <Form.Control
+                type="text"
+                placeholder={
+                  profile.profileExperiences.data.length > 0 &&
+                  profile.profileData.data.area
+                }
+                required
+              />
             </Form.Group>
 
             <Form.Group controlId="validationCustom09">
               <Form.Label className="text-secondary">Formazione</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={profile.profileExperiences.data.length > 0 && profile.profileExperiences.data[0].company}
+                placeholder={
+                  profile.profileExperiences.data.length > 0 &&
+                  profile.profileExperiences.data[0].company
+                }
                 required
               />
             </Form.Group>
@@ -354,7 +382,7 @@ export default function ProfileCardComponent() {
           <Button
             variant="primary"
             className="rounded-5 fs-5 px-3"
-             onClick={() => updateProfile(modProfile)}
+            onClick={() => updateProfile(modProfile)}
           >
             Salva
           </Button>

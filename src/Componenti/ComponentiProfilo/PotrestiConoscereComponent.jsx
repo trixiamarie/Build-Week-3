@@ -35,7 +35,7 @@ export default function PotrestiConoscereComponent() {
   const [modalShow, setModalShow] = React.useState(false);
 
   const allProfiles = useSelector(state => state.allProfiles.data)
-  console.log(allProfiles)
+
 const n = Math.floor(Math.random()*allProfiles.length/2)
   const profileToShow = allProfiles.slice(n, n+6)
 

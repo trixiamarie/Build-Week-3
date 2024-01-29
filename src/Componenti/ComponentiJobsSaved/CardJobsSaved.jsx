@@ -14,16 +14,11 @@ indice,
 }) {
 const dispatch = useDispatch();
 
-
-
-
-
 useEffect(() => {
   if (indice == 0) {
     setDettaglioJob(impiego.description);
   }
 }, []);
-
 
 
 function prova() {
@@ -49,10 +44,7 @@ return (
   >
     <div
       className={
-        "card mb-0 border border-0 " +
-        (dettaglioJob === impiego.description
-          ? " lavoroSelezionato"
-          : " bg-white")
+        "card mb-0 border border-0"
       }
       style={{ maxWidth: 540 }}
     >

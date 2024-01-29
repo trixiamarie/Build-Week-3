@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Col, Modal } from "react-bootstrap";
-import {useSelector} from 'react-redux';
+import { useSelector } from "react-redux";
 import CardUtenteComponent from "./CardUtenteComponent";
 
 function ModaleAltriProfiliComponent(props) {
@@ -33,17 +33,20 @@ function ModaleAltriProfiliComponent(props) {
 
 export default function AltriProfiliComponent() {
   const [modalShow, setModalShow] = React.useState(false);
-  const allProfiles = useSelector(state => state.allProfiles.data)
-  console.log(allProfiles)
-const n = Math.floor(Math.random()*allProfiles.length/2)
-  const profileToShow = allProfiles.slice(n, n+6)
+  const allProfiles = useSelector((state) => state.allProfiles.data);
+  console.log(allProfiles);
+  const n = Math.floor((Math.random() * allProfiles.length) / 2);
+  const profileToShow = allProfiles.slice(n, n + 6);
 
   return (
-    <Col md={12} className="rounded border border-secondary-subtle p-3 bg-white mb-2">
-    <h6 className="ms-1 mb-3">Altri profili consultati</h6>
-    {profileToShow.map((profile, index) => (
-      <CardUtenteComponent profile={profile} index={index} key={index}/>
-    ))}
+    <Col
+      md={12}
+      className="rounded border border-secondary-subtle p-3 bg-white mb-2"
+    >
+      <h6 className="ms-1 mb-3">Altri profili consultati</h6>
+      {profileToShow.map((profile, index) => (
+        <CardUtenteComponent profile={profile} index={index} key={index} />
+      ))}
       <Button
         className="w-100 text-center border-top rounded-top-0 bg-white"
         variant="light"
@@ -59,4 +62,3 @@ const n = Math.floor(Math.random()*allProfiles.length/2)
     </Col>
   );
 }
-

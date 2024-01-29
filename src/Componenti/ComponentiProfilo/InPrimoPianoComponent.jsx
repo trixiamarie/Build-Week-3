@@ -24,9 +24,9 @@ export default function InPrimoPianoComponent() {
         </div>
       </div>
       <div className="in-primo-piano-main d-flex overflow-auto">
-        <CardPrimoPianoComponent titolo="graphic design portfolio" sottotitolo="Dribbble" img="https://picsum.photos/250/150"/>
-        <CardPrimoPianoComponent titolo="coding portfolio" sottotitolo="GitHub" img="https://picsum.photos/250/150"/>
-        <CardPrimoPianoComponent titolo="Tutte le volte che mi hanno insultato..." sottotitolo="intervista a Gesu" img="https://picsum.photos/250/150"/>
+        <CardPrimoPianoComponent titolo="graphic design portfolio" sottotitolo="Dribbble" img={"https://picsum.photos/250/150?random=15"}/>
+        <CardPrimoPianoComponent titolo="coding portfolio" sottotitolo="GitHub" img="https://picsum.photos/250/150?random=1"/>
+        <CardPrimoPianoComponent titolo="Tutte le volte che mi hanno insultato..." sottotitolo="intervista a Gesu" img="https://picsum.photos/250/150?random=5"/>
       </div>
     </div>
   );

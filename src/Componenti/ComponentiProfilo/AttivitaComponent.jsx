@@ -18,19 +18,24 @@ export default function AttivitaComponent() {
   const userData = useSelector((state) => state.user.userData.data);
   const [showAllPosts, setShowAllPosts] = useState(false);
   const [show, setShow] = useState(false);
+  let userPosts = [];
 
-  const userPosts = showAllPosts
-    ? allPosts.filter((post) => post.user._id === userData._id)
-    : allPosts.filter((post) => post.user._id === userData._id).slice(0, 3);
+  if (!idUrl) {
+    userPosts = showAllPosts
+      ? allPosts.filter((post) => post.user._id === userData._id)
+      : allPosts.filter((post) => post.user._id === userData._id).slice(0, 3);
+  } else {
+    userPosts = showAllPosts
+      ? allPosts.filter((post) => post.user._id === idUrl)
+      : allPosts.filter((post) => post.user._id === idUrl).slice(0, 3);
+  }
 
-const dispatch = useDispatch();
-  
-useEffect(() => {
-dispatch(getUserData())
-dispatch(getAllPostsData())
-}, [])
+  const dispatch = useDispatch();
 
-
+  useEffect(() => {
+    dispatch(getUserData());
+    dispatch(getAllPostsData());
+  }, [idUrl]);
 
   return (
     <div className="attivita-component mt-2">
@@ -39,7 +44,9 @@ dispatch(getAllPostsData())
           <h4>Attività</h4>
           <div className="d-flex align-items-center">
             {idUrl ? null : (
-              <div className="crea-un-post-btn" onClick={() => setShow(true)}>Crea un post</div>
+              <div className="crea-un-post-btn" onClick={() => setShow(true)}>
+                Crea un post
+              </div>
             )}
             {idUrl ? null : (
               <div className="matita-btn">
@@ -55,14 +62,16 @@ dispatch(getAllPostsData())
             <AttivitaSinglePostComponent key={post._id} post={post} />
           ))
         ) : (
-          <NoActivityComponent />
+          <NoActivityComponent userId={userData._id} id={idUrl}/>
         )}
       </div>
       <div
         className="attivita-component-button "
         onClick={() => setShowAllPosts(!showAllPosts)}
       >
-        <p>{showAllPosts ? "Mostra meno commenti" : "Mostra tutti i commenti"}</p>
+        <p>
+          {showAllPosts ? "Mostra meno commenti" : "Mostra tutti i commenti"}
+        </p>
         <CgArrowRight className="freccia-dx" />
       </div>
     </div>
