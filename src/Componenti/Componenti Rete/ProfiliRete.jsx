@@ -2,13 +2,23 @@ import React from 'react'
 import { Button, Dropdown, FormControl, InputGroup } from 'react-bootstrap'
 import CardAmicoComponente from './CardAmicoComponente'
 import {useSelector} from 'react-redux';
+
 import "../../Style/Frank.css"
+
+
+import { useState } from 'react';
 
 
 export default function ProfiliRete() {
   const listFriends = useSelector(state => state.userFriends)
   console.log(listFriends)
 
+  const[query, setQuery] = useState();
+
+  const hanldeQuery = (e) =>{
+    setQuery(e.target.value)
+    console.log(query)
+  }
 
   return (
     <>
@@ -39,8 +49,12 @@ export default function ProfiliRete() {
           type="text"
           placeholder="Cerca per nome"
           aria-label="Cerca per nome"
+
           className='searchForm'
           
+
+          onChange={hanldeQuery}
+
         />
         <Button variant=" text-primary" className='outline-none ordina'>
           Esegui la ricerca usando i filtri
@@ -50,7 +64,7 @@ export default function ProfiliRete() {
         </div>
         <hr className='border border-black'/>
         {listFriends.map((x, index)=> 
-        <CardAmicoComponente key={index} name={x.name} surname={x.surname} image={x.image} title={x.title} index={index}/>)}
+        <CardAmicoComponente key={index} ele={x} />)}
         
         
         

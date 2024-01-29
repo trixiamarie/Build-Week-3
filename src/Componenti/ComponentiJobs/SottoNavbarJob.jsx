@@ -6,13 +6,12 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { UseDispatch } from 'react-redux';
 import { getSearchCategory, getSearchCompany, getSearchQueryJob } from '../../Action/searchActions';
-
-
-
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import {useNavigate} from 'react-router-dom'
 
 export default function SottoNavbarJob() {
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
   const filtro = useSelector(state => state.search.filtro);
@@ -97,7 +96,7 @@ console.log(filtro);
             </ButtonGroup>
           </div>
           <div>
-            { innerWidth < 768 ? <div id="cuoricino-sotto-nav"><IoIosHeartEmpty /></div> : <div className="sotto-navbar-job-btns">Aggiungi ai Preferiti</div> }
+            { innerWidth < 768 ? <div id="cuoricino-sotto-nav" onClick={()=>navigate('/jobs_saved')}><IoIosHeartEmpty /></div> : <div className="sotto-navbar-job-btns" onClick={()=>navigate('/jobs_saved')}>Mostra Preferiti</div> }
           </div>
         </div>
       </Container>

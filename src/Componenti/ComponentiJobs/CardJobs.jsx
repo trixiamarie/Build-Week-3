@@ -17,7 +17,9 @@ export default function CardJobs({
 
   const listJobs = useSelector((state) => state.jobsSaved);
 
-  const jobs = listJobs.includes(impiego._id);
+  const jobs =listJobs.find(
+    x => x._id === impiego._id
+  ) ;
 
   useEffect(() => {
     if (indice == 0) {
@@ -94,17 +96,21 @@ export default function CardJobs({
       </div>
 
       <div className="fs-5 me-2 d-flex text-secondary">
-        <div className="matita-btn">
-          {jobs ? (
-            <IoMdHeart
-              onClick={() => dispatch(removejobsSavedAction(impiego._id))}
-            />
-          ) : (
-            <IoIosHeartEmpty
-              onClick={() => dispatch(jobsSavedAction(impiego._id))}
-            />
-          )}
-        </div>
+        {jobs ? (
+          <div
+            className="matita-btn"
+            onClick={() => dispatch(removejobsSavedAction(impiego))}
+          >
+            <IoMdHeart />{" "}
+          </div>
+        ) : (
+          <div
+            className="matita-btn"
+            onClick={() => dispatch(jobsSavedAction(impiego))}
+          >
+            <IoIosHeartEmpty />{" "}
+          </div>
+        )}
       </div>
     </div>
   );
