@@ -10,15 +10,24 @@ import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
+import { getExperiences } from "../../Action/profileActions";
+import { idAle, BEARER_TOKEN } from "../../Config";
+
 
 export default function EsperienzaComponent() {
+   const esperienze = useSelector(state=>state.profile.profileExperiences.data);
+  
 
-  const { idUrl } = useParams()
+  let {idUrl}=useParams();
 
-  /* const [ id, setId] = useState(useParams()); */
-  const [id, setId] = useState("65b238dc082963001801ea7e");
-  const [esperienze, setEsperienze] = useState([]);
+  if(!idUrl){
+    idUrl="65b22820913f650018d09540"
+  }
+
+
+  
+
   const [showPostMod, setshowPostMod] = useState(false);
 
   const [validated, setValidated] = useState(false);
@@ -35,18 +44,18 @@ export default function EsperienzaComponent() {
   const addNewExp = (data) => {
     axios
       .post(
-        `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/`,
+        `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/`,
         data,
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMzhkYzA4Mjk2MzAwMTgwMWVhN2UiLCJpYXQiOjE3MDY0NTMwNjEsImV4cCI6MTcwNzY2MjY2MX0.JMfviXDOUKx0n5GLsvkceHi8BQ2__jm5Uqix4trcPSI",
+              "Bearer " +BEARER_TOKEN,
           },
         }
       )
       .then(function (response) {
         console.log(response);
-        chiamataEsperienze();
+        dispatch(getExperiences(idUrl));
       })
       .catch(function (error) {
         console.log(error);
@@ -62,6 +71,7 @@ export default function EsperienzaComponent() {
     console.log(newExp);
     setValidated(true);
     addNewExp(newExp);
+    setshowPostMod(false);
   };
 
   const mesi = [
@@ -87,30 +97,14 @@ export default function EsperienzaComponent() {
     return arr;
   };
 
-  function chiamataEsperienze() {
-    axios
-      .get(
-        `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMzhkYzA4Mjk2MzAwMTgwMWVhN2UiLCJpYXQiOjE3MDY0NTMwNjEsImV4cCI6MTcwNzY2MjY2MX0.JMfviXDOUKx0n5GLsvkceHi8BQ2__jm5Uqix4trcPSI",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        setEsperienze(res.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+
 
   useEffect(() => {
-    chiamataEsperienze();
-  }, [id]);
+
+    console.log(idUrl);
+   dispatch(getExperiences(idUrl));
+   console.log(idUrl);
+  }, [idUrl]);
 
   return (
     <>
@@ -119,7 +113,7 @@ export default function EsperienzaComponent() {
           <h4>Esperienza</h4>
 
           <div className="text-secondary fs-5 d-flex">
-            { idUrl ? null : <div
+            { idUrl==idAle && <div
               className="matita-btn"
               onClick={() => {
                 setshowPostMod(true);

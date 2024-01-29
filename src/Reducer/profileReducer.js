@@ -65,6 +65,52 @@ const profileReducer = (
         }
       };
 
+      case "GET_EXPERIENCES_DATA":
+        return {
+          ...state,
+          profileExperiences:{
+            ...state.profileExperiences,
+            data : action.payload,
+          }       
+        };
+  
+      case "SET_EXPERIENCES_ERROR":
+        return {
+          ...state,
+          profileExperiences:{
+            ...state.profileExperiences,
+            dataErrorMsg: action.payload,
+            dataLoading: false
+          }
+        };
+  
+      case "CLEAR_EXPERIENCES_ERROR":
+        return {
+          ...state,
+          profileExperiences:{
+            ...state.profileExperiences,
+            dataErrorMsg: "",
+          }
+        };
+  
+      case "SET_EXPERIENCES_LOADING":
+        return {
+          ...state,
+          profileExperiences:{
+            ...state.profileExperiences,
+            dataLoading: true
+          }
+        };
+  
+      case "END_EXPERIENCES_LOADING":
+        return {
+          ...state,
+          profileExperiences:{
+            ...state.profileExperiences,
+            dataLoading: false
+          }
+        };
+
     default:
       return state;
   }

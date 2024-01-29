@@ -29,6 +29,7 @@ export default function Profile() {
 
   const user = useSelector((state) => state.user.userData.data);
 
+
   useEffect(() => {
     document.title = user.name +" " + user.surname + " | LinkedIn";
 
