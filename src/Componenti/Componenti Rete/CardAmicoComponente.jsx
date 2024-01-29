@@ -4,6 +4,7 @@ import { Dropdown, ListGroup, FormControl, InputGroup } from 'react-bootstrap'
 import { BsThreeDots } from "react-icons/bs";
 import { MdDeleteOutline } from "react-icons/md";
 
+
 export default function CardAmicoComponente({ name, surname, title, image }) { 
   return (
     <>
@@ -14,7 +15,7 @@ export default function CardAmicoComponente({ name, surname, title, image }) {
                 <img
                 // src={image}
                 src={image}
-                className="img-fluid "
+                className="img-fluid rounded-circle"
                 alt="..."
                 style={{ width: 60, height: 60 }}
                 />
@@ -30,16 +31,16 @@ export default function CardAmicoComponente({ name, surname, title, image }) {
                 </div>
             </div>
             <div className="rete-btn">
-                <button className="btn-messaggio">Messaggio</button>
+                <button className="btn-messaggio ">Messaggio</button>
             
                 <Dropdown >
                     <Dropdown.Toggle variant="text" id="dropdown-custom-1"  >
-                        <button id="threeDots"><HiOutlineDotsHorizontal style={{width: "24px", height: "24px"}}/></button>
+                        <button id="threeDots"><HiOutlineDotsHorizontal /></button>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className=""> 
                     <Dropdown.Item eventKey="1" className=''>
-                        <div className="d-flex gap-2 align-items-center text-center">
-                            <div><MdDeleteOutline />
+                        <div className="d-flex gap-2 align-items-center text-center ">
+                            <div ><MdDeleteOutline  />
                             </div> 
                             <p>Rimuovi collegamento</p> 
                         </div>

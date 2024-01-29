@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Dropdown, FormControl, InputGroup } from 'react-bootstrap'
 import CardAmicoComponente from './CardAmicoComponente'
 import {useSelector} from 'react-redux';
+import "../../Style/Frank.css"
+
 
 export default function ProfiliRete() {
   const listFriends = useSelector(state => state.userFriends)
@@ -10,40 +12,49 @@ export default function ProfiliRete() {
 
   return (
     <>
+
+    <div className='card-home-post p-3'>
+
+
+    
       
 
 
-        <p>30 collegamenti</p>
+        <p>{listFriends.length + " " }collegamenti</p>
         <div className="d-flex justify-content-between align-items-center mb-3">
         <div className='d-flex '>
            <Dropdown>
             <span> </span>
-          <Dropdown.Toggle variant="" id="dropdown-sort">
-            Ordina per: Aggiunti di recente
+          <Dropdown.Toggle variant=""  className='ordina'>
+            Ordina per: Aggiunti di recente <span className='fs12'> ▼</span> 
           </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Aggiunti di recente</Dropdown.Item>
+          <Dropdown.Menu className='dropdownMenu'>
+            <Dropdown.Item href="#/action-1" className='outline-none'>Add History </Dropdown.Item>
             
           </Dropdown.Menu>
         </Dropdown>
       </div>
       <InputGroup>
         <FormControl
+          type="text"
           placeholder="Cerca per nome"
           aria-label="Cerca per nome"
+          className='searchForm'
           
         />
-        <Button variant=" text-primary">
+        <Button variant=" text-primary" className='outline-none ordina'>
           Esegui la ricerca usando i filtri
         </Button>
       </InputGroup> 
+      
         </div>
+        <hr className='border border-black'/>
         {listFriends.map((x, index)=> 
         <CardAmicoComponente key={index} name={x.name} surname={x.surname} image={x.image} title={x.title} index={index}/>)}
         
         
         
-    
+        </div>
    
     </>
   )

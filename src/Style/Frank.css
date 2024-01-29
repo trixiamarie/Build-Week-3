@@ -62,3 +62,27 @@
 border: none;
   }
   
+
+
+
+
+  /* Profili rete */
+  .ordina{
+    font-size: 0.9rem;
+    border: none;
+  }
+
+  .searchForm{
+    margin-left: 7rem;
+    border-top: 1px solid #EBEBEB;    /* Grigio per il bordo superiore */
+    border-left: 1px solid #EBEBEB;   /* Grigio per il bordo sinistro */
+    border-bottom: 1px solid rgb(134, 134, 134);    /* Nero per il bordo inferiore */
+    border-right: 1px solid rgb(134, 134, 134);   
+    
+  }
+
+  .dropdownMenu{
+    transform: translate(4rem,2rem) !important;
+  }
+
+ 
