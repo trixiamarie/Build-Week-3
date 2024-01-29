@@ -7,16 +7,17 @@ import "../../Style/Frank.css"
 
 
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 export default function ProfiliRete() {
   const listFriends = useSelector(state => state.userFriends)
   console.log(listFriends)
 
-  const[query, setQuery] = useState();
+  const[query, setQuery] = useState("");
 
   const hanldeQuery = (e) =>{
-    setQuery(e.target.value)
+    setQuery(e.target.value.toLowerCase())
     console.log(query)
   }
 
@@ -24,12 +25,6 @@ export default function ProfiliRete() {
     <>
 
     <div className='card-home-post p-3'>
-
-
-    
-      
-
-
         <p>{listFriends.length + " " }collegamenti</p>
         <div className="d-flex justify-content-between align-items-center mb-3">
         <div className='d-flex '>
@@ -63,10 +58,8 @@ export default function ProfiliRete() {
       
         </div>
         <hr className='border border-black'/>
-        {listFriends.map((x, index)=> 
+        {listFriends.filter((x)=>  x.name.toLowerCase().startsWith(query) || x.surname.toLowerCase().startsWith(query)  ).map((x, index)=> 
         <CardAmicoComponente key={index} ele={x} />)}
-        
-        
         
         </div>
    
