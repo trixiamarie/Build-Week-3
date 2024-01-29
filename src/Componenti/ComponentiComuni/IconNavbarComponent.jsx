@@ -18,10 +18,11 @@ export default function IconNavbarComponent() {
                 <p className="d-none d-md-block">Home</p>
               </div>
             </Link>
+            <Link to={"/rete"}>
             <div className="text-center HoverIcon">
               <UsersLinkedin className="Icon" />
               <p className="d-none d-md-block">Rete</p>
-            </div>
+            </div></Link>
             <Link to={"/jobs"}>
               <div className="text-center HoverIcon">
                 <WorkBagLinkedin className="Icon" />

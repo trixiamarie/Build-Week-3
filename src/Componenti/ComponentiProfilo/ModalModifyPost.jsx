@@ -21,27 +21,30 @@ export default function ModalModifyPost(props) {
   const handleClose = () => setShow(false);
 
   const handlePost = async (e) => {
-    e.preventDefault()
-    console.log("Posting:", postText);
-    console.log(props.post._id)
-  
-    const formData = new FormData();
-    formData.append("text", postText);
-    console.log(formData)
+    e.preventDefault();
 
+    console.log("Posting:", postText);
+    console.log(props.post._id);
+    const formMod = document.getElementById('FormMod');
+    console.log(formMod);
+  
+    const formData = new FormData(formMod);
+    formData.append('text', postText);
+    console.log(formData);
+  
     if (imageFile) {
-        formData.append("image", imageFile);
-      }
+      formData.append('image', imageFile);
+    }
   
     try {
       const response = await axios.put(
         `https://striveschool-api.herokuapp.com/api/posts/${props.post._id}`,
+        formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data',
-            'Authorization': 'Bearer ' + BEARER_TOKEN,
+            Authorization: 'Bearer ' + BEARER_TOKEN,
           },
-          body: formData
         }
       );
   
@@ -54,6 +57,7 @@ export default function ModalModifyPost(props) {
   
     setShow(false);
   };
+  
   
 
   return (
@@ -77,18 +81,21 @@ export default function ModalModifyPost(props) {
         </div>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form id="FormMod">
           <Form.Group>
             <Form.Control
               className="border-1"
               placeholder="Di cosa vorresti parlare?"
               as="textarea"
               value={postText}
-              onChange={handleTextChange}
+              onChange={(e) => handleTextChange(e)}
               rows={6}
+              type="text"
+              name='text'
             />
             <Form.Label className='mt-3'>Allega:</Form.Label>
             <Form.Control
+            name='image'
               className=""
               type="file"
               onChange={handleFileChange}
