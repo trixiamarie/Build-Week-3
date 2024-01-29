@@ -2,11 +2,18 @@ import React from 'react'
 import { Button, Dropdown, FormControl, InputGroup } from 'react-bootstrap'
 import CardAmicoComponente from './CardAmicoComponente'
 import {useSelector} from 'react-redux';
+import { useState } from 'react';
 
 export default function ProfiliRete() {
   const listFriends = useSelector(state => state.userFriends)
   console.log(listFriends)
 
+  const[query, setQuery] = useState();
+
+  const hanldeQuery = (e) =>{
+    setQuery(e.target.value)
+    console.log(query)
+  }
 
   return (
     <>
@@ -31,7 +38,7 @@ export default function ProfiliRete() {
         <FormControl
           placeholder="Cerca per nome"
           aria-label="Cerca per nome"
-          
+          onChange={hanldeQuery}
         />
         <Button variant=" text-primary">
           Esegui la ricerca usando i filtri
@@ -39,7 +46,7 @@ export default function ProfiliRete() {
       </InputGroup> 
         </div>
         {listFriends.map((x, index)=> 
-        <CardAmicoComponente key={index} name={x.name} surname={x.surname} image={x.image} title={x.title} index={index}/>)}
+        <CardAmicoComponente key={index} ele={x} />)}
         
         
         
