@@ -8,9 +8,9 @@ import {
 } from "../../Action/jobsSavedActions";
 
 export default function CardJobs({
-  setDettaglioJob,
+  setDettaglioJob = () => {},
+  dettaglioJob = "",
   impiego,
-  dettaglioJob,
   indice,
 }) {
   const dispatch = useDispatch();

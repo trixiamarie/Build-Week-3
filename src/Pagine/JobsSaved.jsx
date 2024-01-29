@@ -6,11 +6,11 @@ import BarraLaterale from '../Componenti/ComponentiJobsSaved/BarraLaterale'
 import ListaJobsSalvati from '../Componenti/ComponentiJobsSaved/ListaJobsSalvati';
 
 export default function JobsSaved() {
-  console.log("DIOCANEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+
   const dispatch = useDispatch();
   const lavoriSalvati = useSelector(state=> state.jobsSaved)
   return (
-    <Container className='d-flex border border-secondary-subtle'  style={{ marginTop: "6.8rem" }}>
+    <Container className='d-flex '  style={{ marginTop: "6.8rem" }}>
       <BarraLaterale/>
       <ListaJobsSalvati/>
 
