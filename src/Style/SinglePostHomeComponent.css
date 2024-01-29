@@ -13,6 +13,12 @@
 .nome-post{
     font-weight: bold;
     font-size: 0.9rem;
+    
+}
+
+.nome-post:hover{
+    text-decoration: underline;
+    color: #0A66C2;
 }
 
 .followers-user-post, .ore-post{
@@ -27,15 +33,21 @@
 .card-home-post-header-right{
     color:  #666666;
 }    
+
+.card-home-post-footer{
+    padding: 0rem 2rem 0.5rem;
+}
+
 .home-post-body{
     font-size: 0.9rem;
     color:  #333333;
     padding: 0 1rem;
 }
 .home-post-segui{
+    border-radius: 0.3rem;
     font-weight: bold;
     color: #0A66C2;
-    padding: 0 0.5rem;
+    padding: 0rem 0.5rem 0.3rem 0.5rem;
     cursor: pointer;
 }
 
@@ -62,5 +74,14 @@
 }
 
 .btn-post-footer{
-    cursor: pointer
+    cursor: pointer;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.btn-post-footer:hover{
+    background-color: #EBEBEB;
+    border-radius: 0.3rem;
 }

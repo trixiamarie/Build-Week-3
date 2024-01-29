@@ -10,6 +10,7 @@
   font-size: 0.9rem;
   margin-left: 16px;
   color: #666666;
+  justify-content: space-between;
 }
 
 .filter-posts-home-btn {
