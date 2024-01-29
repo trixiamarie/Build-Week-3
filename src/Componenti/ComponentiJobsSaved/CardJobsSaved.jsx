@@ -35,10 +35,8 @@ const [nCandidati, setNCandidati] = useState(
 return (
   <div
     className={
-      "lavoroGreg pt-2 d-flex justify-content-between border-bottom px-2 " +
-      (dettaglioJob === impiego.description
-        ? " lavoroSelezionato"
-        : " bg-white")
+      "lavoroGreg pt-2 d-flex justify-content-between border-bottom px-2 "
+      
     }
     onClick={prova}
   >
@@ -59,7 +57,7 @@ return (
         </div>
         <div className="flex-grow-1 mx-1">
           <div className="card-body ps-2 pt-1">
-            <h5 className="card-title mb-1 text-primary">{impiego.title}</h5>
+            <h5 className="card-title mb-1">{impiego.title}</h5>
             <div className="card-text mb-0">
               <p className="mb-0 ">{impiego.company_name}</p>
             </div>

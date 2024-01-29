@@ -21,6 +21,7 @@ import { useParams } from "react-router-dom";
 import { getProfileData, getExperiences } from "../../Action/profileActions";
 import { idAle, BEARER_TOKEN } from "../../Config";
 import { getUserData } from "../../Action/userActions";
+import { getAllPostsData } from "../../Action/postsActions";
 
 export default function ProfileCardComponent() {
   const dispatch = useDispatch();
@@ -73,13 +74,14 @@ export default function ProfileCardComponent() {
       })
       .then(function (response) {
         console.log(response);
+        dispatch(getAllPostsData());
+        dispatch(getUserData());   
+        dispatch(getProfileData());
       })
       .catch(function (error) {
         console.log(error);
-      });
-    dispatch(getUserData());
-    handleClose();
-    dispatch(getProfileData());
+      });    
+       handleClose();
   };
   const [modProfile, setModProfile] = useState({
     name: "",
