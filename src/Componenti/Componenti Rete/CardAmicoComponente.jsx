@@ -40,11 +40,13 @@ export default function CardAmicoComponente({ ele }) {
                 </div>
             </div>
             <div className="rete-btn">
-                <button className="btn-messaggio ">Messaggio</button>
+                <button className="btn-messaggio " style={{backgroundColor: "white"}}>Messaggio</button>
             
                 <Dropdown>
                     <Dropdown.Toggle variant="text" id="dropdown-custom-1"  style={{border: "none"}}>
-                        <button id="threeDots"><HiOutlineDotsHorizontal style={{width: "24px", height: "24px"}}/></button>
+                        <button style={{backgroundColor: "white"}} id="threeDots"><HiOutlineDotsHorizontal 
+                        style={{width: "24px",height: "24px"}}/>
+                        </button>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className=""> 
                         <Dropdown.Item eventKey="1" className=''>
