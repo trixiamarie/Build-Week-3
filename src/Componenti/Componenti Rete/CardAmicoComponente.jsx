@@ -1,10 +1,10 @@
 import React from 'react'
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { Button, Dropdown, ListGroup, FormControl, InputGroup } from 'react-bootstrap'
+import { Dropdown, ListGroup, FormControl, InputGroup } from 'react-bootstrap'
 import { BsThreeDots } from "react-icons/bs";
 import { MdDeleteOutline } from "react-icons/md";
 
-export default function CardAmicoComponente() {
+export default function CardAmicoComponente({ name, surname, title, image }) { 
   return (
     <>
         <div className="d-flex justify-content-between align-items-center lineLight" style={{padding: "8px 8px 8px 24px", positon: "relative"}}>
@@ -13,7 +13,7 @@ export default function CardAmicoComponente() {
                
                 <img
                 // src={image}
-                src="https://www.market-research-companies.in//images/default.jpg"
+                src={image}
                 className="img-fluid "
                 alt="..."
                 style={{ width: 60, height: 60 }}
@@ -21,10 +21,10 @@ export default function CardAmicoComponente() {
                
                 <div className="ms-2">
                     {/* {name}{surname} */}
-                    <span className="fs16">Nome Profilo</span>
+                    <span className="fs16">{name}{surname}</span>
                     <br></br>
                     {/* {title} */}
-                    <span className="fs14">Fullstack in formazione presso epicode</span>
+                    <span className="fs14">{title}</span>
                     <br></br>
                     <span className="fs12">Collegati 3 giorni fa</span>
                 </div>

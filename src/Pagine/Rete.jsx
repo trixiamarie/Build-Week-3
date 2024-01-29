@@ -5,7 +5,7 @@ import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
 import ProfiliRete from "../Componenti/Componenti Rete/ProfiliRete";
 
 
-import CardAmicoComponente from "../Componenti/Componenti Rete/CardAmicoComponente";
+
 
 export default function Rete() {
   return (
@@ -16,7 +16,7 @@ export default function Rete() {
             
             <ProfiliRete />
             {" "}
-            <CardAmicoComponente></CardAmicoComponente>
+            
             {/* colonna Main */}
             {/* <div style={{height:"10rem",  border:"1px solid black"}}></div> */}
           </Col>
