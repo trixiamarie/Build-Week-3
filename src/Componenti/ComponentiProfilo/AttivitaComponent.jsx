@@ -24,7 +24,6 @@ const dispatch = useDispatch();
   
 useEffect(() => {
 dispatch(getUserData())
-
 dispatch(getAllPostsData())
 }, [])
 
