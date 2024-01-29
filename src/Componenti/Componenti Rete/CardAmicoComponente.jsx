@@ -1,5 +1,8 @@
 import React from 'react'
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { Button, Dropdown, ListGroup, FormControl, InputGroup } from 'react-bootstrap'
+import { BsThreeDots } from "react-icons/bs";
+import { MdDeleteOutline } from "react-icons/md";
 
 export default function CardAmicoComponente() {
   return (
@@ -28,8 +31,25 @@ export default function CardAmicoComponente() {
             </div>
             <div className="rete-btn">
                 <button className="btn-messaggio">Messaggio</button>
-                <button id="threeDots"><HiOutlineDotsHorizontal style={{width: "24px", height: "24px"}}/></button>
-            </div>
+            
+                <Dropdown >
+                    <Dropdown.Toggle variant="text" id="dropdown-custom-1"  >
+                        <button id="threeDots"><HiOutlineDotsHorizontal style={{width: "24px", height: "24px"}}/></button>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className=""> 
+                    <Dropdown.Item eventKey="1" className=''>
+                        <div className="d-flex gap-2 align-items-center text-center">
+                            <div><MdDeleteOutline />
+                            </div> 
+                            <p>Rimuovi collegamento</p> 
+                        </div>
+                        
+                    
+                    </Dropdown.Item>
+                    
+                    </Dropdown.Menu>
+                </Dropdown>
+          </div>
             
         </div>
     </>
