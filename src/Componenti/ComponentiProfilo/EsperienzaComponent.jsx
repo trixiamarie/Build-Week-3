@@ -8,23 +8,23 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, FormControl } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getExperiences } from "../../Action/profileActions";
 import { idAle, BEARER_TOKEN } from "../../Config";
 
-
 export default function EsperienzaComponent() {
-   const esperienze = useSelector(state=>state.profile.profileExperiences.data);
-  
+  const esperienze = useSelector(
+    (state) => state.profile.profileExperiences.data
+  );
 
-  let {idUrl}=useParams();
+  let { idUrl } = useParams();
 
-  if(!idUrl){
-    idUrl=idAle
+  if (!idUrl) {
+    idUrl = idAle;
   }
-
+  const [imageExperience, setImageExperience] = useState();
   const [showPostMod, setshowPostMod] = useState(false);
   const [validated, setValidated] = useState(false);
   const [newExp, setNewExp] = useState({
@@ -44,18 +44,27 @@ export default function EsperienzaComponent() {
         data,
         {
           headers: {
-            Authorization:
-              "Bearer " +BEARER_TOKEN,
+            Authorization: "Bearer " + BEARER_TOKEN,
           },
         }
       )
       .then(function (response) {
         console.log(response);
         dispatch(getExperiences(idUrl));
+        handleExperienceImage(response.data._id)
       })
       .catch(function (error) {
         console.log(error);
       });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImageFile(new Blob([reader.result], { type: file.type }));
+    };
+    reader.readAsArrayBuffer(file);
   };
 
   const handleSubmit = (event) => {
@@ -68,6 +77,32 @@ export default function EsperienzaComponent() {
     setValidated(true);
     addnewExp(newExp);
     setshowPostMod(false);
+  };
+
+  const handleExperienceImage = async (idExperience) => {
+    console.log("post experience image");
+    const formData = new FormData();
+    if (imageExperience) {
+      console.log(imageExperience);
+      formData.append("experience", imageExperience);
+
+      try {
+        console.log(formData);
+        const response = await axios.post(
+          `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/${idExperience}`,
+          formData,
+          {
+            headers: {
+              Authorization: "Bearer " + BEARER_TOKEN,
+            },
+          }
+        );
+
+        console.log("Success:", response.data);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
   };
 
   const mesi = [
@@ -93,18 +128,14 @@ export default function EsperienzaComponent() {
     return arr;
   };
 
-
-
   useEffect(() => {
-
     console.log(idUrl);
-   dispatch(getExperiences(idUrl));
-   console.log(idUrl);
+    dispatch(getExperiences(idUrl));
+    console.log(idUrl);
   }, [idUrl]);
 
-
   const updateExperiences = (updatedExperience) => {
-    dispatch(getExperiences(idUrl))
+    dispatch(getExperiences(idUrl));
   };
 
   return (
@@ -114,21 +145,27 @@ export default function EsperienzaComponent() {
           <h4>Esperienza</h4>
 
           <div className="text-secondary fs-5 d-flex">
-            { idUrl==idAle && <div
-              className="matita-btn"
-              onClick={() => {
-                setshowPostMod(true);
-                console.log("modale PUT exp");
-              }}
-            >
-              <IoAddSharp />
-            </div>}
+            {idUrl == idAle && (
+              <div
+                className="matita-btn"
+                onClick={() => {
+                  setshowPostMod(true);
+                  console.log("modale PUT exp");
+                }}
+              >
+                <IoAddSharp />
+              </div>
+            )}
           </div>
         </div>
         {esperienze.length > 0 && (
           <div className="esperienze mt-2 mb-0 pb-0">
             {esperienze.map((ele) => (
-              <MettiEsperienza key={ele._id} esperienza={ele} onUpdate={updateExperiences}  />
+              <MettiEsperienza
+                key={ele._id}
+                esperienza={ele}
+                onUpdate={updateExperiences}
+              />
             ))}
           </div>
         )}
@@ -288,9 +325,10 @@ export default function EsperienzaComponent() {
             </Button>
 
             <h3>Media</h3>
-            <Button variant="outline-primary" className="fw-semibold fs-5">
+            {/* <Button variant="outline-primary" className="fw-semibold fs-5">
               <FaPlus /> Aggiungi media
-            </Button>
+            </Button> */}
+            <FormControl type="file" onChange={handleFileChange}/>
 
             <Button type="button" onClick={handleSubmit}>
               Salva
