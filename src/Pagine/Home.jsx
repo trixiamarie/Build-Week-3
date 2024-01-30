@@ -31,6 +31,12 @@ export default function Home() {
       document.title = '';
     };
   }, []);
+  useEffect(()=>{
+    window.scrollTo({
+      top: 0,
+     
+    })
+   },{})
 
   return (
     <Container>

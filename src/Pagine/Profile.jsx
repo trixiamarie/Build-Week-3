@@ -32,8 +32,13 @@ export default function Profile() {
 
   const user = useSelector((state) => state.user.userData.data);
   const profile = useSelector((state) => state.profile.profileData.data)
- console.log(profile, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
  
+ useEffect(()=>{
+  window.scrollTo({
+    top: 0,
+
+  })
+ },{})
 
 
   useEffect(() => {

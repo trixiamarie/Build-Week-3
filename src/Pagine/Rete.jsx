@@ -17,6 +17,13 @@ export default function Rete() {
     };
   }, []);
 
+  useEffect(()=>{
+    window.scrollTo({
+      top: 0,
+    
+    })
+   },{})
+
   return (
     <>
       <Container style={{zIndex:"0"}}>

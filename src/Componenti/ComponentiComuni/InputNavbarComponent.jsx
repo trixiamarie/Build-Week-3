@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
+
 export default function InputNavbarComponent() {
 
 const isJobs = (useLocation('/jobs').pathname === '/jobs');
