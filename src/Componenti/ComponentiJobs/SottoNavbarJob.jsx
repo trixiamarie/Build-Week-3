@@ -36,12 +36,6 @@ export default function SottoNavbarJob() {
   //lascio search come valore iniziale perché i bottone sarà setta su lavoro
   const [endPoint, setEndPoint] = useState("search");
 
-<<<<<<< HEAD
-  const radios = [
-    { name: 'Lavoro', value: '1' , endPoint: "search"},
-    { name: 'Compagnia', value: '2' , endPoint: "company"},
-    { name: 'Categoria', value: '3' , endPoint: "category"},
-=======
 
   const job = getSearchQueryJob()
   const company = getSearchCompany()
@@ -51,21 +45,16 @@ export default function SottoNavbarJob() {
     { name: 'Lavoro', value: '1' , endPoint: "search", ajax: job},
     { name: 'Azienda', value: '2' , endPoint: "company", ajax: company},
     { name: 'Categoria', value: '3' , endPoint: "category", ajax: category},
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
   ];
 
 
   useEffect(()=>{
     console.log(endPoint)
   },[endPoint])
-<<<<<<< HEAD
-
-=======
  
   useEffect(()=>{
 console.log(filtro);
   },[filtro])
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
 
 
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -75,21 +64,6 @@ console.log(filtro);
     window.addEventListener("resize", () => {
       setInnerWidth(window.innerWidth);
     });
-<<<<<<< HEAD
-    const sottoNavbarUsername = document.querySelector(
-      ".sotto-navbar-btns div:first-of-type"
-    );
-    const sottoNavBarJob = document.querySelector(
-        ".sotto-navbar-job"
-      );
-    innerWidth < 768
-      ? (sottoNavBarJob.style.display = "none")
-      : (sottoNavBarJob.style.display = "block");
-
-    innerWidth < 992
-      ? (sottoNavbarUsername.innerHTML = "···")
-      : (sottoNavbarUsername.innerText = "Altro");
-=======
     // const sottoNavbarUsername = document.querySelector(
     //   ".sotto-navbar-btns div:first-of-type"
     // );
@@ -103,7 +77,6 @@ console.log(filtro);
     // innerWidth < 768
     //   ? (sottoNavbarUsername.innerHTML = "···")
     //   : (sottoNavbarUsername.innerText = "Aggiungi ai Preferiti");
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
 
     return () => {
       window.removeEventListener("resize", () => {
@@ -116,10 +89,6 @@ console.log(filtro);
   return (
     <div className="sotto-navbar-job">
       <Container>
-<<<<<<< HEAD
-        {/* <InputJob></InputJob> */}
-=======
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
         <div className="sotto-navbar">
           <div className="sotto-navbar-sx">
             <ButtonGroup>
@@ -131,30 +100,17 @@ console.log(filtro);
                   variant={'outline-success'}
                   name="radio"
                   value={radio.value}
-<<<<<<< HEAD
-                  checked={radioValue === radio.value}
-                  onChange={(e) => setRadioValue(e.currentTarget.value)}
-                  onClick={()=> setEndPoint(radio.endPoint)}
-=======
                   checked={radio.name === filtro}
                   onChange={(e) => setRadioValue(e.currentTarget.value)}
                   onClick={()=> { console.log("bottoni miei"); dispatch(radio.ajax) } }
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
                 >
                   {radio.name}
                 </ToggleButton>
               ))}
             </ButtonGroup>
           </div>
-<<<<<<< HEAD
-          <div className="sotto-navbar-btns">
-            <div>Altro</div>
-            <div>Aggiungi sezione del profilo</div>
-            <div>Disponibile per</div>
-=======
           <div>
             { innerWidth < 768 ? <div id="cuoricino-sotto-nav" onClick={()=>navigate('/jobs_saved')}><IoIosHeartEmpty /></div> : <div className="sotto-navbar-job-btns" onClick={()=>navigate('/jobs_saved')}>Mostra Preferiti</div> }
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
           </div>
         </div>
       </Container>
