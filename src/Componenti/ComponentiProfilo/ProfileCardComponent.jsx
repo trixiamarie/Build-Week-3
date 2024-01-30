@@ -23,7 +23,9 @@ import { idAle, BEARER_TOKEN } from "../../Config";
 import { getUserData } from "../../Action/userActions";
 import { getAllPostsData } from "../../Action/postsActions";
 
+
 export default function ProfileCardComponent() {
+  const listFriends = useSelector(state => state.userFriends)
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.userData.data);
   const profile = useSelector((state) => state.profile);
