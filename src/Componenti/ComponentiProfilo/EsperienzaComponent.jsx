@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { HiOutlinePencil } from "react-icons/hi2";
 import { IoAddSharp } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
-import { Form, Button, Row, Col, FormControl } from "react-bootstrap";
+import { Form, Button, Row, Col, FormControl, Accordion } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getExperiences } from "../../Action/profileActions";
@@ -31,6 +31,16 @@ export default function EsperienzaComponent() {
   let endM;
   let endY;
   const [pippo, setPippo] = useState(false)
+  const mediaInput = useRef();
+  const mostraMediaInput = () => {
+    mediaInput.current.classList.remove("d-none");
+  };
+
+  const nascondiMediaInput = () => {
+    mediaInput.current.classList.add("d-none");
+  };
+
+  
 
 
   const [loadingExperience, setLoadingExperience] = useState();
@@ -41,7 +51,7 @@ export default function EsperienzaComponent() {
     role: "",
     company: "",
     startDate: "",
-    endDate: null,
+    endDate: "",
     description: "",
     area: "",
   });
@@ -83,13 +93,17 @@ export default function EsperienzaComponent() {
 
   function modExpDate() {
     if (startM !== 'Mese' && startY !== 'Anno' && endM !== undefined && endY !== undefined) {
-      setNewExp({ ...newExp, startDate: startY + '-' + startM + '-01', Date: endY + '-' + endM + '-01' })
+      setNewExp({ ...newExp, startDate: startY + '-' + startM + '-01', endDate: endY + '-' + endM + '-01' })
       console.log(newExp.startDate)
+      
+
       setPippo(!pippo)
 
     } else if (startM !== 'Mese' && startY !== 'Anno' && (endM === undefined && endY === undefined)) {
       setNewExp({ ...newExp, startDate: startY + '-' + startM + '-01', endDate: null })
       console.log(newExp.startDate)
+      console.log(newExp.endDate)
+      
       setPippo(!pippo)
 
 
@@ -191,6 +205,7 @@ export default function EsperienzaComponent() {
                   className="matita-btn"
                   onClick={() => {
                     setshowPostMod(true);
+                    
                     console.log("modale PUT exp");
                   }}
                 >
@@ -414,29 +429,29 @@ export default function EsperienzaComponent() {
 
             <h3>Media</h3>
             <p className='my-2 ' >Aggiungi contenuti multimediali come immagini, documenti, siti o presentazioni. Scopri di più sui <span className='text-primary fw-semibold'>tipi di file multimediali supportati</span></p>
-            <Button variant="outline-primary" className="fw-semibold fs-5 rounded-5 mt-2 mb-4">
+            <Button variant="outline-primary" className="fw-semibold fs-5 rounded-5 mt-2 mb-4" onClick={mostraMediaInput}>
               <div className=' d-flex align-items-center mx-2'>
               <FaPlus className="me-2" /> Aggiungi media
                 </div>
             </Button>
-            <FormControl type="file" onChange={handleFileChange} />
+            <FormControl type="file" onChange={handleFileChange} ref={mediaInput} className='d-none' />
 
-            <Button
-              type="button"
-              onClick={handleSubmit}
-              disabled={loadingExperience}
-            >
-              {loadingExperience ? (
+
+
+
+
+
+
+          
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+        <Button type="button" onClick={handleSubmit} className="fw-semibold fs-5 rounded-5 mt-2 mb-4 px-4"  disabled={loadingExperience}>
+        {loadingExperience ? (
                 <PulseSpinner loading={loadingExperience} />
               ) : (
                 "Salva"
               )}
-            </Button>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-        <Button type="button" onClick={handleSubmit} className="fw-semibold fs-5 rounded-5 mt-2 mb-4 px-4">
-              Salva
             </Button>
         </Modal.Footer>
       </Modal>
