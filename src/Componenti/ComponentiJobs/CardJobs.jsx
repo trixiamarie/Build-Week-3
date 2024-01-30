@@ -27,7 +27,7 @@ export default function CardJobs({
     }
   }, []);
 
-  useEffect(() => {}, [listJobs]);
+
 
   function prova() {
     setDettaglioJob(impiego.description);
