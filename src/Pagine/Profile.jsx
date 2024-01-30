@@ -31,18 +31,18 @@ export default function Profile() {
   const { idUrl } = useParams()
 
   const user = useSelector((state) => state.user.userData.data);
-  const profile = useSelector((state) => state.allProfiles.data)
-  const nameProfile = profile.filter((x) => x._id === idUrl)
+  const profile = useSelector((state) => state.profile.profileData.data)
+ console.log(profile, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
  
 
 
   useEffect(() => {
-    {idUrl ? document.title = nameProfile[0].name +" " + nameProfile[0].surname + " | LinkedIn" : document.title = user.name +" " + user.surname + " | LinkedIn"}
+    {idUrl ? document.title = profile.name +" " + profile.surname + " | LinkedIn" : document.title = profile.name +" " + profile.surname + " | LinkedIn"}
 
     return () => {
       document.title = '';
     };
-  }, []);
+  }, [profile]);
 
   return (<>
     <SottoNavbarComponent />

@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 
 export default function SottoNavbarComponent() {
 
-  const userData = useSelector(state => state.user.userData.data)
+  const user = useSelector(state => state.user.userData.data);
+  const profile = useSelector((state) => state.profile.profileData.data);
+  const amici = useSelector((state) => state.userFriends)
 
   // const username = "Vincenzo Arpaia";
   // const lavoro = "Full-stack Developer Student";
@@ -59,20 +61,26 @@ export default function SottoNavbarComponent() {
       <Container>
         <div className="sotto-navbar">
           <div className="sotto-navbar-sx">
-            <div className="sotto-navbar-avatar" style={{backgroundImage: `url(${userData.image})`, backgroundSize: "cover" }}>
-              {userData.image ? "" : userData.name.substring(0, 1)}
+            <div className="sotto-navbar-avatar" style={{backgroundImage: `url(${profile.image})`, backgroundSize: "cover" }}>
+              {profile.image ? "" : profile.name.substring(0, 1)}
               <div className="avatar-pallino"></div>
             </div>
             <div className="sotto-navbar-info">
-              <div className="sotto-navbar-username">{userData.name + ' ' + userData.surname}</div>
-              <div className="sotto-navbar-lavoro">{userData.title}</div>
+              <div className="sotto-navbar-username">{profile.name + ' ' + profile.surname}</div>
+              <div className="sotto-navbar-lavoro">{profile.title}</div>
             </div>
           </div>
+          {profile._id===user._id ?  
           <div className="sotto-navbar-btns">
             <div>Altro</div>
             <div>Aggiungi sezione del profilo</div>
             <div>Disponibile per</div>
-          </div>
+          </div> : 
+          <div className="sotto-navbar-btns">
+            <div>Altro</div>
+            {amici.find(x=>x._id == profile._id )  ? <div>Messaggio</div>: <div>Collegati</div> }
+            <div>Disponibile per</div>
+          </div>}
         </div>
       </Container>
     </div>
