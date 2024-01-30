@@ -15,13 +15,11 @@ export default function FakeComponent() {
     dispatch(getAllProfilesData());
     dispatch(getSearchJob());
 
-    dispatch(getAllPostsData());
+
     dispatch(getUserData());
   }, []);
 
-  useEffect(() => {
-    console.log(stato);
-  }, [stato]);
+
 
   return <></>;
 }

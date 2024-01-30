@@ -9,8 +9,20 @@ import AltriProfiliComponent from "../Componenti/ComponentiProfilo/AltriProfiliC
 import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeComponent";
 import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
 import LinkedinNotizie from "../Componenti/ComponentiProfilo/LinkedinNotizie.jsx";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getAllPostsData } from "../Action/postsActions.js";
 
 export default function Home() {
+  const dispatch = useDispatch()
+  const posts = useSelector(state => state.posts.data);
+
+  useEffect(() => {
+    setTimeout(()=>{
+ dispatch(getAllPostsData());
+    },1500)
+   
+  }, [])
 
   useEffect(() => {
     document.title = " Feed | LinkedIn";
@@ -22,8 +34,8 @@ export default function Home() {
 
   return (
     <Container>
-      <Row style={{marginTop:"4.809rem"}}>
-        <Col className="d-none d-md-block" md={{ span:5 }} lg={3}>
+      {posts.length > 0 ? <Row style={{ marginTop: "4.809rem" }}>
+        <Col className="d-none d-md-block" md={{ span: 5 }} lg={3}>
           {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <ProfileCardHome />
           <UnderProfileCardComponent />
@@ -34,15 +46,16 @@ export default function Home() {
           <NewPostComponent />
           <HomePostComponent />
         </Col>
-        <Col className="d-none d-md-block" lg={3} style={{position:"relative"}}>
+        <Col className="d-none d-md-block" lg={3} style={{ position: "relative" }}>
           {/* Componenti Sidebar Destro*/}
           {/* <div style={{ height: "10rem", border: "1px solid black" }}></div> */}
           <LinkedinNotizie />
-          <AdsComponent/>
-          <FooterHomeComponent/>
+          <AdsComponent />
+          <FooterHomeComponent />
         </Col>
-      </Row>
-      {/*<LoadingHomeComponent />*/}
+      </Row> :
+        <LoadingHomeComponent />}
+
     </Container>
   );
 }
