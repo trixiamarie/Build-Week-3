@@ -22,7 +22,7 @@ export default function Rete() {
       top: 0,
     
     })
-   },{})
+   },[])
 
   return (
     <>

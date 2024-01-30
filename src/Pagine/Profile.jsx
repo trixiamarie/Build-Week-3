@@ -38,7 +38,13 @@ export default function Profile() {
     top: 0,
 
   })
- },{})
+ },[])
+ useEffect(()=>{
+  window.scrollTo({
+    top: 0,
+
+  })
+ },[profile])
 
 
   useEffect(() => {

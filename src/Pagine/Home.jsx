@@ -36,7 +36,7 @@ export default function Home() {
       top: 0,
      
     })
-   },{})
+   },[])
 
   return (
     <Container>
