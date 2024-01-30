@@ -41,6 +41,16 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
   const [loadingExperience, setLoadingExperience] = useState(false);
   const [imageExperience, setImageExperience] = useState();
 
+  const mediaInput = useRef();
+  const mostraMediaInput = () => {
+    mediaInput.current.classList.remove("d-none");
+  };
+
+  const nascondiMediaInput = () => {
+    mediaInput.current.classList.add("d-none");
+  };
+
+
   const addmodExp = (data) => {
     /* modifica esperienza chiamata PUT */
     axios
@@ -527,13 +537,13 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
                 tipi di file multimediali supportati
               </span>
             </p>
-            {/* <Button variant="outline-primary" className="fw-semibold fs-5 rounded-5 mt-2 mb-4">
+            <Button variant="outline-primary" className="fw-semibold fs-5 rounded-5 mt-2 mb-4" onClick={mostraMediaInput}>
               <div className=' d-flex align-items-center mx-2'>
               <FaPlus className="me-2" /> Aggiungi media
                 </div>
-            </Button> */}
+            </Button> 
 
-            <Form.Control type="file" onChange={handleFileChange} />
+            <Form.Control type="file" onChange={handleFileChange} ref={mediaInput} className='d-none'/>
           </Form>
         </Modal.Body>
         <Modal.Footer>

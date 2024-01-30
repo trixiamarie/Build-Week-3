@@ -117,3 +117,7 @@ color:#0A66C2
 .CardContainerJobsSavedss .lavoroGreg:last-child {
   border: none;
 }
+
+.descrizioneLavoro img{
+max-width: 100%;
+}

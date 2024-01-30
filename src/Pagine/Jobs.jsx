@@ -29,22 +29,6 @@ export default function Jobs() {
   }, [dettaglioJob]);
 
 
-  /* {(filtro=="Lavoro"||!parola) &&<div>
-          <p className="mb-0">
-           Offerte di lavoro {parola&&<span>per: {parola}</span>}</p>
-          <small>{risultatiSearch.length} risultati</small>
-        </div>}
-        {(filtro=="Azienda"&&parola)&&<div>
-          <p className="mb-0">
-           Risultati per Azienda: {parola}</p>
-          <small>{risultatiSearch.length} risultati</small>
-        </div>}
-        {(filtro=="Categoria"&&parola)&&<div>
-          <p className="mb-0">
-           Risultati per Categoria: {parola}</p>
-          <small>{risultatiSearch.length} risultati</small>
-        </div>} */
-
   useEffect(() => {
     if ((filtro == "Lavoro" || !parola)) {
       document.title = `Offerte di lavoro `;
