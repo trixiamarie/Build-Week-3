@@ -131,7 +131,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
 
     console.log('use Effect', modExp);
 
-  }, [modExp, esperienza]);
+  }, [modExp]);
 
 
   return (
