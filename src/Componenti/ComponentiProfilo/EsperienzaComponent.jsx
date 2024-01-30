@@ -68,7 +68,7 @@ export default function EsperienzaComponent() {
         setImageExperience(false);
         setshowPostMod(false);
         setLoadingExperience(false);
-        imageExperience(null);
+        setImageExperience(null);
       });
   };
 
