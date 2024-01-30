@@ -2,6 +2,7 @@ import axios from "axios"
 import { BEARER_TOKEN, postsbaseURL } from "../Config"
 
 export const getAllPostsData = () => {
+
     return (dispatch, state) => {
         dispatch(clearPostsError());
         dispatch(setPostsLoading());

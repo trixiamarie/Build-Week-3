@@ -19,14 +19,13 @@ export default function CardAmicoComponente({ ele }) {
 
   return (
     <>
-        <div className="d-flex justify-content-between align-items-center lineLight" style={{padding: "8px 8px 8px 24px", positon: "relative"}}>
+        <div className="d-flex justify-content-between align-items-center lineLight mt-2">
            
             <div className="d-flex" onClick={()=>navigate("/profile/"+ele._id)}>
                <Link to={"/profile/" + ele._id}>
                 <img
                 // src={image}
                 src={ele.image}
-                className="img-fluid "
                 alt="..."
                 style={{ width: 60, height: 60, borderRadius:"50%"}}
                 />
