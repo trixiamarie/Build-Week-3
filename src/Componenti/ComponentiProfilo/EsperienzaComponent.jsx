@@ -52,13 +52,15 @@ export default function EsperienzaComponent() {
       )
       .then((response) => {
         console.log(response);
+
         handleExperienceImage(response.data._id);
       })
       .catch(function (error) {
         console.log(error);
         setImageExperience(false);
         setshowPostMod(false);
-        setLoadingExperience(false)
+        setLoadingExperience(false);
+        imageExperience(null);
       });
   };
 
@@ -89,29 +91,28 @@ export default function EsperienzaComponent() {
     if (imageExperience) {
       console.log(imageExperience);
       formData.append("experience", imageExperience);
-
-      
-        console.log(formData);
-        axios.post(
-          `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/${idExperience}/picture`,
-          formData,
-          {
-            headers: {
-              Authorization: "Bearer " + BEARER_TOKEN,
-            },
-          }
-        ).then(response => {
-          dispatch(getExperiences(idUrl));
-          setLoadingExperience(false);
-          setshowPostMod(false);
-        })
-        .catch(err => {
-          console.error("Error:", err);
-
-
-        })
-
     }
+
+    console.log(formData);
+    axios
+      .post(
+        `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/${idExperience}/picture`,
+        formData,
+        {
+          headers: {
+            Authorization: "Bearer " + BEARER_TOKEN,
+          },
+        }
+      )
+      .catch((err) => {
+        console.error("Error:", err);
+      })
+      .finally((response) => {
+        dispatch(getExperiences(idUrl));
+        setLoadingExperience(false);
+        setshowPostMod(false);
+        setImageExperience(null);
+      });
   };
 
   const mesi = [
