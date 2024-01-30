@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useRef, useEffect, useState } from 'react';
 import CardJobs from '../Componenti/ComponentiJobs/CardJobs';
 import { Container, Row, Col, Card } from 'react-bootstrap';
@@ -7,13 +6,6 @@ import ColonnaSx from '../Componenti/ComponentiJobs/ColonnaSx';
 import SottoNavbarJob from '../Componenti/ComponentiJobs/SottoNavbarJob';
 import InputJob from '../Componenti/ComponentiJobs/InputJob';
 
-=======
-import React, { useRef, useEffect, useState } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import ColonnaDx from "../Componenti/ComponentiJobs/ColonnaDx";
-import ColonnaSx from "../Componenti/ComponentiJobs/ColonnaSx";
-import SottoNavbarJob from "../Componenti/ComponentiJobs/SottoNavbarJob";
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
 
 export default function Jobs() {
   const [dettaglioJob, setDettaglioJob] = useState("r");

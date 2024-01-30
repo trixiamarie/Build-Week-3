@@ -23,7 +23,9 @@ import { idAle, BEARER_TOKEN } from "../../Config";
 import { getUserData } from "../../Action/userActions";
 import { getAllPostsData } from "../../Action/postsActions";
 
+
 export default function ProfileCardComponent() {
+  const listFriends = useSelector(state => state.userFriends)
   const dispatch = useDispatch();
 
   const profile = useSelector((state) => state.profile);
@@ -138,7 +140,7 @@ export default function ProfileCardComponent() {
                   Informazione di contatto
                 </span>
               </p>
-              <p className="text-primary fw-bold">{nContatti} contatti</p>
+              <p className="text-primary fw-bold">{listFriends.length} contatti</p>
             </Col>
             <Col xs={5}>
               {profile.profileExperiences.data.length > 0 && (

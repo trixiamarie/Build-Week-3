@@ -2,19 +2,6 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "../../Style/SottoNavbarJob.css";
-<<<<<<< HEAD
-import { BsThreeDots } from "react-icons/bs";
-import { useSelector } from "react-redux";
-// import InputJob from './InputJob';
-
-
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-
-export default function SottoNavbarJob() {
-
-    const userData = useSelector(state => state.user.userData.data)
-=======
 import { IoIosHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { UseDispatch } from 'react-redux';
@@ -28,7 +15,6 @@ export default function SottoNavbarJob() {
 
   const dispatch = useDispatch();
   const filtro = useSelector(state => state.search.filtro);
->>>>>>> 7603aa25fc8281db7a886491e80ff531bffe1e07
 
   //gestione del toggle
   const [radioValue, setRadioValue] = useState('1');
