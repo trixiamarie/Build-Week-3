@@ -62,7 +62,7 @@ export default function EsperienzaComponent() {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImageFile(new Blob([reader.result], { type: file.type }));
+    /*   setImageFile(new Blob([reader.result], { type: file.type })); */
     };
     reader.readAsArrayBuffer(file);
   };
