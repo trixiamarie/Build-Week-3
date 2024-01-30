@@ -18,6 +18,7 @@ export default function Jobs() {
 
   useEffect(() => {
     setParola(query);
+    console.log(risultatiSearch);
   }, [risultatiSearch]);
 
   useEffect(() => {
@@ -45,18 +46,18 @@ export default function Jobs() {
         </div>} */
 
   useEffect(() => {
-    if (filtro == "Lavoro" || !parola) {
+    if ((filtro == "Lavoro" || !parola)) {
       document.title = `Offerte di lavoro `;
       if (parola) {
         document.title += ` per: ${parola}`
       }
-      if (filtro !== "Lavoro" && parola) {
+      if ((filtro !== "Lavoro" && parola)) {
         document.title = `Risultati per ${filtro}: ${parola}`
       }
     }
 
 
-  }, [risultatiSearch]);
+  }, [risultatiSearch,filtro,parola]);
 
   return (
     <div>
