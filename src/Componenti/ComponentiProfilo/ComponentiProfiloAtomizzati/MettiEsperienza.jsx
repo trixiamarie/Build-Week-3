@@ -52,6 +52,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
 
 
   const addmodExp = (data) => {
+    console.log(data)
     /* modifica esperienza chiamata PUT */
     axios
       .put(
@@ -101,6 +102,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
   };
 
   function modExpDate() {
+    console.log( startM, startY, endM, endY)
     if (
       startM !== "Mese" &&
       startY !== "Anno" &&
@@ -162,7 +164,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
 
       setValidated(true);
       modExpDate();
-      handleExperienceImage();
+      
     }
     console.log(modExp);
   };
@@ -194,14 +196,15 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
         dispatch(getExperiences(idUrl));
         setLoadingExperience(false);
         setShowPutMod(false);
-
-        setPippo(!pippo);
+       
+        
 
         // setImageExperience(null);
       });
   };
 
   useEffect(() => {
+    handleExperienceImage();
     addmodExp(modExp);
   }, [pippo]);
 

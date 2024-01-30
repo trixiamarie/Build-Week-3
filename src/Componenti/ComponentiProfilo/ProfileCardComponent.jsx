@@ -92,12 +92,12 @@ export default function ProfileCardComponent() {
     handleClose();
   };
   const [modProfile, setModProfile] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    bio: "",
-    title: "",
-    area: "",
+    name: profile.profileData.data.name,
+    surname: profile.profileData.data.surname,
+    email: profile.profileData.data.email,
+    bio: profile.profileData.data.bio,
+    title: profile.profileData.data.title,
+    area: profile.profileData.data.area,
   });
 
   const handleFileChange = (e) => {
@@ -209,7 +209,9 @@ export default function ProfileCardComponent() {
                 {profile.profileData.data.name}{" "}
                 {profile.profileData.data.surname}
               </h1>
-              <h2 className="text-secondary fs-4"></h2>
+              <p className="fs-5">
+                {profile.profileData.data.title}
+              </p>
               <p className="">
                 {profile.profileData.data.area}&middot;{" "}
                 <span className="text-primary fw-bold">

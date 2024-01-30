@@ -117,11 +117,13 @@ export default function EsperienzaComponent() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      setValidated(true);
+      setLoadingExperience(true);
+      modExpDate()
     }
     console.log(newExp);
-    setValidated(true);
-    setLoadingExperience(true);
-    modExpDate()
+    
 
   };
 
