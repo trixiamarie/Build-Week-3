@@ -252,10 +252,10 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
               />
             </div>
             <div className="flex-grow-1 mx-1">
-              <div className="card-body ps-2 pt-1">
-                <h5 className="card-title mb-1">{esperienza.role}</h5>
+              <div className="card-body ps-2 pt-0">
+                <p style={{fontSize:"1rem", fontWeight:"500", padding:"0px"}} className="card-title mb-0">{esperienza.role}</p>
                 <div className="card-text mb-0">
-                  <p className="mb-0 ">{esperienza.company}</p>
+                  <p style={{fontSize:"0.875rem"}} className="mb-0 ">{esperienza.company}</p>
                   <small className="mb-0 text-secondary">
                     {new Date(esperienza.startDate).toLocaleDateString("it", {
                       month: "long",
@@ -272,7 +272,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
                 <p className="text-body-secondary mb-2">{esperienza.area}</p>
                 {esperienza.description.length > 0 && (
                   <p className="mb-1 mt-2">
-                    <span className="fw-medium">Descrizione:</span>{" "}
+                    <span style={{fontSize:"0.875rem"}} className="fw-medium">Descrizione:</span>{" "}
                     {esperienza.description}
                   </p>
                 )}

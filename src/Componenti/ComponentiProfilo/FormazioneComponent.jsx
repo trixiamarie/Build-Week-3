@@ -52,9 +52,9 @@ export default function FormazioneComponent() {
               </div>
               <div className="flex-grow-1">
                 <div className="card-body ps-2 pt-1">
-                  <h5 className="card-title mb-1">
+                  <p className="card-title mb-1" style={{fontSize:"1rem", fontWeight:"500"}}>
                     IFOA - Training Institute of Corporate Professionals
-                  </h5>
+                  </p>
                   <div className="card-text">
                     <p className="mb-0 ">Full Stack Developer</p>
                     <small className="mb-0 text-secondary">
@@ -117,9 +117,9 @@ export default function FormazioneComponent() {
               </div>
               <div className="flex-grow-1">
                 <div className="card-body ps-2 pt-1">
-                  <h5 className="card-title mb-1">
+                  <p className="card-title mb-1" style={{fontSize:"1rem", fontWeight:"500"}}>
                     Alma Mater Studiorum - Università di Bologna
-                  </h5>
+                  </p>
                   <div className="card-text">
                     <p className="mb-0 ">
                       Laurea Magistrale LM, Chimica, metodologie di sintesi e
@@ -130,7 +130,7 @@ export default function FormazioneComponent() {
                     </small>
                   </div>
                   <p className="mb-2">
-                    Ho un cazzo GIGANTESCO!!! DIOSTRANCANE 8=======D
+                    Votazione 110/110
                   </p>
                   <p>
                     <span className="fw-medium">Titolo tesi:</span> Sviluppo di

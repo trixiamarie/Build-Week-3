@@ -48,7 +48,15 @@ export default function FooterProfileComponent() {
     { lingua: "Türkçe (Turco)", value: "tr_TR", lang: "tr-tr" },
     { lingua: "Українська (Ucraino)", value: "uk_UA", lang: "uk-ua" },
     { lingua: "简体中文 (Cinese (Semplificato))", value: "zh_CN", lang: "zh-cn"},
-    {lingua: "正體中文 (Cinese (Tradizionale))", value: "zh_TW", lang: "zh-tw"}
+    {lingua: "正體中文 (Cinese (Tradizionale))", value: "zh_TW", lang: "zh-tw"},
+    {lingua: "Trixia Lorenzana", value: "tl_TL", lang: "tl-tl"},
+    {lingua: "Alessandro Dalla Costa", value: "ad_AD", lang: "ad-ad"},
+    {lingua: "Vincenzo Arpaia", value: "va_VA", lang: "va-va"},
+    {lingua: "Gregorio Vecchio", value: "gv_GV", lang: "gv-gv"},
+    {lingua: "Matteo Nardin", value: "md_MD", lang: "md-MD"},
+    {lingua: "Francesco Cecca", value: "fc_FC", lang: "fc-fc"},
+    {lingua: "Gianluca Quaranta", value: "gq_GQ", lang: "gq-GQ"},
+    {lingua: "Rosa Milagros", value: "rm_RM", lang: "rm-RM"}
   ];
 
   const footerItems = [
