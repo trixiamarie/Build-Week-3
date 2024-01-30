@@ -361,14 +361,22 @@ export default function ProfileCardComponent() {
               <TbInfoSquareFilled /> Può essere aggiunta solo usando la nostra
               app per dispositivi mobili
             </p>
-            <Form.Group controlId="validationCustom04">
+            <Form.Group controlId="validationCustom04"  className="fs-6 my-3">
               <Form.Label className="text-secondary">
                 Inserisci pronomi personalizzati
               </Form.Label>
               <Form.Control type="text" placeholder="" />
             </Form.Group>
 
-            <Form.Group controlId="validationCustom04">
+           
+
+            <p className="fs-5">
+              Scopri di più sui{" "}
+              <span className="text-primary fw-semibold ">
+                pronomi di genere
+              </span>
+            </p>
+            <Form.Group controlId="validationCustom04"  className="fs-6 my-3">
               <Form.Label className="text-secondary">Sommario*</Form.Label>
               <Form.Control
                 type="text"
@@ -381,52 +389,57 @@ export default function ProfileCardComponent() {
               />
             </Form.Group>
 
-            <p className="fs-5">
-              Scopri di più sui{" "}
-              <span className="text-primary fw-semibold ">
-                pronomi di genere
-              </span>
-            </p>
 
-            <h3>Posizione attuale</h3>
-            <Button variant="outline-primary" className="fw-semibold fs-5">
-              <FaPlus /> Aggiungi una nuova posizione lavorativa
-            </Button>
-
-            <Form.Group controlId="validationCustom05">
-              <Form.Label className="text-secondary">Bio</Form.Label>
+            <Form.Group controlId="validationCustom06"  className="fs-6 my-3">
+              <Form.Label className="text-secondary">Località*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder=""
+                placeholder={profile.profileData.data.area}
+                onChange={(e) =>
+                  setModProfile({ ...modProfile, area: e.target.value })
+                }
+              />
+            </Form.Group>
+            <Button variant="outline-primary" className="fw-semibold fs-5 my-4">
+              <FaPlus /> Aggiungi un nuovo grado di formazione
+            </Button>
+
+            <Form.Group controlId="validationCustom05"  className="fs-6 my-3">
+              <Form.Label className="text-secondary">Bio*</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={profile.profileData.data.bio}
                 onChange={(e) =>
                   setModProfile({ ...modProfile, bio: e.target.value })
                 }
               />
             </Form.Group>
 
-            <Form.Group controlId="validationCustom06">
-              <Form.Label className="text-secondary">email</Form.Label>
+            <Form.Group controlId="validationCustom06"  className="fs-6 my-3">
+              <Form.Label className="text-secondary">email*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder=""
+                placeholder={profile.profileData.data.email}
                 onChange={(e) =>
                   setModProfile({ ...modProfile, email: e.target.value })
                 }
               />
             </Form.Group>
+            <h3 className='mt-4'>Posizione attuale</h3>
+            <Button variant="outline-primary" className="fw-semibold fs-5 my-4">
+              <FaPlus /> Aggiungi una nuova posizione lavorativa
+            </Button>
 
-            <Form.Group controlId="validationCustom06">
-              <Form.Label className="text-secondary">area</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder=""
-                onChange={(e) =>
-                  setModProfile({ ...modProfile, area: e.target.value })
-                }
-              />
+
+            <Form.Group controlId="validationCustom04">
+              <Form.Label className="text-secondary">Settore</Form.Label>
+              <Form.Control type="text" placeholder="Esempio: Ricerca e sviluppo" />
             </Form.Group>
+         
+            <p className='text-secondary my-2 fs-5' >Scopri di più sulle <span className='text-primary fw-semibold'>opzioni relative al settore</span></p>
 
-            <Form.Group controlId="validationCustom07">
+            <h3 className='mt-4'>Formazione</h3>
+            <Form.Group controlId="validationCustom07"  className="fs-6 my-3">
               <Form.Label className="text-secondary">Formazione</Form.Label>
               <Form.Control
                 type="text"
@@ -437,38 +450,24 @@ export default function ProfileCardComponent() {
                 required
               />
             </Form.Group>
+            <Button variant="outline-primary" className="fw-semibold fs-5 my-4">
+              <FaPlus /> Aggiungi un nuovo grado di formazione
+            </Button>
 
-            <Form.Group controlId="validationCustom08">
-              <Form.Label className="text-secondary">Località</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder={
-                  profile.profileExperiences.data.length > 0 &&
-                  profile.profileData.data.area
-                }
-                required
-              />
-            </Form.Group>
+            <h3 className='mt-4'>Informazioni di contatto</h3>   
+            <p className="text-secondary">Aggiungi o modifica il tuo profilo URL, indirizzo email e altro</p>
+            <Button variant="outline-primary" className="fw-semibold fs-5 my-4">
+              Modifica le informazioni di contatto
+            </Button>
 
-            <Form.Group controlId="validationCustom09">
-              <Form.Label className="text-secondary">Formazione</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder={
-                  profile.profileExperiences.data.length > 0 &&
-                  profile.profileExperiences.data[0].company
-                }
-                required
-              />
-            </Form.Group>
+            
 
-            <Button type="submit">Submit form</Button>
+            
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant="primary"
-            className="rounded-5 fs-5 px-3"
+            className="fw-semibold fs-5 rounded-5 mt-2 px-4" 
             onClick={() => updateProfile(modProfile)}
           >
             Salva
