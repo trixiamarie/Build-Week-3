@@ -25,6 +25,14 @@ export default function EsperienzaComponent() {
   if (!idUrl) {
     idUrl = idAle;
   }
+
+  let startM;
+  let startY;
+  let endM;
+  let endY;
+  const [pippo, setPippo] = useState(false)
+
+
   const [loadingExperience, setLoadingExperience] = useState();
   const [imageExperience, setImageExperience] = useState();
   const [showPostMod, setshowPostMod] = useState(false);
@@ -73,6 +81,23 @@ export default function EsperienzaComponent() {
     reader.readAsArrayBuffer(file);
   };
 
+  function modExpDate() {
+    if (startM !== 'Mese' && startY !== 'Anno' && endM !== undefined && endY !== undefined) {
+      setNewExp({ ...newExp, startDate: startY + '-' + startM + '-01', Date: endY + '-' + endM + '-01' })
+      console.log(newExp.startDate)
+      setPippo(!pippo)
+
+    } else if (startM !== 'Mese' && startY !== 'Anno' && (endM === undefined && endY === undefined)) {
+      setNewExp({ ...newExp, startDate: startY + '-' + startM + '-01', endDate: null })
+      console.log(newExp.startDate)
+      setPippo(!pippo)
+
+
+    } else {
+      console.log('errore nelle date')
+    }
+  }
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -82,8 +107,13 @@ export default function EsperienzaComponent() {
     console.log(newExp);
     setValidated(true);
     setLoadingExperience(true);
-    addnewExp(newExp);
+    modExpDate()
+
   };
+
+  useEffect(() => {
+    addnewExp(newExp)
+  }, [pippo])
 
   const handleExperienceImage = (idExperience) => {
     console.log("post experience image");
@@ -197,23 +227,43 @@ export default function EsperienzaComponent() {
         </Modal.Header>
         <p className="text-secondary mx-3">* Indica che è obbligatorio</p>
         <Modal.Body className="mx-3">
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="validationCustom01" className="fs-6 my-3">
+          <Form noValidate validated={validated}>
+          <Form.Group controlId="validationCustom01" className="fs-6 my-3">
               <Form.Label className="text-secondary">Qualifica*</Form.Label>
               <Form.Control
                 required
                 type="text"
                 placeholder="Esempio: Full StackDeveloper"
+                
                 onChange={(e) => setNewExp({ ...newExp, role: e.target.value })}
               />
             </Form.Group>
-            {/* tipo di impiego select */}
+
+
+            <Form.Label className="text-secondary">
+              Tipo di impiego
+            </Form.Label>
+            <Form.Select aria-label="Default select example">
+              <option>Seleziona</option>
+              <option>A tempo pieno</option>
+              <option>Part-Time</option>
+              <option>Autonomo</option>
+              <option>Freelance</option>
+              <option>A contratto</option>
+              <option>Stage</option>
+              <option>Apprendistato</option>
+              <option>Stagionale</option>
+            </Form.Select>
+            <p className='text-secondary my-2 fs-5' >Scopri di più sui <span className='text-primary fw-semibold'>tipi di impiego</span></p>
+
             <Form.Group controlId="validationCustom02" className="fs-6 my-3">
               <Form.Label className="text-secondary">Nome azienda*</Form.Label>
               <Form.Control
                 required
                 type="text"
                 placeholder="Esempio: Microsoft"
+                
+
                 onChange={(e) =>
                   setNewExp({ ...newExp, company: e.target.value })
                 }
@@ -226,11 +276,22 @@ export default function EsperienzaComponent() {
               <Form.Control
                 type="text"
                 placeholder="Esempio: Cava dei Selci, Italia"
+                
                 onChange={(e) => setNewExp({ ...newExp, area: e.target.value })}
               />
             </Form.Group>
-            {/* tipo di località select */}
-            {/* checkbox Attualmente ricopro questo incarico */}
+
+            <Form.Label className="text-secondary">
+              Tipo di località
+            </Form.Label>
+            <Form.Select aria-label="Default select example">
+              <option>Seleziona</option>
+              <option>In sede</option>
+              <option>Ibrida</option>
+            </Form.Select>
+            <p className='text-secondary'>Scegli un tipo di località (es. da remoto)</p>
+           
+           
             {/* Select data inizio e fine  */}
             <Row className="align-items-end">
               <Col>
@@ -241,7 +302,8 @@ export default function EsperienzaComponent() {
                   <Form.Label className="text-secondary">
                     Data di inizio*
                   </Form.Label>
-                  <Form.Select aria-label="Default select example">
+                  <Form.Select aria-label="Default select example"
+                    onChange={(e) => startM = e.target.value}>
                     <option>Mese</option>
                     {mesi.map((m, index) => (
                       <option key={index} value={index + 1}>
@@ -257,7 +319,8 @@ export default function EsperienzaComponent() {
                   className="fs-6 my-3"
                 >
                   <Form.Label className="text-secondary"></Form.Label>
-                  <Form.Select aria-label="Default select example">
+                  <Form.Select aria-label="Default select example"
+                    onChange={(e) => startY = e.target.value}>
                     <option>Anno</option>
                     {anni().map((y, index) => (
                       <option key={index} value={y}>
@@ -278,7 +341,8 @@ export default function EsperienzaComponent() {
                   <Form.Label className="text-secondary">
                     Data di fine*
                   </Form.Label>
-                  <Form.Select aria-label="Default select example">
+                  <Form.Select aria-label="Default select example"
+                    onChange={(e) => endM = e.target.value}>
                     <option>Mese</option>
                     {mesi.map((m, index) => (
                       <option key={index} value={index + 1}>
@@ -294,7 +358,8 @@ export default function EsperienzaComponent() {
                   className="fs-6 my-3"
                 >
                   <Form.Label className="text-secondary"></Form.Label>
-                  <Form.Select aria-label="Default select example">
+                  <Form.Select aria-label="Default select example"
+                    onChange={(e) => endY = e.target.value}>
                     <option>Anno</option>
                     {anni().map((y, index) => (
                       <option key={index} value={y}>
@@ -308,38 +373,52 @@ export default function EsperienzaComponent() {
 
             <Form.Group controlId="validationCustom04">
               <Form.Label className="text-secondary">Settore</Form.Label>
-              <Form.Control type="text" placeholder="" />
+              <Form.Control type="text" placeholder="Esempio: Ricerca e sviluppo" />
             </Form.Group>
+            <p className='text-secondary'>LinkedIn utilizza le informazioni sul settore per fornire segnalazioni più pertinenti</p>
+            <p className='text-secondary my-2 fs-5' >Scopri di più sulle <span className='text-primary fw-semibold'>opzioni relative al settore</span></p>
 
-            <Form.Group controlId="validationCustom04">
+
+            <Form.Group controlId="validationCustom04" className='mt-4'>
               <Form.Label className="text-secondary">Descrizione</Form.Label>
               <Form.Control
                 as="textarea"
                 placeholder=""
                 style={{ height: "100px" }}
+                
                 onChange={(e) =>
                   setNewExp({ ...newExp, description: e.target.value })
                 }
               />
             </Form.Group>
 
-            <Form.Group controlId="validationCustom04">
-              <Form.Label className="text-secondary">Sommario</Form.Label>
+            <Form.Group controlId="validationCustom04" className='mt-4'>
+              <Form.Label className="text-secondary">Sommario del profilo</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Esempio: Baby pensionato"
+
               />
             </Form.Group>
+            <p className='text-secondary'>Compare sotto il tuo nome nella parte superiore del profilo</p>
+            
 
             <h3>Competenze</h3>
-            <Button variant="outline-primary" className="fw-semibold fs-5">
-              <FaPlus /> Aggiungi competenza
+            <p className='my-2 ' >Ti consigliamo di aggiungere le 5 competenze più utilizzate in questo ruolo. Appariranno anche nella sezione Competenze.</p>
+
+            <Button variant="outline-primary" className="fw-semibold fs-5 rounded-5 mt-2 mb-4">
+              <div className=' d-flex align-items-center mx-2'>
+              <FaPlus className="me-2" /> Aggiungi competenza
+                </div>
             </Button>
 
             <h3>Media</h3>
-            {/* <Button variant="outline-primary" className="fw-semibold fs-5">
-              <FaPlus /> Aggiungi media
-            </Button> */}
+            <p className='my-2 ' >Aggiungi contenuti multimediali come immagini, documenti, siti o presentazioni. Scopri di più sui <span className='text-primary fw-semibold'>tipi di file multimediali supportati</span></p>
+            <Button variant="outline-primary" className="fw-semibold fs-5 rounded-5 mt-2 mb-4">
+              <div className=' d-flex align-items-center mx-2'>
+              <FaPlus className="me-2" /> Aggiungi media
+                </div>
+            </Button>
             <FormControl type="file" onChange={handleFileChange} />
 
             <Button
@@ -355,6 +434,11 @@ export default function EsperienzaComponent() {
             </Button>
           </Form>
         </Modal.Body>
+        <Modal.Footer>
+        <Button type="button" onClick={handleSubmit} className="fw-semibold fs-5 rounded-5 mt-2 mb-4 px-4">
+              Salva
+            </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );

@@ -247,7 +247,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
         </Modal.Header>
         <p className="text-secondary mx-3">* Indica che è obbligatorio</p>
         <Modal.Body className="mx-3">
-          <Form noValidate validated={validated} /* onSubmit={handleSubmit} */>
+          <Form noValidate validated={validated}>
             <Form.Group controlId="validationCustom01" className="fs-6 my-3">
               <Form.Label className="text-secondary">Qualifica*</Form.Label>
               <Form.Control
@@ -309,23 +309,10 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
               <option>Seleziona</option>
               <option>In sede</option>
               <option>Ibrida</option>
-              <option>Da remoto</option>
-              <option>Freelance</option>
-              <option>A contratto</option>
-              <option>Stage</option>
-              <option>Apprendistato</option>
-              <option>Stagionale</option>
             </Form.Select>
             <p className='text-secondary'>Scegli un tipo di località (es. da remoto)</p>
 
-            {/* <div class="form-check">
-              <input variant='success' class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                <label class="form-check-label" for="defaultCheck1">
-                  Attualmente ricopro questo ruolo
-                </label>
-            </div> */}
-            {/* checkbox Attualmente ricopro questo incarico */}
-            {/* Select data inizio e fine  */}
+            
             <Row className="align-items-end">
               <Col>
                 <Form.Group
