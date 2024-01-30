@@ -25,13 +25,16 @@ import { getAllPostsData } from "../../Action/postsActions";
 
 export default function ProfileCardComponent() {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user.userData.data);
+  const user = useSelector((state) => state.user.userData.data);
   const profile = useSelector((state) => state.profile);
   let [nContatti, setNContatti] = useState(Math.floor(Math.random() * 200));
   const amici = useSelector((state) => state.userFriends);
   const { idUrl } = useParams();
-  // Aggiorniamo l'URL corrente quando la location cambia
 
+  const [showChangeImage, setShowChangeImage] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+
+  // Aggiorniamo l'URL corrente quando la location cambia
   useEffect(() => {
     dispatch(getProfileData(idUrl));
     dispatch(getExperiences(idUrl));
@@ -76,13 +79,13 @@ export default function ProfileCardComponent() {
       .then(function (response) {
         console.log(response);
         dispatch(getAllPostsData());
-        dispatch(getUserData());   
+        dispatch(getUserData());
         dispatch(getProfileData());
       })
       .catch(function (error) {
         console.log(error);
-      });    
-       handleClose();
+      });
+    handleClose();
   };
   const [modProfile, setModProfile] = useState({
     name: "",
@@ -93,6 +96,47 @@ export default function ProfileCardComponent() {
     area: "",
   });
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setProfileImage(new Blob([reader.result], { type: file.type }));
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
+  const handleProfileImage = (e) => {
+    loadProfileImage(e);
+
+  };
+
+  const loadProfileImage = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    if (profileImage) {
+      console.log(profileImage);
+      formData.append("profile", profileImage);
+
+      try {
+        console.log(formData);
+        const response = await axios.post(
+          `https://striveschool-api.herokuapp.com/api/profile/${user._id}/picture`,
+          formData,
+          {
+            headers: {
+              Authorization: "Bearer " + BEARER_TOKEN,
+            },
+          }
+        );
+
+        console.log("Success:", response.data);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
+
   return (
     <>
       <Card
@@ -101,23 +145,45 @@ export default function ProfileCardComponent() {
         onMouseEnter={mostraIcone}
         onMouseLeave={nascondiIcone}
       >
-        <Card.Img variant="top" src="https://picsum.photos/800/200"  style={{height:"14rem"}}/>
-       <Image
+        <Card.Img
+          variant="top"
+          src="https://picsum.photos/800/200"
+          style={{ height: "14rem" }}
+        />
+        <Image
           roundedCircle
           className="border border-white border-5 position-absolute ms-3"
           src={profile.profileData.data.image}
-          style={{height:"12rem", width:"12rem",top:"5rem", left: "2rem " }}
+          style={{
+            height: "12rem",
+            width: "12rem",
+            top: "5rem",
+            left: "2rem ",
+          }}
+          onClick={() => setShowChangeImage(true)}
         />
-  
+
         {idUrl == idAle ? (
-          <div className="matita-btn m-4" style={{color:"black", zIndex:"9999"}}>
-            <RiPencilLine className="text-dark " style={{color:"black", zIndex:"9999"}}/>
+          <div
+            className="matita-btn m-4"
+            style={{ color: "black", zIndex: "9999" }}
+          >
+            <RiPencilLine
+              className="text-dark "
+              style={{ color: "black", zIndex: "9999" }}
+            />
           </div>
         ) : null}
         <Card.Body>
-          <Row xs={1} className="my-3" style={{height:"2rem"}}>
-          <div ref={icone}>
-          {idUrl? null : <RiPencilLine className="matita-btn float-end" onClick={handleShow}/> }</div>
+          <Row xs={1} className="my-3" style={{ height: "2rem" }}>
+            <div ref={icone}>
+              {idUrl ? null : (
+                <RiPencilLine
+                  className="matita-btn float-end"
+                  onClick={handleShow}
+                />
+              )}
+            </div>
             {/* <Col
               ref={icone}
               className="offset-11 matita-btn"
@@ -139,7 +205,12 @@ export default function ProfileCardComponent() {
                   Informazione di contatto
                 </span>
               </p>
-              <p className="text-primary fw-bold">{profile.profileData.data._id===user._id ? amici.length : nContatti} contatti</p>
+              <p className="text-primary fw-bold">
+                {profile.profileData.data._id === user._id
+                  ? amici.length
+                  : nContatti}{" "}
+                contatti
+              </p>
             </Col>
             <Col xs={5}>
               {profile.profileExperiences.data.length > 0 && (
@@ -391,6 +462,57 @@ export default function ProfileCardComponent() {
           >
             Salva
           </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* modale modifica foto profilo */}
+      <Modal
+        data-bs-theme="dark"
+        className="text-white"
+        show={showChangeImage}
+        onHide={() => setShowChangeImage(false)}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Foto Profilo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <Image
+            roundedCircle
+            className="border border-white border-5  ms-3"
+            src={profile.profileData.data.image}
+            style={{
+              height: "12rem",
+              width: "12rem",
+              top: "5rem",
+              left: "2rem ",
+            }}
+            onClick={() => setShowChangeImage(true)}
+          />
+        </Modal.Body>
+        <Modal.Footer className="d-flex justify-content-between flex-direction-row">
+          <Form.Control
+            type="file"
+            className="w-50"
+            onChange={handleFileChange}
+          />
+          <div>
+            <Button
+              variant="success"
+              className="me-2"
+              onClick={(e) => {
+                handleProfileImage(e);
+                setShowChangeImage(false)
+              }}
+            >
+              Save
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => setShowChangeImage(false)}
+            >
+              Close
+            </Button>
+          </div>
         </Modal.Footer>
       </Modal>
     </>
