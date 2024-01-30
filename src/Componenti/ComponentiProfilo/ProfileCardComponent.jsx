@@ -33,6 +33,7 @@ export default function ProfileCardComponent() {
 
   const [showChangeImage, setShowChangeImage] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
+  const [loaderImageProfile, setLoaderImageProfile] = useState(false)
 
   // Aggiorniamo l'URL corrente quando la location cambia
   useEffect(() => {
@@ -107,12 +108,11 @@ export default function ProfileCardComponent() {
 
   const handleProfileImage = (e) => {
     loadProfileImage(e);
-
   };
 
   const loadProfileImage = async (e) => {
     e.preventDefault();
-
+    setLoaderImageProfile(true);
     const formData = new FormData();
     if (profileImage) {
       console.log(profileImage);
@@ -120,19 +120,27 @@ export default function ProfileCardComponent() {
 
       try {
         console.log(formData);
-        const response = await axios.post(
-          `https://striveschool-api.herokuapp.com/api/profile/${user._id}/picture`,
-          formData,
-          {
-            headers: {
-              Authorization: "Bearer " + BEARER_TOKEN,
-            },
-          }
-        );
+        const response = await axios
+          .post(
+            `https://striveschool-api.herokuapp.com/api/profile/${user._id}/picture`,
+            formData,
+            {
+              headers: {
+                Authorization: "Bearer " + BEARER_TOKEN,
+              },
+            }
+          )
+          .then(() => {
+            dispatch(getProfileData(idUrl));
+            dispatch(getUserData());
+            setShowChangeImage(false);
+            setLoaderImageProfile(false)
+          });
 
         console.log("Success:", response.data);
       } catch (error) {
         console.error("Error:", error);
+        setLoaderImageProfile(false)
       }
     }
   };
@@ -499,12 +507,13 @@ export default function ProfileCardComponent() {
             <Button
               variant="success"
               className="me-2"
+              disabled={loaderImageProfile}
               onClick={(e) => {
                 handleProfileImage(e);
-                setShowChangeImage(false)
+                
               }}
             >
-              Save
+              { loaderImageProfile ? "Loading" : "Save"}
             </Button>
             <Button
               variant="secondary"
