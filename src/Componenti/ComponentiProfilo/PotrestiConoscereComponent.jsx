@@ -33,20 +33,25 @@ function ModalePotrestiConoscereComponent(props) {
 
 export default function PotrestiConoscereComponent() {
   const [modalShow, setModalShow] = React.useState(false);
+  const friends = useSelector((state) => state.userFriends);
 
-  const allProfiles = useSelector(state => state.allProfiles.data)
+  const allProfiles = useSelector((state) => state.allProfiles.data);
+  const onlyProfiletoShow = allProfiles.filter(profile => !friends.some(friend => friend._id === profile._id));
 
-const n = Math.floor(Math.random()*allProfiles.length/2)
-  const profileToShow = allProfiles.slice(n, n+6)
+  const n = Math.max(0, Math.floor((Math.random() * onlyProfiletoShow.length) - 7));
+  const profileToShow = onlyProfiletoShow.slice(n, n + 6);
 
   return (
-    <Col md={12} className=" my-2 rounded-1 border border-secondary-subtle bg-white p-3">
+    <Col
+      md={12}
+      className=" my-2 rounded-1 border border-secondary-subtle bg-white p-3"
+    >
       <h6 className="ms-1 mb-0">Persone che potresti conoscere</h6>
-      <p className="ms-1 text-secondary">Dalla scuola o università di {}</p>
+      <p className="ms-1 text-secondary">Dalla scuola o università di { }</p>
 
       {profileToShow.map((profile, index) => (
-      <CardUtenteComponent profile={profile} key={index}/>
-    ))}
+        <CardUtenteComponent profile={profile} key={index} />
+      ))}
       <Button
         className="w-100 text-center"
         variant="light"

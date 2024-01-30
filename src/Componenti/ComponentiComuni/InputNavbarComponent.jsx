@@ -2,29 +2,36 @@ import React, { useEffect } from "react";
 import { Container, Form, InputGroup } from "react-bootstrap";
 import { FaLinkedin } from "react-icons/fa";
 import { IoMdSearch } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getSearchQueryJob, setSearchQuery } from "../../Action/searchActions";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 export default function InputNavbarComponent() {
+
+const isJobs = (useLocation('/jobs').pathname === '/jobs');
+
+
   const [inputQuery, setInputQuery] = useState();
   const storeQuery = useSelector((state) => state.search.query);
 
   const dispatch = useDispatch();
 
+
   const handleQuery = (e) => {
-    setInputQuery();
-    console.log(e.target.value);
-    dispatch(setSearchQuery(e.target.value));
+    if(isJobs){
+      setInputQuery();
+    dispatch(setSearchQuery(e.target.value))
+    
+    };
   };
 
   const handleEnter = (e) => {
     e.preventDefault();
     
- dispatch(getSearchQueryJob());
-    console.log("input all'enter", inputQuery);
+    if(isJobs){
+      dispatch(getSearchQueryJob());}
   };
 
  

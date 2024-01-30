@@ -23,9 +23,9 @@ export default function BarraSuperioreColonnaSx() {
         <div className="d-flex align-self-center">
           <small className="form-check-label">Imposta avviso</small>
           <div className="form-check form-switch p-0 ms-1">
-            <label class="switch p-0 m-0">
+            <label className="switch p-0 m-0">
               <input type="checkbox" />
-              <span class="slider round"></span>
+              <span className="slider round"></span>
             </label>
           </div>
         </div>

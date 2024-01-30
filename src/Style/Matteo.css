@@ -75,24 +75,24 @@ h4{
 }
 
 #threeDots:hover{
-    background-color: #00000014;
+    background-color: #00000014!important;
     color:  #00000099;
 }
 
 .btn-messaggio{
     border-radius: 50px;
     padding: 3px 10px;
-    /* border-radius: 1.6rem;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem; */
+    font-weight: 600;
     color: #0a66c2;
     border-color: #0a66c2;
 }
 .btn-messaggio:hover{
     color: #0a66c2;
     border-color: #0a66c2;
-    background-color: #70b5f933;
-    box-shadow: inset 0 0 0 2px #0a66c2;
+    background-color: #70b5f933!important;
+    box-shadow: inset 0 0 0 1px #0a66c2;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: 167ms;
 }
 .lineLight:not(:last-child){
     border-bottom: 1px solid rgb(0, 0, 0, 0.17);

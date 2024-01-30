@@ -3,10 +3,16 @@ import { Card } from 'react-bootstrap'
 import "../../Style/Frank.css"
 import { FaPlus } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 
 
 export default function UnderProfileCardComponent() {
+
+  const friends = useSelector(state => state.userFriends)
+  
+
   return (
     <>
     <Card
@@ -14,10 +20,10 @@ export default function UnderProfileCardComponent() {
         style={{ cursor: "pointer" }}>
         <div className="d-flex justify-content-between lh-1 bgHover pt-4 pb-2 px-3" style={{ height: "50%" }}>
           <span className="text-secondary ">Collegamenti</span>
-          <span className="text-primary">3</span>
+          <span className="text-primary">{friends.length}</span>
         </div>
         <div className='my-2'>
-          <span className="fw-bold py-2 px-3">Espandi la tua rete</span>
+          <Link to={'/rete'}><span className="fw-bold py-2 px-3">Espandi la tua rete</span></Link>
         </div>
         <div className="d-flex justify-content-between py-2 px-3 bgHover">
           <span className="text-secondary ">Invito</span>
@@ -45,19 +51,19 @@ export default function UnderProfileCardComponent() {
         <FaBookmark style={{ color: "#575757" }} />
         <span className="fw-bold ms-3">I miei elementi</span>
       </Card>
-      <Card className="border-top-0 border-bottom-0 rounded-1 d-none d-md-block text-primary my-3"
+      <Card className=" rounded-1 d-none d-md-block text-primary my-3"
         style={{ cursor: "pointer" }}>
         <div className="d-flex  lh-1 underlineHover pt-4 pb-2 px-3 " style={{ height: "50%" }}>
           <span className="fw-bold ">Gruppi</span>
           
         </div>
-        <div className='py-2 px-3 d-flex align-items-center justify-content-between '>
-          <span className="fw-bold underlineHover">Espandi la tua rete</span>
+        <Link to={'/rete'}> <div className='py-2 px-3 d-flex align-items-center justify-content-between '>
+         <span className="fw-bold underlineHover">Espandi la tua rete</span>
           <div className='rounded-circle plus bgHover'>
             <FaPlus className="mx-auto" style={{ color: "#575757", cursor: "pointer" }} />
           </div>
           
-        </div>
+        </div></Link>
         <div className="py-2 px-3 underlineHover">
           <span className="fw-bold">Invito</span>
           
