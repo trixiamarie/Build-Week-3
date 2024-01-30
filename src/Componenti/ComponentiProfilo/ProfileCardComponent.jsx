@@ -109,14 +109,14 @@ export default function ProfileCardComponent() {
         />
   
         {idUrl == idAle ? (
-          <div className="matita-btn m-4 bg-white" style={{color:"black", zIndex:"9999"}}>
-            <RiPencilLine className="text-dark" style={{color:"black", zIndex:"9999"}}/>
+          <div className="matita-btn m-4" style={{color:"black", zIndex:"9999"}}>
+            <RiPencilLine className="text-dark " style={{color:"black", zIndex:"9999"}}/>
           </div>
         ) : null}
         <Card.Body>
           <Row xs={1} className="my-3" style={{height:"2rem"}}>
           <div ref={icone}>
-          {idUrl? null : <RiPencilLine className="matita-btn" onClick={handleShow}/> }</div>
+          {idUrl? null : <RiPencilLine className="matita-btn float-end" onClick={handleShow}/> }</div>
             {/* <Col
               ref={icone}
               className="offset-11 matita-btn"
