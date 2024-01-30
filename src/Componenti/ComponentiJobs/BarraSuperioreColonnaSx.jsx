@@ -6,10 +6,6 @@ export default function BarraSuperioreColonnaSx() {
   const query = useSelector(state => state.search.query);
   let [parola, setParola] = useState(query);
 
-
-
-
-
   useEffect(() => {
     setParola(query);
   }, [risultatiSearch]);

@@ -13,6 +13,7 @@ import { FaPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getExperiences } from "../../Action/profileActions";
 import { idAle, BEARER_TOKEN } from "../../Config";
+import { PulseSpinner } from "react-spinners-kit";
 
 export default function EsperienzaComponent() {
   const esperienze = useSelector(
@@ -24,6 +25,7 @@ export default function EsperienzaComponent() {
   if (!idUrl) {
     idUrl = idAle;
   }
+  const [loadingExperience, setLoadingExperience] = useState();
   const [imageExperience, setImageExperience] = useState();
   const [showPostMod, setshowPostMod] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -48,13 +50,17 @@ export default function EsperienzaComponent() {
           },
         }
       )
-      .then(function (response) {
+      .then((response) => {
         console.log(response);
-        dispatch(getExperiences(idUrl));
-        handleExperienceImage(response.data._id)
+
+        handleExperienceImage(response.data._id);
       })
       .catch(function (error) {
         console.log(error);
+        setImageExperience(false);
+        setshowPostMod(false);
+        setLoadingExperience(false);
+        imageExperience(null);
       });
   };
 
@@ -62,7 +68,7 @@ export default function EsperienzaComponent() {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImageFile(new Blob([reader.result], { type: file.type }));
+      setImageExperience(new Blob([reader.result], { type: file.type }));
     };
     reader.readAsArrayBuffer(file);
   };
@@ -75,34 +81,38 @@ export default function EsperienzaComponent() {
     }
     console.log(newExp);
     setValidated(true);
+    setLoadingExperience(true);
     addnewExp(newExp);
-    setshowPostMod(false);
   };
 
-  const handleExperienceImage = async (idExperience) => {
+  const handleExperienceImage = (idExperience) => {
     console.log("post experience image");
     const formData = new FormData();
     if (imageExperience) {
       console.log(imageExperience);
       formData.append("experience", imageExperience);
-
-      try {
-        console.log(formData);
-        const response = await axios.post(
-          `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/${idExperience}`,
-          formData,
-          {
-            headers: {
-              Authorization: "Bearer " + BEARER_TOKEN,
-            },
-          }
-        );
-
-        console.log("Success:", response.data);
-      } catch (error) {
-        console.error("Error:", error);
-      }
     }
+
+    console.log(formData);
+    axios
+      .post(
+        `https://striveschool-api.herokuapp.com/api/profile/${idUrl}/experiences/${idExperience}/picture`,
+        formData,
+        {
+          headers: {
+            Authorization: "Bearer " + BEARER_TOKEN,
+          },
+        }
+      )
+      .catch((err) => {
+        console.error("Error:", err);
+      })
+      .finally((response) => {
+        dispatch(getExperiences(idUrl));
+        setLoadingExperience(false);
+        setshowPostMod(false);
+        setImageExperience(null);
+      });
   };
 
   const mesi = [
@@ -139,37 +149,39 @@ export default function EsperienzaComponent() {
   };
 
   return (
-    <>{esperienze.length > 0? 
-      <div className="border rounded px-4 pt-3 pb-0 bg-white my-2">
-        <div className="d-flex justify-content-between alig-items-start">
-          <h4>Esperienza</h4>
+    <>
+      {esperienze.length > 0 ? (
+        <div className="border rounded px-4 pt-3 pb-0 bg-white my-2">
+          <div className="d-flex justify-content-between alig-items-start">
+            <h4>Esperienza</h4>
 
-          <div className="text-secondary fs-5 d-flex">
-            {idUrl == idAle && (
-              <div
-                className="matita-btn"
-                onClick={() => {
-                  setshowPostMod(true);
-                  console.log("modale PUT exp");
-                }}
-              >
-                <IoAddSharp />
-              </div>
-            )}
+            <div className="text-secondary fs-5 d-flex">
+              {idUrl == idAle && (
+                <div
+                  className="matita-btn"
+                  onClick={() => {
+                    setshowPostMod(true);
+                    console.log("modale PUT exp");
+                  }}
+                >
+                  <IoAddSharp />
+                </div>
+              )}
+            </div>
           </div>
+          {esperienze.length > 0 && (
+            <div className="esperienze mt-2 mb-0 pb-0">
+              {esperienze.map((ele) => (
+                <MettiEsperienza
+                  key={ele._id}
+                  esperienza={ele}
+                  onUpdate={updateExperiences}
+                />
+              ))}
+            </div>
+          )}
         </div>
-        {esperienze.length > 0 && (
-          <div className="esperienze mt-2 mb-0 pb-0">
-            {esperienze.map((ele) => (
-              <MettiEsperienza
-                key={ele._id}
-                esperienza={ele}
-                onUpdate={updateExperiences}
-              />
-            ))}
-          </div>
-        )}
-      </div> : null }
+      ) : null}
 
       {/* modale per aggiungere una nuova esperienza chiamata POST */}
       <Modal
@@ -328,10 +340,18 @@ export default function EsperienzaComponent() {
             {/* <Button variant="outline-primary" className="fw-semibold fs-5">
               <FaPlus /> Aggiungi media
             </Button> */}
-            <FormControl type="file" onChange={handleFileChange}/>
+            <FormControl type="file" onChange={handleFileChange} />
 
-            <Button type="button" onClick={handleSubmit}>
-              Salva
+            <Button
+              type="button"
+              onClick={handleSubmit}
+              disabled={loadingExperience}
+            >
+              {loadingExperience ? (
+                <PulseSpinner loading={loadingExperience} />
+              ) : (
+                "Salva"
+              )}
             </Button>
           </Form>
         </Modal.Body>

@@ -10,10 +10,14 @@ export default function JobsSaved() {
   const dispatch = useDispatch();
   const lavoriSalvati = useSelector(state=> state.jobsSaved)
   return (
-    <Container className='d-flex '  style={{ marginTop: "6.8rem" }}>
+    <Container className='d-flex justify-content-start'  style={{ marginTop: "6.8rem" }}>
       <BarraLaterale/>
       <ListaJobsSalvati/>
+      
 
     </Container>
   )
 }
+
+
+
