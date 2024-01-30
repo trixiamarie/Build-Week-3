@@ -41,7 +41,7 @@ export default function AttivitaComponent() {
     <div className="attivita-component mt-2">
       <div className="attivita-component-main pb-3 ">
         <div className=" levati d-flex justify-content-between align-items-center">
-          <h4>Attività</h4>
+        <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>Attività</p>
           <div className="d-flex align-items-center">
             {idUrl ? null : (
               <div className="crea-un-post-btn" onClick={() => setShow(true)}>

@@ -183,7 +183,7 @@ export default function EsperienzaComponent() {
       {esperienze.length > 0 ? (
         <div className="border rounded px-4 pt-3 pb-0 bg-white my-2">
           <div className="d-flex justify-content-between alig-items-start">
-            <h4>Esperienza</h4>
+          <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>Esperienza</p>
 
             <div className="text-secondary fs-5 d-flex">
               {idUrl == idAle && (

@@ -19,7 +19,7 @@ export default function RisorseComponent() {
     {idUrl ? null :
     <div className='border rounded-2 pt-3 bg-white'>
     <Container className='mx-2 mb-3'>
-    <h3 className='m-0'>Risorse</h3>
+    <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>Risorse</p>
     <p className='text-secondary m-0 d-flex align-items-center fs-6'><MdRemoveRedEye className='me-1' /> Solo per te</p>
     </Container>
     <Container>

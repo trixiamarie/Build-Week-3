@@ -20,7 +20,7 @@ export default function FormazioneComponent() {
   return (
     <div className="border rounded px-4 pt-3 pb-0 bg-white my-2">
       <div className="d-flex justify-content-between alig-items-start">
-        <h4>Formazione</h4>
+      <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>Formazione</p>
 
         <div className="text-secondary fs-5 d-flex">
         { idUrl ? null : <div className="matita-btn">

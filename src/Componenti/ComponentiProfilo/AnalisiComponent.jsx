@@ -17,7 +17,7 @@ export default function AnalisiComponent() {
         <>
         {idUrl ? null : <div className='border rounded-2 pt-3 bg-white' style={{marginBottom: "0.5rem"}}>
             <Container className='mx-2 mb-3'>
-            <h3 className='m-0'>Analisi</h3>
+            <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>Analisi</p>
             <p className='text-secondary m-0 d-flex align-items-center fs-6'><MdRemoveRedEye className='me-1' /> Solo per te</p>
             </Container>
             <Container>

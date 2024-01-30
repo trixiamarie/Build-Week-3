@@ -12,7 +12,7 @@ export default function InPrimoPianoComponent() {
   return (
     <div className="in-primo-piano-component mt-2">
       <div className="in-primo-piano-header pb-3">
-        <h4>In primo piano</h4>
+      <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>In primo piano</p>
         <div>
           { idUrl ? null : 
           <><div className="ale-plus-btn">
