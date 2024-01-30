@@ -22,6 +22,7 @@ import { getProfileData, getExperiences } from "../../Action/profileActions";
 import { idAle, BEARER_TOKEN } from "../../Config";
 import { getUserData } from "../../Action/userActions";
 import { getAllPostsData } from "../../Action/postsActions";
+import "../../Style/ProfileCardComponent.css"
 
 
 export default function ProfileCardComponent() {
@@ -189,7 +190,7 @@ export default function ProfileCardComponent() {
             <div ref={icone}>
               {idUrl ? null : (
                 <RiPencilLine
-                  className="matita-btn float-end"
+                  className="matita-btn float-end matita-in-culo"
                   onClick={handleShow}
                 />
               )}

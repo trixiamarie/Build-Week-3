@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Modal } from "react-bootstrap";
+import { Button, Card, CardBody, CardFooter, CardHeader, Col, Modal } from "react-bootstrap";
 import CardUtenteComponent from "./CardUtenteComponent";
 import { useSelector } from "react-redux";
 
@@ -42,28 +42,30 @@ export default function PotrestiConoscereComponent() {
   const profileToShow = onlyProfiletoShow.slice(n, n + 6);
 
   return (
-    <Col
+    <Card
       md={12}
-      className=" my-2 rounded-1 border border-secondary-subtle bg-white p-3"
+      className="rounded-3 border border-1 bg-white"
     >
-      <h6 className="ms-1 mb-0">Persone che potresti conoscere</h6>
-      <p className="ms-1 text-secondary">Dalla scuola o università di { }</p>
-
+    <CardHeader className="bg-white border-bottom-0 pt-4">
+      <h6 className="mb-0">Persone che potresti conoscere</h6>
+      <p className="text-secondary m-0">Dalla scuola o università</p>
+    </CardHeader>
+<CardBody className="softLine py-0 px-3">
       {profileToShow.map((profile, index) => (
         <CardUtenteComponent profile={profile} key={index} />
       ))}
-      <Button
-        className="w-100 text-center"
-        variant="light"
+      </CardBody>
+      <CardFooter
+        className="text-center bg-white"
         onClick={() => setModalShow(true)}
       >
-        <b className="text-secondary">Mostra tutto</b>
-      </Button>
+        <p className="text-secondary m-0 p-0" style={{fontWeight:"500"}}>Mostra tutto</p>
+      </CardFooter>
 
       <ModalePotrestiConoscereComponent
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-    </Col>
+    </Card>
   );
 }

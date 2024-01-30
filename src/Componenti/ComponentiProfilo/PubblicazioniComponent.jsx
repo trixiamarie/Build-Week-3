@@ -19,7 +19,7 @@ export default function PubblicazioniComponent() {
     <>
 
       <Card className="mt-2">
-        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}}>
+        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)", paddingLeft:"1.5rem", paddingRight:"1.5"}}>
           <div className="d-flex justify-content-between align-items-center">
             <h4>Pubblicazioni</h4>
             <div className="d-flex">

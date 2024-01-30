@@ -14,9 +14,9 @@ export default function CompetenzeComponent() {
     <>
 
       <Card className="mt-2">
-        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)"}} >
+        <Card.Body style={{ borderBottom: "1px solid rgb(0, 0, 0, 0.17)", paddingLeft:"1.5rem", paddingRight:"1.5"}} >
         <div className="d-flex justify-content-between align-items-center">
-          <h4>Competenze</h4>
+        <p style={{fontSize:"1.25rem", fontWeight:"500"}} className='m-0'>Competenze</p>
           <div className="d-flex">
           { idUrl ? null : <><div className="ale-plus-btn">
               <FaPlus className="mx-auto" />

@@ -178,8 +178,8 @@ input[type=text].InputNAVCOMP{
     background-color: transparent;
     border: #0a66c2 1px solid;
     border-radius: 1rem;
-    width:16rem ;
-    margin-left: 0.5rem;
+    width:15rem ;
+    
 }
 
 .btnPCN:hover{
@@ -206,3 +206,6 @@ input[type=text].InputNAVCOMP{
     text-decoration: underline;
 }
 
+.ProfileCardNavbar:active{
+  background-color: transparent;
+}
