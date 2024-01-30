@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 export default function JobsList({ setDettaglioJob, dettaglioJob }) {
   const [paginaCorrente, setPaginaCorrente] = useState(1);
   const risultatiSearch = useSelector((state) => state.search.data);
-  let indiceRisultati;
   let listaLavori = useRef();
 
   useEffect(()=>{

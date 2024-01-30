@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 export default function BarraSuperioreColonnaSx() {
   const risultatiSearch = useSelector(state => state.search.data);
   const query = useSelector(state => state.search.query);
+  const filtro = useSelector(state => state.search.filtro);
   let [parola, setParola] = useState(query);
 
   useEffect(() => {
@@ -13,12 +14,16 @@ export default function BarraSuperioreColonnaSx() {
   return (
     <div className="barraNavigazioneColonnaSxGreg py-3 px-3">
       <div className="d-flex justify-content-between">
-        <div>
+      {(filtro=="Lavoro"||!parola) &&<div>
           <p className="mb-0">
-            {parola ? parola : "Tutte le offerte"} qui: Italia
-          </p>
+           Offerte di lavoro {parola&&<span>per: {parola}</span>}</p>
           <small>{risultatiSearch.length} risultati</small>
-        </div>
+        </div>}
+        {(filtro!=="Lavoro" && parola) &&<div>
+          <p className="mb-0">
+           Risultati per {filtro}: {parola}</p>
+          <small>{risultatiSearch.length} risultati</small>
+        </div>}        
 
         <div className="d-flex align-self-center">
           <small className="form-check-label">Imposta avviso</small>

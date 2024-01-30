@@ -22,7 +22,7 @@ const isJobs = (useLocation('/jobs').pathname === '/jobs');
   const handleQuery = (e) => {
     if(isJobs){
       setInputQuery();
-    dispatch(setSearchQuery(e.target.value))
+    dispatch(setSearchQuery(e.target.value.trim()))
     
     };
   };

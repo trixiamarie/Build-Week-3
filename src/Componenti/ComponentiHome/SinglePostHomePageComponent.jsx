@@ -53,7 +53,7 @@ export default function SinglePostHomePageComponent({ post }) {
           <Link to={`/profile/${post.user._id}`}>
             <img
               className="img-fluid w-100"
-              src={`https://picsum.photos/100?random=${Math.round(Math.random() * 30) }`}
+              src={post.user.image ? post.user.image : `https://picsum.photos/600?random=${Math.round(Math.random() * 30) }`}
               alt=""
             /></Link>
             {/* {post.image && <img src={post.image} alt={post.title} />} */}
