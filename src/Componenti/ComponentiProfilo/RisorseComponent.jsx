@@ -6,14 +6,17 @@ import { MdOutlineBarChart } from "react-icons/md";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaSatelliteDish } from "react-icons/fa6";
+import { useParams } from 'react-router-dom';
 
 export default function RisorseComponent() {
-
+ const { idUrl } = useParams()
 
 
 
     
   return (
+    <>
+    {idUrl ? null :
     <div className='border rounded-2 pt-3 bg-white'>
     <Container className='mx-2 mb-3'>
     <h3 className='m-0'>Risorse</h3>
@@ -48,6 +51,6 @@ export default function RisorseComponent() {
     </Container>
     <hr className='text-secondary m-1' />
 <p className='text-center text-secondary fw-semibold my-2 fs-6 d-flex justify-content-center align-items-center'>Mostra tutte le risorse(5) <FaArrowRightLong className='fs-6 ms-2' /></p>
-</div>
+</div>}</>
   )
 }

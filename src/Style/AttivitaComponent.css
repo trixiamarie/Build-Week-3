@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 
-.attivita-component-main div:first-of-type {
+.attivita-component-main.levati {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,3 +105,4 @@
 .testo-commento{
   font-size: 0.9rem;
 }
+

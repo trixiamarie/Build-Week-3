@@ -1,0 +1,14 @@
+.CardUtente{
+    border: none;
+}
+
+.btnCardUtente{
+    background-color: white;
+    color: #5E5E5E;
+    padding: 0.3rem 1rem;
+    border: 1px solid #5E5E5E;
+}
+
+.btnCardUtente:hover{
+    background: rgb(235,235,235);
+}

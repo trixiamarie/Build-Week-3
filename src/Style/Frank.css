@@ -8,7 +8,82 @@
 }
 
 .bgHover:hover {
-    background-color: #c6cace; /* Grigio chiaro */
-    transition: all 0.3s;
+    background-color: #EBEBEB; /* Grigio chiaro */
+    transition: all 0.7s;
   }
   
+
+.plus{
+    width: 32px;
+    height: 32px;    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.underlineHover:hover{
+    text-decoration:solid underline;
+   
+}
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+.testoTitolo{
+  color: #454545;
+    font-size: 0.9rem;
+    margin-bottom: -0.1rem;
+    font-weight: bold;
+}
+  
+  
+  .font-weight-bold {
+    font-weight: bold;
+  }
+  
+  .sottoTitolo {
+    color: #6c757d;
+    font-size: 0.7rem;
+    margin-bottom: -0.2rem;
+    
+  }
+  
+  .linkedinNotizieCard{
+border: none;
+  }
+  
+
+
+
+
+  /* Profili rete */
+  .ordina{
+    font-size: 0.9rem;
+    border: none;
+  }
+
+  .searchForm{
+    margin-left: 7rem;
+    border-top: 1px solid #EBEBEB;    /* Grigio per il bordo superiore */
+    border-left: 1px solid #EBEBEB;   /* Grigio per il bordo sinistro */
+    border-bottom: 1px solid rgb(134, 134, 134);    /* Nero per il bordo inferiore */
+    border-right: 1px solid rgb(134, 134, 134);   
+    
+  }
+
+  .dropdownMenu{
+    transform: translate(4rem,2rem) !important;
+  }
+
+ 

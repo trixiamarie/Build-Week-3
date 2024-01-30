@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Col, Modal } from "react-bootstrap";
+import CardUtenteComponent from "./CardUtenteComponent";
+import { useSelector } from "react-redux";
 
 function ModalePotrestiConoscereComponent(props) {
   return (
@@ -32,10 +34,19 @@ function ModalePotrestiConoscereComponent(props) {
 export default function PotrestiConoscereComponent() {
   const [modalShow, setModalShow] = React.useState(false);
 
+  const allProfiles = useSelector(state => state.allProfiles.data)
+
+const n = Math.floor(Math.random()*allProfiles.length/2)
+  const profileToShow = allProfiles.slice(n, n+6)
+
   return (
-    <Col md={12} className=" my-3 rounded-1 border border-secondary-subtle">
+    <Col md={12} className=" my-2 rounded-1 border border-secondary-subtle bg-white p-3">
       <h6 className="ms-1 mb-0">Persone che potresti conoscere</h6>
       <p className="ms-1 text-secondary">Dalla scuola o università di {}</p>
+
+      {profileToShow.map((profile, index) => (
+      <CardUtenteComponent profile={profile} key={index}/>
+    ))}
       <Button
         className="w-100 text-center"
         variant="light"

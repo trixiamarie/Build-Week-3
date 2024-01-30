@@ -8,6 +8,9 @@ import userReducer from "../Reducer/userReducer";
 import profileReducer from "../Reducer/profileReducer";
 import searchReducer from "../Reducer/searchReducer";
 import postsReducer from "../Reducer/postsReducer";
+import allProfilesReducer from "../Reducer/allProfilesReducer";
+import userFriendsReducer from "../Reducer/userFriendsReducer";
+import jobsSavedReducer from "../Reducer/jobsSavedReducer";
 
 const initialState = {
   user: {
@@ -28,12 +31,12 @@ const initialState = {
     },
   },
   profile: {
-    profileData:{
+    profileData: {
       data: [],
       dataLoading: false,
       dataErrorMsg: "",
     },
-    profileExperiences:{
+    profileExperiences: {
       data: [],
       dataLoading: false,
       dataErrorMsg: "",
@@ -44,28 +47,41 @@ const initialState = {
       dataErrorMsg: "",
     },
   },
-  search: {
-    searchData: [],
-    searchDataLoading: false,
-    searchDataErrorMsg: "",
-  },
-  posts:{
-    data: [],           //L'array dei post della Home. Son circa 450
+  allProfiles: {
+    data: [],
     dataLoading: false,
     dataErrorMsg: "",
-  },  
+  },
+  search: {
+    data: [],
+    dataLoading: false,
+    dataErrorMsg: "",
+    query: "",
+    filtro:"Lavoro",
+  },
+  posts: {
+    data: [], //L'array dei post della Home. Son circa 450
+    dataLoading: false,
+    dataErrorMsg: "",
+  },
+  userFriends: [],
+  jobsSaved: [],
 };
 
 const bigReducer = combineReducers({
   user: userReducer,
   profile: profileReducer,
   search: searchReducer,
-  posts: postsReducer
+  posts: postsReducer,
+  allProfiles: allProfilesReducer,
+  userFriends: userFriendsReducer,
+  jobsSaved: jobsSavedReducer,
 });
 
 const persistentConfig = {
   key: "root",
   storage,
+  blacklist:['search','posts'],
   transform: [
     encryptTransform({
       secretKey: SECRET_KEY,
@@ -77,6 +93,7 @@ const persistentConfig = {
 };
 
 const persistedReducer = persistReducer(persistentConfig, bigReducer);
+
 
 export const store = createStore(
   persistedReducer,

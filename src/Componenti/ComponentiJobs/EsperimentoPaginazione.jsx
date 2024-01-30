@@ -1,31 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "react-bootstrap/Pagination";
+import { UseSelector, useSelector } from "react-redux";
 
-export default function EsperimentoPaginazione() {
-  const totalPages = 20;
-  const [currentPage, setCurrentPage] = useState(1);
+export default function EsperimentoPaginazione({
+  paginaCorrente,
+  setPaginaCorrente,
+}) {
+  const risultatiSearch = useSelector((state) => state.search.data);
+  useEffect(() => {
+    setPaginaCorrente(1);
+  }, [risultatiSearch]);
 
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
+  const pagineTotali = Math.ceil(risultatiSearch.length / 25);
+  const mostraPagine = 8;
+
+  const handlePageClick = (pagina) => {
+    setPaginaCorrente(pagina);
   };
 
-  const pageItems = Array.from({ length: totalPages }, (_, index) => (
-    <Pagination.Item
-      key={index}
-      active={index + 1 === currentPage}
-      onClick={() => handlePageClick(index + 1)}
-    >
-      {index + 1}
-    </Pagination.Item>
-  ));
+  let primaPagina = Math.max(1, paginaCorrente - Math.floor(mostraPagine / 2));
+  let ultimaPagina = Math.min(pagineTotali, primaPagina + mostraPagine - 1);
+
+  if (ultimaPagina - primaPagina < mostraPagine - 1) {
+    primaPagina = Math.max(1, ultimaPagina - mostraPagine + 1);
+  }
+
+  const pagine = Array.from(
+    { length: ultimaPagina - primaPagina + 1 },
+    (_, index) => (
+      <Pagination.Item
+        style={{ width: "2.5rem" }}
+        key={primaPagina + index}
+        active={primaPagina + index === paginaCorrente}
+        onClick={() => handlePageClick(primaPagina + index)}
+      >
+        {primaPagina + index}
+      </Pagination.Item>
+    )
+  );
 
   return (
     <Pagination>
       <Pagination.First onClick={() => handlePageClick(1)} />
-      <Pagination.Prev onClick={() => handlePageClick(currentPage - 1)} />
-      {pageItems}
-      <Pagination.Next onClick={() => handlePageClick(currentPage + 1)} />
-      <Pagination.Last onClick={() => handlePageClick(totalPages)} />
+      <Pagination.Prev
+        onClick={() => handlePageClick(Math.max(1, paginaCorrente - 1))}
+      />
+      {pagine}
+      <Pagination.Next
+        onClick={() =>
+          handlePageClick(Math.min(pagineTotali, paginaCorrente + 1))
+        }
+      />
+      <Pagination.Last onClick={() => handlePageClick(pagineTotali)} />
     </Pagination>
   );
 }
