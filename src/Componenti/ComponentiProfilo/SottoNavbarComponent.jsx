@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "../../Style/SottoNavbarComponent.css";
 import { BsThreeDots } from "react-icons/bs";
+import { HiUserAdd } from "react-icons/hi";
+import { BiLogoTelegram } from "react-icons/bi";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { userFriendsAction } from "../../Action/userFriendsActions";
 
 export default function SottoNavbarComponent() {
+  const dispatch = useDispatch()
 
   const user = useSelector(state => state.user.userData.data);
   const profile = useSelector((state) => state.profile.profileData.data);
@@ -77,9 +82,9 @@ export default function SottoNavbarComponent() {
             <div>Disponibile per</div>
           </div> : 
           <div className="sotto-navbar-btns">
-            <div>Altro</div>
-            {amici.find(x=>x._id == profile._id )  ? <div>Messaggio</div>: <div>Collegati</div> }
-            <div>Disponibile per</div>
+             <div>Altro</div>
+            {amici.find(x=>x._id == profile._id )  ? <div> <BiLogoTelegram /> Messaggio</div>: <div onClick={()=>dispatch(userFriendsAction(profile))}> <HiUserAdd /> Collegati</div> }
+            <div className="d-none">Disponibile per</div>
           </div>}
         </div>
       </Container>
