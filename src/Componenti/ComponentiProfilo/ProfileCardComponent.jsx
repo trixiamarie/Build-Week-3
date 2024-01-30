@@ -27,9 +27,10 @@ import { getAllPostsData } from "../../Action/postsActions";
 export default function ProfileCardComponent() {
   const listFriends = useSelector(state => state.userFriends)
   const dispatch = useDispatch();
-
+  const user = useSelector(state => state.user.userData.data);
   const profile = useSelector((state) => state.profile);
   let [nContatti, setNContatti] = useState(Math.floor(Math.random() * 200));
+  const amici = useSelector((state) => state.userFriends);
   const { idUrl } = useParams();
   // Aggiorniamo l'URL corrente quando la location cambia
 
@@ -140,7 +141,7 @@ export default function ProfileCardComponent() {
                   Informazione di contatto
                 </span>
               </p>
-              <p className="text-primary fw-bold">{listFriends.length} contatti</p>
+              <p className="text-primary fw-bold">{profile.profileData.data._id===user._id ? amici.length : nContatti} contatti</p>
             </Col>
             <Col xs={5}>
               {profile.profileExperiences.data.length > 0 && (
