@@ -28,7 +28,7 @@ export default function MessagisticaComponent() {
           borderRadius: "0.5rem 0.5rem 0rem 0rem",
           right: "0px",
           bottom:"0px",
-
+            alignItems:"center",
           zIndex: "99",
         }}
       >
