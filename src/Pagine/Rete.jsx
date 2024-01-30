@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeComponent";
 import { Col, Container, Row } from "react-bootstrap";
 import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
 import ProfiliRete from "../Componenti/Componenti Rete/ProfiliRete";
-import PotrestiConoscereComponent from "../Componenti/ComponentiProfilo/PotrestiConoscereComponent";
 
 
 
 
 export default function Rete() {
+
+  useEffect(() => {
+    document.title = " I miei collegamenti | LinkedIn";
+
+    return () => {
+      document.title = '';
+    };
+  }, []);
+
   return (
     <>
-      <Container>
+      <Container style={{zIndex:"0"}}>
         <Row style={{ marginTop: "4.809rem" }}>
-          <Col md={{ span: 8 }}>
+          <Col md={{ span: 12 }} xl={9}>
             
             <ProfiliRete />
             
@@ -22,13 +30,12 @@ export default function Rete() {
             {/* colonna Main */}
             {/* <div style={{height:"10rem",  border:"1px solid black"}}></div> */}
           </Col>
-          <Col md={{ span: 4 }}>
+          <Col className="d-none d-xl-block" xl={{ span: 3 }}>
             {" "}
             {/* colonna Sidebar */}
             {/* <div style={{height:"10rem", border:"1px solid black"}}></div> */}
-              
-            <PotrestiConoscereComponent/>
-            <AdsComponent />
+             <AdsComponent /> 
+            
             <FooterHomeComponent />
           </Col>
         </Row>

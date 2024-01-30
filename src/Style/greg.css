@@ -105,3 +105,15 @@ color:#0A66C2
 
 
 }
+
+.cardHeaderSaved{
+  border-radius: 1rem 1rem 0rem 0rem !important;
+}
+
+.CardContainerJobsSavedss .lavoroGreg{
+  border-bottom: 1px solid rgb(0, 0, 0, 0.17);
+}
+
+.CardContainerJobsSavedss .lavoroGreg:last-child {
+  border: none;
+}

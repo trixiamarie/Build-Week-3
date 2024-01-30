@@ -34,7 +34,7 @@ export default function CardJobsSaved({
     <>
       <div
         className={
-          "lavoroGreg pt-2 d-flex justify-content-between border-bottom px-2 "
+          "lavoroGreg pt-2 d-flex justify-content-between px-2 "
         }
         
       >

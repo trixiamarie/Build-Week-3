@@ -71,6 +71,18 @@ border: none;
   .ordina{
     font-size: 0.9rem;
     border: none;
+    color: #0A66C2;
+    font-weight: 500;
+  }
+
+  .ordina1{
+    font-size: 0.875rem;
+    color: #666666;
+  }
+
+  .ordina:hover{
+    text-decoration: underline;
+    color: #0A66C2;
   }
 
   .searchForm{
@@ -86,4 +98,11 @@ border: none;
     transform: translate(4rem,2rem) !important;
   }
 
+
+  .InputCustomRete{
+    background-color: #edf3f8;;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    width: 15rem;
+  }
  

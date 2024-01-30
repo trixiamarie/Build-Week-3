@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button, Dropdown, FormControl, InputGroup } from 'react-bootstrap'
+import { Button, Card, CardBody, CardHeader, Dropdown, Form, FormControl, InputGroup } from 'react-bootstrap'
 import CardAmicoComponente from './CardAmicoComponente'
 import {useSelector} from 'react-redux';
+import { IoMdSearch } from "react-icons/io";
 
 import "../../Style/Frank.css"
 
 
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 
 export default function ProfiliRete() {
@@ -24,13 +24,14 @@ export default function ProfiliRete() {
   return (
     <>
 
-    <div className='card-home-post p-3'>
+    <Card className='card-home-post pt-1'>
+    <CardHeader className='bg-white'>
         <p>{listFriends.length + " " }collegamenti</p>
         <div className="d-flex justify-content-between align-items-center mb-3">
         <div className='d-flex '>
            <Dropdown>
             <span> </span>
-          <Dropdown.Toggle variant=""  className='ordina'>
+          <Dropdown.Toggle variant=""  className='d-none d-lg-block ordina1'>
             Ordina per: Aggiunti di recente <span className='fs12'> ▼</span> 
           </Dropdown.Toggle>
           <Dropdown.Menu className='dropdownMenu'>
@@ -39,29 +40,46 @@ export default function ProfiliRete() {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-      <InputGroup className='d-none d-md-flex'>
-        <FormControl
-          type="text"
-          placeholder="Cerca per nome"
-          aria-label="Cerca per nome"
+      <div className='d-flex'>
+      <InputGroup className="mx-1 InputCustomRete d-none d-md-flex"
+          md={4}
+          style={{
+            display: "flex",
+            width: "20rem",
+            alignItems: "center",
+          }}>
+              <InputGroup.Text className="border-0 InputCustomNavbar">
+                {" "}
+                <IoMdSearch className="IconSearchCustom" />
+              </InputGroup.Text>
 
-          className='searchForm'
-          
-
-          onChange={hanldeQuery}
-
-        />
-        <Button variant=" text-primary" className='outline-none ordina'>
+                <Form.Control
+                  className="InputCustomNavbar"
+                  placeholder="Cerca per nome"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  onChange = {hanldeQuery}
+                />
+              
+       
+      </InputGroup> 
+      <div className="d-flex d-md-none" md={4}>
+            <input
+              type="text"
+              className="InputNAVCOMP border-0 InputCustomNavbar search-click"
+              name=""
+            />
+          </div>
+       <Button variant="text-primary" className='d-flex outline-none ordina z-0' style={{fontSize:"0.875rem", padding: "0.5rem 0rem"}}>
           Esegui la ricerca usando i filtri
         </Button>
-      </InputGroup> 
-      
-        </div>
-        <hr className='border border-black'/>
+        </div></div>
+        </CardHeader>
+        <CardBody>
         {listFriends.filter((x)=>  x.name.toLowerCase().startsWith(query) || x.surname.toLowerCase().startsWith(query)  ).map((x, index)=> 
         <CardAmicoComponente key={index} ele={x} />)}
-        
-        </div>
+        </CardBody>
+        </Card>
    
     </>
   )
