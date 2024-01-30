@@ -32,7 +32,7 @@ export default function EsperienzaComponent() {
   const [newExp, setNewExp] = useState({
     role: "",
     company: "",
-    startDate: "2022-02-02",
+    startDate: "",
     endDate: null,
     description: "",
     area: "",
@@ -260,7 +260,7 @@ export default function EsperienzaComponent() {
                   <Form.Select aria-label="Default select example">
                     <option>Anno</option>
                     {anni().map((y, index) => (
-                      <option key={index} value={index + 1}>
+                      <option key={index} value={y}>
                         {y}
                       </option>
                     ))}
@@ -297,7 +297,7 @@ export default function EsperienzaComponent() {
                   <Form.Select aria-label="Default select example">
                     <option>Anno</option>
                     {anni().map((y, index) => (
-                      <option key={index} value={index + 1}>
+                      <option key={index} value={y}>
                         {y}
                       </option>
                     ))}

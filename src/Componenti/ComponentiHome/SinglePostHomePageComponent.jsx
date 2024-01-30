@@ -11,8 +11,15 @@ import { RiRepeat2Fill } from "react-icons/ri";
 import { IoIosSend } from "react-icons/io";
 import { PolliceInSuLinkedin } from "../../SVG/svgTrixia";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeuserFriendsAction, userFriendsAction } from "../../Action/userFriendsActions";
 
 export default function SinglePostHomePageComponent({ post }) {
+  const friendsSaved = useSelector(state => state.userFriends)
+  const dispatch = useDispatch();
+ 
+  const areyoufriends = friendsSaved.find(x => x._id == post.user._id)
+
 
   const calculateTimeElapsed = (post) => {
     const createdDate = new Date(post.createdAt);
@@ -64,9 +71,12 @@ export default function SinglePostHomePageComponent({ post }) {
         </div>
         <div className="card-home-post-header-right">
           {/* <BsThreeDots className="fs-4 mx-3"/><IoMdClose className="fs-4"/> */}
-          <div className="home-post-segui">
+          {areyoufriends ?  <div className="home-post-segui"  onClick={() => dispatch(removeuserFriendsAction(post.user))}>
+            <span>-</span> Smetti di seguire
+          </div>: <div className="home-post-segui"  onClick={() => dispatch(userFriendsAction(post.user))}>
             <span>+</span> Segui
-          </div>
+          </div>}
+        
         </div>
       </div>
       <div className="home-post-body mb-3">{post.text}</div>

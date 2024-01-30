@@ -6,6 +6,8 @@ import {
   jobsSavedAction,
   removejobsSavedAction,
 } from "../../Action/jobsSavedActions";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 export default function CardJobs({
   setDettaglioJob = () => {},
@@ -13,6 +15,12 @@ export default function CardJobs({
   impiego,
   indice,
 }) {
+
+  const [show, setShow] = useState(false);
+
+  function handleShow() {
+    setShow(true && window.innerWidth<768);
+  }
   const dispatch = useDispatch();
 
   const listJobs = useSelector((state) => state.jobsSaved);
@@ -41,6 +49,7 @@ export default function CardJobs({
   );
 
   return (
+    <>
     <div
       className={
         "lavoroGreg pt-2 d-flex justify-content-between border-bottom px-2 " +
@@ -58,6 +67,7 @@ export default function CardJobs({
             : " bg-white")
         }
         style={{ maxWidth: 540 }}
+        onClick={handleShow}
       >
         <div className="d-flex">
           <div className="flex-shrink-0">
@@ -113,5 +123,17 @@ export default function CardJobs({
         )}
       </div>
     </div>
+   
+      
+      <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Job Description</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><div
+      className="descrizioneLavoro"
+      style={{ height: "79vh" }}
+      dangerouslySetInnerHTML={{ __html: impiego.description }}
+    ></div></Modal.Body>
+      </Modal></>
   );
 }

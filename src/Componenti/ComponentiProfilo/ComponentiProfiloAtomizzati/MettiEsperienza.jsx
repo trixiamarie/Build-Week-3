@@ -19,12 +19,12 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
 
   const [validated, setValidated] = useState(false);
   const [modExp, setModExp] = useState({
-    role: "",
-    company: "",
-    startDate: "2022-02-02",
-    endDate: null,
-    description: "",
-    area: "",
+    role: esperienza.role,
+    company: esperienza.company,
+    startDate: esperienza.startDate,
+    endDate: esperienza.endDate,
+    description: esperienza.description,
+    area: esperienza.area,
   });
   const [show, setShow] = useState(false);
 
@@ -285,7 +285,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
                   <Form.Select aria-label="Default select example">
                     <option>Anno</option>
                     {anni().map((y, index) => (
-                      <option key={index} value={index + 1}>
+                      <option key={index} value={y}>
                         {y}
                       </option>
                     ))}
@@ -322,7 +322,7 @@ export default function MettiEsperienza({ esperienza, onUpdate }) {
                   <Form.Select aria-label="Default select example">
                     <option>Anno</option>
                     {anni().map((y, index) => (
-                      <option key={index} value={index + 1}>
+                      <option key={index} value={y}>
                         {y}
                       </option>
                     ))}

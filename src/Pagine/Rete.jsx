@@ -3,6 +3,7 @@ import FooterHomeComponent from "../Componenti/ComponentiComuni/FooterHomeCompon
 import { Col, Container, Row } from "react-bootstrap";
 import AdsComponent from "../Componenti/ComponentiComuni/AdsComponent";
 import ProfiliRete from "../Componenti/Componenti Rete/ProfiliRete";
+import PotrestiConoscereComponent from "../Componenti/ComponentiProfilo/PotrestiConoscereComponent";
 
 
 
@@ -15,6 +16,7 @@ export default function Rete() {
           <Col md={{ span: 8 }}>
             
             <ProfiliRete />
+            
             {" "}
             
             {/* colonna Main */}
@@ -24,6 +26,8 @@ export default function Rete() {
             {" "}
             {/* colonna Sidebar */}
             {/* <div style={{height:"10rem", border:"1px solid black"}}></div> */}
+              
+            <PotrestiConoscereComponent/>
             <AdsComponent />
             <FooterHomeComponent />
           </Col>
