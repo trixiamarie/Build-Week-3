@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, CardFooter } from 'react-bootstrap'
 import "../../Style/Frank.css"
 import { FaPlus } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
@@ -69,11 +69,11 @@ export default function UnderProfileCardComponent() {
           
         </div> 
 
-        <a
+        <CardFooter
           href="/"
-          className="text-secondary border  text-decoration-none d-flex justify-content-center fw-bold py-3 bgHover">
+          className="text-secondary bg-white text-decoration-none d-flex justify-content-center fw-bold py-3 bgHover">
           Scopri di più
-        </a>
+        </CardFooter>
       </Card>
       
 

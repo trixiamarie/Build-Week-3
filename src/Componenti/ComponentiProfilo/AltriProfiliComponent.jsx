@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Modal } from "react-bootstrap";
+import { Button, Card, CardBody, CardFooter, CardHeader, Col, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import CardUtenteComponent from "./CardUtenteComponent";
 
@@ -39,26 +39,28 @@ export default function AltriProfiliComponent() {
   const profileToShow = allProfiles.slice(n, n + 6);
 
   return (
-    <Col
-      md={12}
-      className="rounded border border-secondary-subtle p-3 bg-white mb-2"
-    >
-      <h6 className="ms-1 mb-3">Altri profili consultati</h6>
+    <Card
+    md={12}
+    className="rounded-3 border border-1 bg-white mb-2"
+  ><CardHeader className="bg-white border-bottom-0 pt-4">
+      <h6 className="mb-0">Altri profili consultati</h6>
+      </CardHeader>
+      <CardBody className="softLine py-0 px-3">
       {profileToShow.map((profile, index) => (
         <CardUtenteComponent profile={profile} index={index} key={index} />
-      ))}
-      <Button
-        className="w-100 text-center border-top rounded-top-0 bg-white"
-        variant="light"
+      ))}</CardBody>
+      <CardFooter
+        className="text-center bg-white"
+
         onClick={() => setModalShow(true)}
       >
-        <b className="text-secondary">Mostra tutto</b>
-      </Button>
+        <p className="text-secondary m-0 p-0" style={{fontWeight:"500"}}>Mostra tutto</p>
+      </CardFooter>
 
       <ModaleAltriProfiliComponent
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-    </Col>
+    </Card>
   );
 }

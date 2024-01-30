@@ -52,7 +52,6 @@ export default function CardUtenteComponent(props) {
           </div>
         </div>
       </div>
-      <hr style={{ margin: "0px" }} />
     </>
   );
 }

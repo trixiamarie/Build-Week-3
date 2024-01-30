@@ -3,11 +3,12 @@ import "../../Style/NavbarStyle.css";
 import { BsSlashSquareFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { DropdownItem } from 'react-bootstrap';
 
 export default function ProfileCardNavbar() {
   const user = useSelector((state) => state.user.userData.data);
   return (
-    <div className='ProfileCardNavbar' style={{width:"17rem"}}>
+    <DropdownItem className='ProfileCardNavbar' style={{width:"17rem"}}>
         <div style={{margin:"0.5rem", display:"flex"}}>
             <img className="PCNImage" src={user.image}/>
             <div className='PCNNameTitle'>
@@ -36,6 +37,6 @@ export default function ProfileCardNavbar() {
         <p>Esci</p></div>
         
 
-    </div>
+    </DropdownItem>
   )
 }
