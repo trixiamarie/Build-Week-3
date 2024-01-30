@@ -9,6 +9,7 @@ import Jobs from "./Pagine/Jobs";
 import FakeComponent from "./Componenti/ComponentiHome/FakeComponent";
 import Rete from "./Pagine/Rete";
 import JobsSaved from "./Pagine/JobsSaved";
+import MessagisticaComponent from "./Componenti/ComponentiComuni/MessagisticaComponent";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path={"/rete"} element={<Rete/>}></Route>
           <Route path={"*"} element={<NotFound/>}></Route>
         </Routes>
+        <MessagisticaComponent/>
       </BrowserRouter>
     </>
   );
